@@ -5,6 +5,12 @@ import { CreateContainer, Header, MainContainer } from "./components";
 import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/firebaseFunctions";
 import { actionType } from "./context/reducer";
+import Signin from './components/Signin/Signin'
+import Signup from './components/Signup/Signup'
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
+
+
 
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
@@ -29,6 +35,10 @@ const App = () => {
 
         <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full">
           <Routes>
+            <Route path="/signin " element={<Signin />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/*" element={<MainContainer />} />
             <Route path="/createItem" element={<CreateContainer />} />
           </Routes>
