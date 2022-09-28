@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes,Redirect  } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { CreateContainer, Header, MainContainer } from "./components";
 import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/firebaseFunctions";
 import { actionType } from "./context/reducer";
+
+import AdminLayout from "./layouts/Admin.js";
 
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
@@ -31,6 +33,12 @@ const App = () => {
           <Routes>
             <Route path="/*" element={<MainContainer />} />
             <Route path="/createItem" element={<CreateContainer />} />
+            <Route
+              path="/admin"
+              element={<AdminLayout  />}
+            />
+            <Route></Route>
+            {/* <Redirect from="/" to="/admin/dashboard" /> */}
           </Routes>
         </main>
       </div>
