@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { MdShoppingBasket, MdAdd, MdLogout } from 'react-icons/md';
 import { motion } from 'framer-motion';
-import { signInWithPopup } from 'firebase/auth';
 
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
-
+// trial
 const Header = () => {
   const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
 
@@ -129,7 +128,7 @@ const Header = () => {
 
         <Link to={'/'} className='flex items-center gap-2'>
           <div className='flex-1'>
-            <a className='btn btn-ghost normal-case text-xl'>daisyUI</a>
+            <a className='btn btn-ghost normal-case text-xl'>Mr.Delivery</a>
           </div>
         </Link>
 
