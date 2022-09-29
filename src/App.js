@@ -18,6 +18,7 @@ import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
+import WidgetLg from "./components/widgetLg/WidgetLg";
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
 
@@ -36,7 +37,7 @@ const App = () => {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <div className="w-screen h-auto flex flex-col bg-primary">
+      <div className='w-screen h-auto flex flex-col bg-primary'>
         <Header />
 
         <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full x">
@@ -51,6 +52,8 @@ const App = () => {
             <Route path="/products" element={<ProductList />}></Route>
             <Route path="/product/:productId" element={<Product />}></Route>
             <Route path="/newproduct" element={<NewProduct />}></Route>
+            <Route path="/g" element={<WidgetLg/> }></Route>
+            
           </Routes>
         </main>
       </div>

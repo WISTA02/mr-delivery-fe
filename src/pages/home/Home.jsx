@@ -16,7 +16,7 @@ export default function Home() {
       <Chart data={userData} title="Order Analytics" grid dataKey="Active User"/>
       <div className="homeWidgets">
         {/* <WidgetSm/> */}
-        <WidgetLg/>
+        {/* <WidgetLg/> */}
       </div>
       </div>
     </div>

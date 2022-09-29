@@ -23,10 +23,10 @@ export default function Sidebar() {
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
             <Link to="/admin" className="link">
-            <li className="sidebarListItem active">
-              <LineStyle className="sidebarIcon" />
-              Home
-            </li>
+              <li className="sidebarListItem active">
+                <LineStyle className="sidebarIcon" />
+                Home
+              </li>
             </Link>
           </ul>
         </div>
@@ -45,10 +45,9 @@ export default function Sidebar() {
                 Products
               </li>
             </Link>
-           
           </ul>
         </div>
-     
+
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Staff</h3>
           <ul className="sidebarList">
@@ -62,7 +61,22 @@ export default function Sidebar() {
             </li>
             <li className="sidebarListItem">
               <Report className="sidebarIcon" />
-             Driver
+              Driver
+            </li>
+          </ul>
+        </div>
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Approved</h3>
+          <ul className="sidebarList">
+            <Link to="/resapprove" className="link">
+              <li className="sidebarListItem">
+                <WorkOutline className="sidebarIcon" />
+                Resturant
+              </li>
+            </Link>
+            <li className="sidebarListItem">
+              <Report className="sidebarIcon" />
+              Driver
             </li>
           </ul>
         </div>
