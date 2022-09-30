@@ -12,8 +12,11 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
+  DriveEta,
+  RestaurantMenu,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import { MdDeliveryDining } from "react-icons/md";
 
 export default function Sidebar() {
   return (
@@ -33,10 +36,10 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-            <Link to="/users" className="link">
+            <Link to="/Ordersapprove" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
-                Users
+              Orders
               </li>
             </Link>
             <Link to="/products" className="link">
@@ -68,16 +71,19 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Approved</h3>
           <ul className="sidebarList">
-            <Link to="/resapprove" className="link">
+            <Link to="/g" className="link">
               <li className="sidebarListItem">
-                <WorkOutline className="sidebarIcon" />
+                <RestaurantMenu className="sidebarIcon" />
                 Resturant
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <Report className="sidebarIcon" />
-              Driver
-            </li>
+            <Link to="/g" className="link">
+              <li className="sidebarListItem">
+                <MdDeliveryDining className="sidebarIcon" />
+                Driver
+              </li>
+            </Link>
+            {/* import DriveEtaIcon from '@mui/icons-material/DriveEta'; */}
           </ul>
         </div>
       </div>

@@ -13,7 +13,7 @@ export default function Home() {
       <Sidebar></Sidebar>
       <div className="home">
       <FeaturedInfo />
-      <Chart data={userData} title="Order Analytics" grid dataKey="Active User"/>
+      <Chart data={userData} title="Order Analytics" grid dataKey="Orders"/>
       <div className="homeWidgets">
         {/* <WidgetSm/> */}
         {/* <WidgetLg/> */}

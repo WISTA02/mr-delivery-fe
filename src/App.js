@@ -5,6 +5,7 @@ import { CreateContainer, Header, MainContainer } from "./components";
 import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/firebaseFunctions";
 import { actionType } from "./context/reducer";
+
 // import Sidebar from "./components/sidbar";
 
 import Sidebar from "./components/sidebar/Sidebar";
@@ -46,7 +47,7 @@ const App = () => {
             <Route path="/*" element={<MainContainer />} />
             <Route path="/createItem" element={<CreateContainer />} />
             <Route path="/admin" element={<Home2 />}></Route>
-            <Route path="/users" element={<UserList />}></Route>
+            <Route path="/Ordersapprove" element={<UserList />}></Route>
             <Route path="/user/:userId" element={<User />}></Route>
             <Route path="/newUser" element={<NewUser />}></Route>
             <Route path="/products" element={<ProductList />}></Route>
