@@ -57,13 +57,13 @@ const Header = () => {
             className='flex items-center gap-24 '
           >
             <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
-              Home
+             <Link to="/home"> Home</Link>
             </li>
             <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
               Menu
             </li>
-            <li href="/about" className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
-              About Us
+            <li  className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
+              <Link className='justify-between' to="/about">About Us</Link>
             </li>
             <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
               Service

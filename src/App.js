@@ -15,7 +15,7 @@ import  Signup  from './components/Signup/Signup';
 import  Signin  from './components/Signin/Signin.jsx';
 import UserProfile from './components/Profile/UserProfile';
 import EditProfile from './components/Profile/EditProfile';
-import About from './components/About';
+import About from './components/About/about';
 
 
 // import Sidebar from "./components/sidbar";
@@ -32,6 +32,8 @@ import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import WidgetLg from "./components/widgetLg/WidgetLg";
+
+
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
 
