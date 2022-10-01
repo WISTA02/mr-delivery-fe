@@ -3,11 +3,20 @@ import React,{useState} from 'react';
 import EditProfile from './EditProfile';
 import styles from './UserProfile.module.css';
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function UserProfile() {
   const navigate = useNavigate();
 
 
+  const notify = () => toast("​🚩​Account Deleted  ❌​❌​ ");
+
+  const handleEditUser =()=>{
+    navigate("/editprofile")
+  }
+ 
   return (
     
 <div className={styles.user}>
@@ -38,9 +47,13 @@ export default function UserProfile() {
                 </div>
           
         </div>
-       <button className={styles.btn_user} onClick={navigate("/editprofile")}>Edit Account</button>
-       <button className={styles.btn_user}>Delete Account</button>
+       <button className={styles.btn_user} onClick={handleEditUser} >Edit Account</button>
+       
+       <button className={styles.btn_user} onClick={notify } >Delete Account</button>
+       <ToastContainer />
     </div>
   );
 }
 
+
+// onClick={navigate("/editprofile")}

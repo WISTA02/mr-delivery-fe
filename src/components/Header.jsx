@@ -62,7 +62,7 @@ const Header = () => {
             <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
               Menu
             </li>
-            <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
+            <li href="/about" className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
               About Us
             </li>
             <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
@@ -97,10 +97,11 @@ const Header = () => {
                 className='mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52'
               >
                 <li>
-                  <button className='justify-between' onClick={navigate("/userprofile")}>
+                  <Link className='justify-between'  to="/userprofile"  >
                     Profile
                     <span className='badge'>New</span>
-                  </button>
+                
+                  </Link>
                 </li>
                 <li>
                   <a>Settings</a>

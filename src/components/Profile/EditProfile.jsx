@@ -1,41 +1,45 @@
 import React from 'react'
-import styles from'./EditProfile.module.css'
 
 
 function EditProfile() {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    
+        event.target.reset();
+
+    }
+
+
   return (
-    <div className={styles['hero']}>
-<div class="container-fluid px-1 py-5 mx-auto">
-    <div class="row d-flex justify-content-center">
-        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-right">
-            <h3>Edit User Profile 😃</h3>
-            <div class="card">
-                <form class="form-card" onsubmit="event.preventDefault()">
-                    <div class="row justify-content-between text-right">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">First name<span class="text-danger"> :</span></label> <input type="text" id="fname" name="fname" placeholder="Enter your first name" onblur="validate(1)"/> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Last name<span class="text-danger"> :</span></label> <input type="text" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)"/> </div>
-                    </div>
-                    <div class="row justify-content-between text-right">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Email<span class="text-danger"> :</span></label> <input type="text" id="email" name="email" placeholder="Enter your email" onblur="validate(3)"/> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Phone number<span class="text-danger"> :</span></label> <input type="text" id="mob" name="mob" placeholder="Enter your mobile num" onblur="validate(4)"/> </div>
-                    </div>
-                    <div class="row justify-content-between text-right">
-                    </div>
-                    <div class="row justify-content-between text-right">
-                    </div>
-                    <div class="row justify-content-end">
-                        <div class="form-group col-sm-6">
-                             <button className='btn' type="submit">Submit</button> </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 
-
-    </div>
+<section className="bg-white dark:bg-gray-800 pb-100">
+  <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md pb-100">
+      <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-yellow-500  dark:text-white hover:shadow-md cursor-pointer">Edit User Profile</h2>
+      <form action="#" class="space-y-8" onSubmit={handleSubmit}>
+      <div>
+              <label  class="block mb-2 text-sm font-medium text-yellow-700 dark:text-gray-300 hover:shadow-md cursor-pointer">Your name</label>
+              <input type="name" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" 
+              placeholder="full name" required/>
+          </div>
+          <div>
+              <label class="block mb-2 text-sm font-medium text-yellow-700 dark:text-gray-300">Your email</label>
+              <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" 
+              placeholder="name@flowbite.com" required/>
+          </div>
+          <div>
+              <label class="block mb-2 text-sm font-medium text-yellow-700 dark:text-gray-300">Your password</label>
+              <input type="password" id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="******" required/>
+          </div>
+          <div>
+              <label class="block mb-2 text-sm font-medium text-yellow-700 dark:text-gray-300">Your address</label>
+              <input type="address" id="address" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="******" required/>
+          </div>
+        
+          <button  type="submit" class="py-3 px-5 text-sm font-medium text-center text-yellow-700 rounded-lg bg-primary-500 sm:w-fit hover:bg-black-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Update</button>
+      </form>
+  </div>
+</section>
   )
 }
 
