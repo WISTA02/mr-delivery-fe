@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import { CreateContainer, Header, MainContainer } from "./components";
-import { useStateValue } from "./context/StateProvider";
-import { getAllFoodItems } from "./utils/firebaseFunctions";
-import { actionType } from "./context/reducer";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import { AnimatePresence } from "framer-motion";
+// import { CreateContainer, Header, MainContainer } from "./components";
+// import { useStateValue } from "./context/StateProvider";
+// import { getAllFoodItems } from "./utils/firebaseFunctions";
+// import { actionType } from "./context/reducer";
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { CreateContainer, Header, MainContainer } from './components';
 import { useStateValue } from './context/StateProvider';
-import { getAllFoodItems } from './utils/firebaseFunctions';
-import { actionType } from './context/reducer';
+// import { getAllFoodItems } from './utils/firebaseFunctions';
+// import { actionType } from './context/reducer';
 import  Signup  from './components/Signup/Signup';
 import  Signin  from './components/Signin/Signin.jsx';
 import UserProfile from './components/Profile/UserProfile';
@@ -35,12 +35,12 @@ const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
 
   const fetchData = async () => {
-    await getAllFoodItems().then((data) => {
-      dispatch({
-        type: actionType.SET_FOOD_ITEMS,
-        foodItems: data,
-      });
-    });
+    // await getAllFoodItems().then((data) => {
+    //   dispatch({
+    //     type: actionType.SET_FOOD_ITEMS,
+    //     foodItems: data,
+    //   });
+    // });
   };
 
   useEffect(() => {
