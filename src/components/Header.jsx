@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { MdShoppingBasket, MdAdd, MdLogout } from 'react-icons/md';
 import { motion } from 'framer-motion';
-import { signInWithPopup } from 'firebase/auth';
-
+import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
 
+
+// trial
 const Header = () => {
+  const navigate = useNavigate();
+
   const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
 
   const [isMenu, setIsMenu] = useState(false);
@@ -94,10 +97,10 @@ const Header = () => {
                 className='mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52'
               >
                 <li>
-                  <a className='justify-between'>
+                  <button className='justify-between' onClick={navigate("/userprofile")}>
                     Profile
                     <span className='badge'>New</span>
-                  </a>
+                  </button>
                 </li>
                 <li>
                   <a>Settings</a>
@@ -129,7 +132,7 @@ const Header = () => {
 
         <Link to={'/'} className='flex items-center gap-2'>
           <div className='flex-1'>
-            <a className='btn btn-ghost normal-case text-xl'>daisyUI</a>
+            <a className='btn btn-ghost normal-case text-xl'>Mr.Delivery</a>
           </div>
         </Link>
 
