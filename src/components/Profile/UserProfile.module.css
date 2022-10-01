@@ -1,0 +1,58 @@
+.user{
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    font-size: 25px;
+    background-color: black;
+background-image: url("../../img/enjoy1.jpg");
+background-repeat: no-repeat;
+background-size: 60%;
+}
+
+.box_user{
+    text-align: right;
+}
+
+.h1_user{
+     color:#ffcc00;
+    font-size: 25px;
+    line-height: 25px;
+    margin: 10px 20px;
+    font-weight: 400;
+    text-align: right;
+
+
+}
+
+.label_user{
+    color:#ffcc00;
+    font-size: 25px;
+    line-height: 25px;
+    margin: 10px 20px;
+    font-weight: 400;
+    text-align: right;
+}
+
+.user_box{
+    text-align: right;
+}
+
+.btn_user{
+    
+    box-shadow: #f90a0a;
+    box-sizing: 30px;
+     padding: 5px 10px;
+     border-radius: 5%;
+     color: rgb(255, 208, 22);
+     font-weight: bold;
+     font-size: 30px;
+     transition: .4s;
+     margin-bottom: 20px;
+     float: right;
+}
+
+.btn_user:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    background: #e6e6e6;
+}
