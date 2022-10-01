@@ -5,14 +5,11 @@ import { CreateContainer, Header, MainContainer } from './components';
 import { useStateValue } from './context/StateProvider';
 import { getAllFoodItems } from './utils/firebaseFunctions';
 import { actionType } from './context/reducer';
-<<<<<<< HEAD
 import  Signup  from './components/Signup/Signup';
 import  Signin  from './components/Signin/Signin.jsx';
-=======
 import UserProfile from './components/Profile/UserProfile';
 import EditProfile from './components/Profile/EditProfile';
 
->>>>>>> main
 
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
