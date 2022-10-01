@@ -10,10 +10,29 @@ import axios from "axios";
 
 export default function UserList() {
   const [data, setData] = useState([]);
-
+const [statusOrder,setStatus]=useState("New Order");
   // const handleDelete = (id) => {
   //   setData(data.filter((item) => item.id !== id));
   // };
+ 
+  
+  const handleChange = (id) => {
+    // const config = {
+    //   headers: { Authorization: `Bearer ${token}` },
+    // };
+  
+    const bodyParameters = {
+      statusOrder,
+    };
+  
+    axios.put(`http://localhost:5000/owner/${id}`, bodyParameters)
+      .then((data) => {
+       setStatus(data.data.status)
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 useEffect(()=>{
   axios({
     method: 'get',
@@ -28,19 +47,19 @@ useEffect(()=>{
 },[])
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
-    {
-      field: "all_items",
-      headerName: "Order",
-      width: 200,
-      renderCell: (params) => {
-        return (
-          <div className="userListUser">
-            {/* <img className="userListImg" src={params.row.avatar} alt="" /> */}
-            {params.row.username}
-          </div>
-        );
-      },
-    },
+    // {
+    //   field: "all_items",
+    //   headerName: "Order",
+    //   width: 200,
+    //   renderCell: (params) => {
+    //     return (
+    //       <div className="userListUser">
+    //         {/* <img className="userListImg" src={params.row.avatar} alt="" /> */}
+    //         {params.row.username}
+    //       </div>
+    //     );
+    //   },
+    // },
     { field: "all_items", headerName: "Order Details", width: 200 },
     {
       field: "status",
@@ -60,10 +79,10 @@ useEffect(()=>{
         return (
           <>
             {/* <Link to={"/user/" + params.row.id}> */}
-              <button className="userListEdit" >Change Statues</button>
+              <button className="userListEdit" onClick={() => handleChange(params.row.id)}>Change Statues</button>
             {/* </Link> */}
             {/* <DeleteOutline
-              className="userListDelete"
+              classNa me="userListDelete"
               onClick={() => handleDelete(params.row.id)}
             /> */}
           </>

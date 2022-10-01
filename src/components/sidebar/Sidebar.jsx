@@ -42,10 +42,10 @@ export default function Sidebar() {
               Orders
               </li>
             </Link>
-            <Link to="/products" className="link">
+            <Link to="/driver-order" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
-                Products
+                Driver Order
               </li>
             </Link>
           </ul>
