@@ -25,7 +25,6 @@ export default function UserProfile() {
  
   return (
     <section className= " dark:bg-gray-300 pb-100  ">
-      <img src={logo} className="max-w-l flex flex-wrap justify-center h-auto" alt="..." />
   <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md pb-100">
       <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-yellow-500  dark:text-white hover:shadow-md cursor-pointer">Account Info</h2>
       <form action="#" className="space-y-8" onSubmit={handleSubmit}>
@@ -61,10 +60,11 @@ export default function UserProfile() {
        <button className="bg-transparent font-xl font-extrabold hover:bg-yellow-500 text-grey-700  hover:text-white py-2 px-4 border border-yellow-500 hover:border-transparent rounded" onClick={notify } >Delete Account</button>
        <ToastContainer />
       </form>
+<img src={logo} className="max-w-l flex flex-wrap justify-center h-auto " alt="..." />
   </div>
 </section>
 
-  );
+);
 }
 
 

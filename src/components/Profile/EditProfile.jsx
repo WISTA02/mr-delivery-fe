@@ -14,7 +14,6 @@ function EditProfile() {
 
 
 <section className= " dark:bg-gray-300 ">
-<img src={enjoy1} className="max-w-l flex flex-wrap justify-center h-auto" alt="..." />
   <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md pb-100">
       <h2 className="mb-4 text-4xl  font-extrabold text-center text-yellow-500 dark:text-white hover:shadow-md cursor-pointer">Edit User Profile</h2>
       <form action="#" className="space-y-8" onSubmit={handleSubmit}>
@@ -39,7 +38,9 @@ function EditProfile() {
         
           <button  type="submit" className="bg-transparent font-xl font-extrabold hover:bg-yellow-500 text-grey-700  hover:text-white py-2 px-4 border border-yellow-500 hover:border-transparent rounded">Update</button>
       </form>
+  
   </div>
+  <img src={enjoy1} className="max-w-l flex flex-wrap justify-center h-auto" alt="..." />
 </section>
   )
 }

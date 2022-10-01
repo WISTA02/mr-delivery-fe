@@ -3,8 +3,7 @@
 
 ## Group-4, Final-Project 
 
-# it's an online ordering application and this is its frontEnd
-
+# it's an online ordering application
 
 # Table of Contents
 1. Introduction 🎤
