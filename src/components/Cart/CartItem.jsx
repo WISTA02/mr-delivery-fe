@@ -62,7 +62,7 @@ const CartItem = ({ item, setFlag, flag }) => {
       {/* name section */}
       <div className='flex flex-col gap-2'>
         <p className='text-base text-gray-5 font-semibold'>{item?.title}</p>
-        <p className='text-sm block text-gray-300 font-semibold'>
+        <p className='text-sm block text-gray-800 font-semibold'>
           $ {parseFloat(item?.price) * qty}
         </p>
       </div>
@@ -76,7 +76,7 @@ const CartItem = ({ item, setFlag, flag }) => {
           <BiMinus className='text-gray-5 ' />
         </motion.div>
 
-        <p className='w-5 h-5 rounded-sm bg-cartBg text-gray-50 flex items-center justify-center'>
+        <p className='w-5 h-5 rounded-sm bg-cartBg text-gray-200 flex items-center justify-center'>
           {qty}
         </p>
 

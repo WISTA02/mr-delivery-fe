@@ -57,13 +57,13 @@ const Header = () => {
             className='flex items-center gap-24 '
           >
             <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
-              Home
+             <Link to="/home"> Home</Link>
             </li>
             <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
               Menu
             </li>
-            <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
-              About Us
+            <li  className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
+              <Link className='justify-between' to="/about">About Us</Link>
             </li>
             <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
               Service
@@ -97,10 +97,11 @@ const Header = () => {
                 className='mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52'
               >
                 <li>
-                  <a className='justify-between' >
+                  <Link className='justify-between'  to="/userprofile"  >
                     Profile
                     <span className='badge'>New</span>
-                  </a>
+                
+                  </Link>
                 </li>
                 <li>
                   <a>Settings</a>
