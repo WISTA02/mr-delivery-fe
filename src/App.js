@@ -32,8 +32,8 @@ import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import WidgetLg from "./components/widgetLg/WidgetLg";
-
-
+import Footer from './components/Footer/Footer'
+import Contact from "./components/Contact/Contact";
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
 
@@ -68,7 +68,7 @@ const App = () => {
             <Route path="/product/:productId" element={<Product />}></Route>
             <Route path="/newproduct" element={<NewProduct />}></Route>
             <Route path="/g" element={<WidgetLg/> }></Route>
-            
+            <Route path="/contactus" element={<Contact/>}/>
             <Route path='/*' element={<MainContainer />} />
             <Route path='/about' element={<About />}/>
             <Route path='/createItem' element={<CreateContainer />} />
@@ -78,6 +78,7 @@ const App = () => {
             <Route path='/userprofile' element={<UserProfile/>}/>
             <Route path='/editprofile' element={<EditProfile/>}/>
           </Routes>
+            <Footer/>
         </main>
       </div>
     </AnimatePresence>

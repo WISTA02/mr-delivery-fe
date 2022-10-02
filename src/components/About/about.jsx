@@ -10,7 +10,14 @@ function About(){
   return (
   <div>
 <br/>
-<h1 className="font-sans hover:font-serif text-grey-900 text-xl font-xl font-extrabold text-center ">Project developers -Authors ​​​</h1>
+<h1 className="font-sans hover:font-serif text-grey-900 text-4xl font-xl font-extrabold text-center ">Project developers -Authors ​​​</h1>
+<br/>
+<p className='mb-4 text-xl tracking-tight font-bold text-center text-yellow-500  dark:text-white hover:shadow-md cursor-pointer'>Now we can say about ourselves
+Full stack developer
+After a long and intense six months with the ASAC, it was filled with many information and tasks.
+We were able to do this project, we are proud of ourselves, during this simple period, we learned many skills.
+<br/>We hope that you will like it and support you.
+WISTA TEAM</p>
 <div className='main 1 flex '  >
   <br/>
 <div className="max-w-full rounded overflow-hidden shadow-lg m-6 w-80 mr-56 ">

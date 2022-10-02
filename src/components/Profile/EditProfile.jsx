@@ -41,6 +41,7 @@ function EditProfile() {
   
   </div>
   <img src={enjoy1} className="max-w-l flex flex-wrap justify-center h-auto" alt="..." />
+  <br/>
 </section>
   )
 }
