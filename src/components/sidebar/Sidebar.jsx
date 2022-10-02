@@ -71,13 +71,13 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Approved</h3>
           <ul className="sidebarList">
-            <Link to="/g" className="link">
+            <Link to="/admin/resturant" className="link">
               <li className="sidebarListItem">
                 <RestaurantMenu className="sidebarIcon" />
                 Resturant
               </li>
             </Link>
-            <Link to="/g" className="link">
+            <Link to="/admin/driver" className="link">
               <li className="sidebarListItem">
                 <MdDeliveryDining className="sidebarIcon" />
                 Driver
