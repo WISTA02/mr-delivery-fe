@@ -15,17 +15,17 @@
   margin-right: 10px;
 }
 
-.userListEdit{
-    /* border: none;
+.userListEdit {
+  /* border: none;
     border-radius: 10px;
     /* padding: 2px 5px; */
-    /* background-color: #3bb077; */
-    /* color: white; */
-    /* cursor: pointer; */
-    /* margin-right: 20px; */
-    /* margin: 20px; */
-    /* margin-top: 20px;  */
-    padding: 5px 7px;
+  /* background-color: #3bb077; */
+  /* color: white; */
+  /* cursor: pointer; */
+  /* margin-right: 20px; */
+  /* margin: 20px; */
+  /* margin-top: 20px;  */
+  padding: 5px 7px;
   border: none;
   border-radius: 10px;
   background-color: blanchedalmond;
@@ -34,10 +34,18 @@
   /* margin-top: 20px;margin-bottom: 20px;margin-left: 10px;   */
 }
 
-.userListDelete{
-    color: red;
-    cursor: pointer;
+.userListDelete {
+  color: red;
+  cursor: pointer;
 }
-.sb{
+.sb {
   display: flex;
+}
+.btnstatues {
+  size: 10px;
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+  border-radius: 50px;
+  font-size: 10px;
 }
