@@ -1,4 +1,4 @@
-import "./userList.css";
+import "./OrderHistory.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { userRows } from "../../dummyData";
@@ -10,7 +10,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
-export default function UserList() {
+export default function OrderHistory() {
   const [data, setData] = useState([]);
   const [statusOrder, setStatus] = useState("Approved");
   // const handleDelete = (id) => {
@@ -69,7 +69,7 @@ export default function UserList() {
   async function getOrder() {
     try {
       let  orderDetails = "";
-      const response = await axios.get("http://localhost:5000/owner", {
+      const response = await axios.get("http://localhost:5000/user-history", {
         headers: {
           Authorization: `Bearer ${cookies.get("data").user.token}`,
         },
@@ -95,7 +95,7 @@ export default function UserList() {
     getOrder();
   }, [statusOrder]);
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "id", headerName: "ID", width: 150 },
     // {
     //   field: "all_items",
     //   headerName: "Order",
@@ -120,29 +120,29 @@ export default function UserList() {
       headerName: "Total Price",
       width: 160,
     },
-    {
-      field: "action",
-      headerName: "Action",
-      width: 150,
-      renderCell: (params) => {
-        return (
-          <>
-            {/* <Link to={"/user/" + params.row.id}> */}
-            <button
-             id="change"
-              onClick={() => handleChange(params.row.id)}
-            >
-              Change Statues
-            </button>
-            {/* </Link> */}
-            {/* <DeleteOutline
-              classNa me="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
-            /> */}
-          </>
-        );
-      },
-    },
+    // {
+    //   field: "action",
+    //   headerName: "Action",
+    //   width: 150,
+    //   renderCell: (params) => {
+    //     return (
+    //       <>
+    //         {/* <Link to={"/user/" + params.row.id}> */}
+    //         <button
+    //          id="change"
+    //           onClick={() => handleChange(params.row.id)}
+    //         >
+    //           Change Statues
+    //         </button>
+    //         {/* </Link> */}
+    //         {/* <DeleteOutline
+    //           classNa me="userListDelete"
+    //           onClick={() => handleDelete(params.row.id)}
+    //         /> */}
+    //       </>
+    //     );
+    //   },
+    // },
   ];
 
   return (

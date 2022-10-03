@@ -21,6 +21,7 @@ import WidgetLg from './components/widgetLg-driver/WidgetLg';
 import WidgetLg2 from './components/widgetLg-rest/WidgetLg';
 import Footer from './components/Footer/Footer';
 import Contact from './components/Contact/Contact';
+import OrderHistory from './components/OrderHistory/OrderHistory';
 
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
@@ -65,6 +66,8 @@ const App = () => {
             <Route path='/createItem' element={<CreateContainer />} />
             <Route path='/userprofile' element={<UserProfile />} />
             <Route path='/editprofile' element={<EditProfile />} />
+            <Route path='/orderhistory' element={<OrderHistory />} />
+
           </Routes>
         </main>
         <Footer />
