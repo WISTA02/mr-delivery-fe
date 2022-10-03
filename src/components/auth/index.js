@@ -2,7 +2,7 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
 export const signUp = (data) => {
-    return fetch(`https://mr-delivery-app.herokuapp.com/signup`, {
+    return fetch(`http://localhost:5000/signup`, {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -18,7 +18,7 @@ export const signUp = (data) => {
 
 export const signIn = ({username, password }) => {
     console.log(username, password)
-    let url = "https://mr-delivery-app.herokuapp.com/signin";
+    let url = "http://localhost:5000/signin";
     return fetch(url, {
         method: 'POST',
         headers: {
@@ -34,8 +34,8 @@ export const signIn = ({username, password }) => {
 
 export const authenticate = (data, next) => {
     cookies.set('data', data, {path: '/'});
-    window.location.reload();
-    next();
+    // window.location.reload();
+    // next();
 };
 
 export const logOut = next => {

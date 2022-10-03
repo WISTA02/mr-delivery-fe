@@ -1,38 +1,27 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-// import { AnimatePresence } from "framer-motion";
-// import { CreateContainer, Header, MainContainer } from "./components";
-// import { useStateValue } from "./context/StateProvider";
-// import { getAllFoodItems } from "./utils/firebaseFunctions";
-// import { actionType } from "./context/reducer";
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { getAllFoodItems } from './utils/firebaseFunctions';
+import { actionType } from './context/reducer';
 import { AnimatePresence } from 'framer-motion';
 import { CreateContainer, Header, MainContainer } from './components';
 import { useStateValue } from './context/StateProvider';
-import { getAllFoodItems } from './utils/firebaseFunctions';
-import { actionType } from './context/reducer';
 import Signup from './components/Signup/Signup';
 import Signin from './components/Signin/Signin.jsx';
 import UserProfile from './components/Profile/UserProfile';
 import EditProfile from './components/Profile/EditProfile';
 import About from './components/About/about';
-
-// import Sidebar from "./components/sidbar";
-
-import Sidebar from './components/sidebar/Sidebar';
-import Topbar from './components/topbar/Topbar';
-// import "./App.css";
 import Home2 from './pages/home/Home';
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserList from './pages/userList/UserList';
 import User from './pages/user/User';
 import NewUser from './pages/newUser/NewUser';
 import ProductList from './pages/productList/ProductList';
 import Product from './pages/product/Product';
 import NewProduct from './pages/newProduct/NewProduct';
-import WidgetLg from './components/widgetLg/WidgetLg';
+import WidgetLg from './components/widgetLg-driver/WidgetLg';
+import WidgetLg2 from './components/widgetLg-rest/WidgetLg';
 import Footer from './components/Footer/Footer';
 import Contact from './components/Contact/Contact';
+
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
 
