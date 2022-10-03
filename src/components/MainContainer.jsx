@@ -6,6 +6,7 @@ import RowContainer from './RowContainer';
 import { useStateValue } from '../context/StateProvider';
 import MenuContainer from './MenuContainer';
 import CartContainer from './Cart/CartContainer';
+import './MainContainer.css';
 
 const SCROLL_SPEED = 200;
 

@@ -4,8 +4,8 @@ import './HomeContainer.css';
 
 const HomeContainer = () => {
   return (
-    <section className='home' id='home'>
-      <div className='content'>
+    <section className='home rounded-3xl shadow-2xl' id='home'>
+      <div className='content '>
         {/* <h3>Order Healthy And Fresh Food Any Time</h3> */}
         <div className='py-2 flex-1 flex flex-col items-start justify-center gap-6 '>
           <div className='flex items-center gap-2 justify-center bg-orange-100 px-4 py-1 ml-8 rounded-full bg-flag'>

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { MdShoppingBasket, MdAdd, MdLogout } from 'react-icons/md';
 import { motion } from 'framer-motion';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
-
 
 // trial
 const Header = () => {
@@ -33,163 +32,136 @@ const Header = () => {
   };
 
   return (
-    <header className='fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-primary'>
-      {/* desktop & tablet */}
-      <div className='hidden md:flex w-full h-full items-center justify-between'>
-        <Link to={'/'} className='flex items-center gap-2'>
-          <div className='flex'>
+    <header className='fixed z-50 w-screen  px-4 md:p-6 md:px-16 bg-primary'>
+      <nav class='bg-primary px-2 sm:px-4 py-2.5 dark:bg-primary fixed w-full z-20 top-0 left-0  mt-2'>
+        <div class='container flex flex-wrap justify-between items-center mx-auto'>
+          <a href='https://flowbite.com/' class='flex items-center'>
             <img
-              src={
-                'https://pbs.twimg.com/media/Fdv50RTXoAExyH8?format=png&name=small'
-              }
-              className='w-14 flex'
-              alt='logo'
+              src='https://pbs.twimg.com/media/Fdv50RTXoAExyH8?format=png&name=small'
+              class='mr-3  h-20  sm:h-9'
+              alt='Flowbite Logo'
             />
-            <a className='btn btn-ghost normal-case text-xl'>Mr.Delivery</a>
-          </div>
-        </Link>
-
-        <div className='flex items-center gap-8'>
-          <motion.ul
-            initial={{ opacity: 0, x: 200 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 200 }}
-            className='flex items-center gap-24 '
-          >
-            <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
-             <Link to="/home"> Home</Link>
-            </li>
-            <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
-              Menu
-            </li>
-            <li  className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
-              <Link className='justify-between' to="/about">About Us</Link>
-            </li>
-            <li className='text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer'>
-              Service
-            </li>
-          </motion.ul>
-
-          <div
-            className='relative flex items-center justify-center'
-            onClick={showCart}
-          >
-            <MdShoppingBasket className='text-textColor text-2xl  cursor-pointer' />
-            {cartItems && cartItems.length > 0 && (
-              <div className=' absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center'>
-                <p className='text-xs text-white font-semibold'>
-                  {cartItems.length}
-                </p>
-              </div>
-            )}
-          </div>
-
-          <div className='relative'></div>
-          <div>
-            <div className='dropdown dropdown-end'>
-              <label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
-                <div className='w-10 rounded-full'>
-                  <img src='https://placeimg.com/80/80/people' />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className='mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52'
-              >
-                <li>
-                  <Link className='justify-between'  to="/userprofile"  >
-                    Profile
-                    <span className='badge'>New</span>
-                
-                  </Link>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a>Logout</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* mobile */}
-      <div className='flex items-center justify-between md:hidden w-full h-full '>
-        <div
-          className='relative flex items-center justify-center'
-          onClick={showCart}
-        >
-          <MdShoppingBasket className='text-textColor text-2xl  cursor-pointer' />
-          {cartItems && cartItems.length > 0 && (
-            <div className=' absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center'>
-              <p className='text-xs text-white font-semibold'>
-                {cartItems.length}
-              </p>
-            </div>
-          )}
-        </div>
-
-        <Link to={'/'} className='flex items-center gap-2'>
-          <div className='flex-1'>
-            <a className='btn btn-ghost normal-case text-xl'>Mr.Delivery</a>
-          </div>
-        </Link>
-
-        <div className='relative'>
-          {isMenu && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.6 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.6 }}
-              className='w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0'
+            <span class='self-center text-2xl font-bold whitespace-nowrap dark:text-textColor '>
+              Mr.Delivery
+            </span>
+          </a>
+          <div class='flex md:order-2 gap-4'>
+            <div
+              className='relative flex items-center justify-center'
+              onClick={showCart}
             >
-              {user && user.email === 'vetrivel.galaxy@gmail.com' && (
-                <Link to={'/createItem'}>
-                  <p className='px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base'>
-                    New Item <MdAdd />
+              <MdShoppingBasket className='text-textColor text-2xl  cursor-pointer' />
+              {cartItems && cartItems.length > 0 && (
+                <div className=' absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center'>
+                  <p className='text-xs text-white font-semibold'>
+                    {cartItems.length}
                   </p>
-                </Link>
+                </div>
               )}
-
-              <ul className='flex flex-col '>
-                <li
-                  className='text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'
-                  onClick={() => setIsMenu(false)}
+            </div>
+            <div>
+              <div className='dropdown dropdown-end'>
+                <label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
+                  <div className='w-10 rounded-full'>
+                    <img src='https://placeimg.com/80/80/people' />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className='mt-3 p-2 shadow menu menu-compact dropdown-content bg-white rounded-box w-52'
                 >
-                  Home
-                </li>
-                <li
-                  className='text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'
-                  onClick={() => setIsMenu(false)}
-                >
-                  Menu
-                </li>
-                <li
-                  className='text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'
-                  onClick={() => setIsMenu(false)}
-                >
-                  About Us
-                </li>
-                <li
-                  className='text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2'
-                  onClick={() => setIsMenu(false)}
-                >
-                  Service
-                </li>
-              </ul>
-
-              <p
-                className='m-2 p-2 rounded-md shadow-md flex items-center justify-center bg-gray-200 gap-3 cursor-pointer hover:bg-gray-300 transition-all duration-100 ease-in-out text-textColor text-base'
-                onClick={logout}
+                  <li>
+                    <Link className='' to='/userprofile'>
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <li>
+                    <a>Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <Link to='/signup'>
+              <button
+                type='button'
+                class='text-textColor bg-yellow-300 hover:bg-black hover:text-white focus:ring-4 focus:outline-none focus:ring-black font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-yellow-400 dark:hover:bg-black dark:focus:ring-white dark:hover:text-white'
               >
-                Logout <MdLogout />
-              </p>
-            </motion.div>
-          )}
+                Get started
+              </button>
+            </Link>
+            <button
+              data-collapse-toggle='navbar-sticky'
+              type='button'
+              class='inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-primary focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
+              aria-controls='navbar-sticky'
+              aria-expanded='false'
+            >
+              <span class='sr-only'>Open main menu</span>
+              <svg
+                class='w-6 h-6'
+                aria-hidden='true'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  fill-rule='evenodd'
+                  d='M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z'
+                  clip-rule='evenodd'
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div
+            class='hidden justify-between items-center w-full md:flex md:w-auto md:order-1'
+            id='navbar-sticky'
+          >
+            <ul class='flex flex-col  p-4 mt-4 bg-primary rounded-lg border border-primary md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-primary dark:bg-primary md:dark:bg-primary dark:border-primary'>
+              <Link to='/'>
+                <li>
+                  <a
+                    href='#'
+                    class='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
+                    aria-current='page'
+                  >
+                    Home
+                  </a>
+                </li>
+              </Link>
+              <Link to='/about'>
+                <li>
+                  <a
+                    href='#'
+                    class='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
+                  >
+                    About
+                  </a>
+                </li>
+              </Link>
+              <li>
+                <a
+                  href='#'
+                  class='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
+                >
+                  Services
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href='#'
+                  class='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </nav>
     </header>
   );
 };
