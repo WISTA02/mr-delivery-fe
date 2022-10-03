@@ -66,7 +66,7 @@ const App = () => {
             <Route path='/editprofile' element={<EditProfile />} />
             <Route path='/restaurant' element={<Restaurant />} />
           </Routes>
-          <Footer />
+         
         </main>
         <Footer />
       </div>
