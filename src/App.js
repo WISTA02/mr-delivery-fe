@@ -55,7 +55,8 @@ const App = () => {
             <Route path='/driver-order' element={<ProductList />}></Route>
             <Route path='/product/:productId' element={<Product />}></Route>
             <Route path='/newproduct' element={<NewProduct />}></Route>
-            <Route path='/g' element={<WidgetLg />}></Route>
+            <Route path='/admin/driver' element={<WidgetLg />}></Route>
+            <Route path='/admin/rest' element={<WidgetLg2 />}></Route>
             <Route path='/contactus' element={<Contact />} />
             <Route path='/*' element={<MainContainer />} />
             <Route path='/about' element={<About />} />
