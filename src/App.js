@@ -47,28 +47,28 @@ const App = () => {
         {/* <Sidebar /> */}
         <main className='mt-14 md:mt-20 px-4 md:px-16 py-4 w-full x'>
           <Routes>
-            <Route path='/*' element={<MainContainer />} />
-            <Route path='/createItem' element={<CreateContainer />} />
-            <Route path='/admin' element={<Home2 />}></Route>
-            <Route path='/Ordersapprove' element={<UserList />}></Route>
-            <Route path='/user/:userId' element={<User />}></Route>
-            <Route path='/newUser' element={<NewUser />}></Route>
-            <Route path='/driver-order' element={<ProductList />}></Route>
-            <Route path='/product/:productId' element={<Product />}></Route>
-            <Route path='/newproduct' element={<NewProduct />}></Route>
-            <Route path='/admin/resturant' element={<WidgetLg />}></Route>
-            <Route path='/contactus' element={<Contact />} />
-            <Route path='/*' element={<MainContainer />} />
+            <Route path="/*" element={<MainContainer />} />
+            <Route path="/createItem" element={<CreateContainer />} />
+            <Route path="/admin" element={<Home2 />}></Route>
+            <Route path="/admin/driver" element={<WidgetLg />}></Route>
+            <Route path="/admin/resturant" element={<WidgetLg2 />}></Route>
+            <Route path="/Ordersapprove" element={<UserList />}></Route>
+            <Route path="/user/:userId" element={<User />}></Route>
+            <Route path="/newUser" element={<NewUser />}></Route>
+            <Route path="/driver-order" element={<ProductList />}></Route>
+            <Route path="/product/:productId" element={<Product />}></Route>
+            <Route path="/newproduct" element={<NewProduct />}></Route>
+            <Route path="/contactus" element={<Contact />} />
             <Route path='/about' element={<About />} />
-            <Route path='/createItem' element={<CreateContainer />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/signin' element={<Signin />} />
-            <Route path='/createItem' element={<CreateContainer />} />
             <Route path='/userprofile' element={<UserProfile />} />
             <Route path='/editprofile' element={<EditProfile />} />
             <Route path='/orderhistory' element={<OrderHistory />} />
 
+            <Route path='/restaurant' element={<Restaurant />} />
           </Routes>
+         
         </main>
         <Footer />
       </div>
