@@ -5,8 +5,8 @@ import { actionType } from "./context/reducer";
 import { AnimatePresence } from 'framer-motion';
 import { CreateContainer, Header, MainContainer } from './components';
 import { useStateValue } from './context/StateProvider';
-import  Signup  from './components/Signup/Signup';
-import  Signin  from './components/Signin/Signin.jsx';
+import Signup from './components/Signup/Signup';
+import Signin from './components/Signin/Signin.jsx';
 import UserProfile from './components/Profile/UserProfile';
 import EditProfile from './components/Profile/EditProfile';
 import About from './components/About/about';
@@ -21,6 +21,7 @@ import WidgetLg from "./components/widgetLg-driver/WidgetLg";
 import WidgetLg2 from "./components/widgetLg-rest/WidgetLg";
 import Footer from './components/Footer/Footer'
 import Contact from "./components/Contact/Contact";
+import Restaurant from './components/restaurantPage/restaurant';
 
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
@@ -49,22 +50,23 @@ const App = () => {
             <Route path="/*" element={<MainContainer />} />
             <Route path="/createItem" element={<CreateContainer />} />
             <Route path="/admin" element={<Home2 />}></Route>
-            <Route path="/admin/driver" element={<WidgetLg/> }></Route>
-            <Route path="/admin/resturant" element={<WidgetLg2/> }></Route>
+            <Route path="/admin/driver" element={<WidgetLg />}></Route>
+            <Route path="/admin/resturant" element={<WidgetLg2 />}></Route>
             <Route path="/Ordersapprove" element={<UserList />}></Route>
             <Route path="/user/:userId" element={<User />}></Route>
             <Route path="/newUser" element={<NewUser />}></Route>
             <Route path="/driver-order" element={<ProductList />}></Route>
             <Route path="/product/:productId" element={<Product />}></Route>
             <Route path="/newproduct" element={<NewProduct />}></Route>
-            <Route path="/contactus" element={<Contact/>}/>
-            <Route path='/about' element={<About />}/>
+            <Route path="/contactus" element={<Contact />} />
+            <Route path='/about' element={<About />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/signin' element={<Signin />} />
-            <Route path='/userprofile' element={<UserProfile/>}/>
-            <Route path='/editprofile' element={<EditProfile/>}/>
+            <Route path='/userprofile' element={<UserProfile />} />
+            <Route path='/editprofile' element={<EditProfile />} />
+            <Route path='/restaurant' element={<Restaurant />} />
           </Routes>
-            <Footer/>
+          <Footer />
         </main>
       </div>
     </AnimatePresence>
