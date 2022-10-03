@@ -6,9 +6,11 @@
 }
 
 .widgetLgTitle {
-  font-size: 22px;
-  font-weight: 600;
-  margin: 10px;
+  font-size: 30px;
+  font-weight: 500;
+  margin: 25px;
+  padding: 10px;
+  text-align: center;
 }
 
 .widgetLgTable{
@@ -48,13 +50,20 @@
 }
 
 .widgetLgButton.Approved{
-    background-color: #e5faf2;
-    color: #3bb077;
+  background-color: #d7f7eb;
+  color: #3bb077;
+  margin-right: 5px;
+}
+.widgetLgButton.Approved:hover{
+  background-color: #a5f5d5;
 }
 .widgetLgButton.Declined{
-    background-color: #fff0f1;
-    color: #d95087;
-
+  background-color: #fce8ea;
+  margin-left: 5px;
+  color: #d95087;
+}
+.widgetLgButton.Declined:hover{
+  background-color: #f1bec4;
 }
 .widgetLgButton.Pending{
     background-color: #ebf1fe;

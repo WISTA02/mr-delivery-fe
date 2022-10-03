@@ -50,13 +50,13 @@ const RowContainer = ({ flag, data, rowContainer }) => {
                   className='w-full h-full object-contain'
                 />
               </motion.div>
-              <motion.div
+              {/* <motion.div
                 whileTap={{ scale: 0.75 }}
                 className='w-8 h-8 rounded-full bg-yellow-600 flex items-center justify-center cursor-pointer hover:shadow-md -mt-8'
                 onClick={() => setItems([...cartItems, item])}
               >
                 <MdShoppingBasket className='text-white' />
-              </motion.div>
+              </motion.div> */}
             </div>
             <div className='w-full flex flex-col items-end justify-end -mt-8'>
               <p className='text-textColor font-semibold text-base md:text-lg'>
