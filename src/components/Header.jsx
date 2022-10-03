@@ -33,19 +33,19 @@ const Header = () => {
 
   return (
     <header className='fixed z-50 w-screen  px-4 md:p-6 md:px-16 bg-primary'>
-      <nav class='bg-primary px-2 sm:px-4 py-2.5 dark:bg-primary fixed w-full z-20 top-0 left-0  mt-2'>
-        <div class='container flex flex-wrap justify-between items-center mx-auto'>
-          <a href='https://flowbite.com/' class='flex items-center'>
+      <nav className='bg-primary px-2 sm:px-4 py-2.5 dark:bg-primary fixed w-full z-20 top-0 left-0  mt-2'>
+        <div className='container flex flex-wrap justify-between items-center mx-auto'>
+          <a href='https://flowbite.com/' className='flex items-center'>
             <img
               src='https://pbs.twimg.com/media/Fdv50RTXoAExyH8?format=png&name=small'
-              class='mr-3  h-20  sm:h-9'
+              className='mr-3  h-20  sm:h-9'
               alt='Flowbite Logo'
             />
-            <span class='self-center text-2xl font-bold whitespace-nowrap dark:text-textColor '>
+            <span className='self-center text-2xl font-bold whitespace-nowrap dark:text-textColor '>
               Mr.Delivery
             </span>
           </a>
-          <div class='flex md:order-2 gap-4'>
+          <div className='flex md:order-2 gap-4'>
             <div
               className='relative flex items-center justify-center'
               onClick={showCart}
@@ -87,7 +87,7 @@ const Header = () => {
             <Link to='/signup'>
               <button
                 type='button'
-                class='text-textColor bg-yellow-300 hover:bg-black hover:text-white focus:ring-4 focus:outline-none focus:ring-black font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-yellow-400 dark:hover:bg-black dark:focus:ring-white dark:hover:text-white'
+                className='text-textColor bg-yellow-300 hover:bg-black hover:text-white focus:ring-4 focus:outline-none focus:ring-black font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-yellow-400 dark:hover:bg-black dark:focus:ring-white dark:hover:text-white'
               >
                 Get started
               </button>
@@ -95,13 +95,13 @@ const Header = () => {
             <button
               data-collapse-toggle='navbar-sticky'
               type='button'
-              class='inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-primary focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
+              className='inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-primary focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
               aria-controls='navbar-sticky'
               aria-expanded='false'
             >
-              <span class='sr-only'>Open main menu</span>
+              <span className='sr-only'>Open main menu</span>
               <svg
-                class='w-6 h-6'
+                className='w-6 h-6'
                 aria-hidden='true'
                 fill='currentColor'
                 viewBox='0 0 20 20'
@@ -116,15 +116,15 @@ const Header = () => {
             </button>
           </div>
           <div
-            class='hidden justify-between items-center w-full md:flex md:w-auto md:order-1'
+            className='hidden justify-between items-center w-full md:flex md:w-auto md:order-1'
             id='navbar-sticky'
           >
-            <ul class='flex flex-col  p-4 mt-4 bg-primary rounded-lg border border-primary md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-primary dark:bg-primary md:dark:bg-primary dark:border-primary'>
+            <ul className='flex flex-col  p-4 mt-4 bg-primary rounded-lg border border-primary md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-primary dark:bg-primary md:dark:bg-primary dark:border-primary'>
               <Link to='/'>
                 <li>
                   <a
                     href='#'
-                    class='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
+                    className='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
                     aria-current='page'
                   >
                     Home
@@ -135,7 +135,7 @@ const Header = () => {
                 <li>
                   <a
                     href='#'
-                    class='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
+                    className='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
                   >
                     About
                   </a>
@@ -144,7 +144,7 @@ const Header = () => {
               <li>
                 <a
                   href='#'
-                  class='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
+                  className='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
                 >
                   Services
                 </a>
@@ -153,7 +153,7 @@ const Header = () => {
               <li>
                 <a
                   href='#'
-                  class='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
+                  className='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
                 >
                   Contact
                 </a>
