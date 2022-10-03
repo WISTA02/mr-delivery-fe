@@ -22,6 +22,7 @@ import WidgetLg2 from "./components/widgetLg-rest/WidgetLg";
 import Footer from './components/Footer/Footer'
 import Contact from "./components/Contact/Contact";
 import Restaurant from './components/restaurantPage/restaurant';
+import OrderHistory from './components/OrderHistory/OrderHistory';
 
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
@@ -65,11 +66,13 @@ const App = () => {
             <Route path='/userprofile' element={<UserProfile />} />
             <Route path='/editprofile' element={<EditProfile />} />
             <Route path='/restaurant' element={<Restaurant />} />
+            <Route path='/orderhistory' element={<OrderHistory/>} />
           </Routes>
          
         </main>
-        <Footer />
+
       </div>
+        <Footer />
     </AnimatePresence>
   );
 };
