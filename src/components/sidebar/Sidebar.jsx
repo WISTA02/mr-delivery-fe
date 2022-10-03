@@ -42,6 +42,12 @@ export default function Sidebar() {
               Orders
               </li>
             </Link>
+            <Link to="/orderhistory" className="link">
+              <li className="sidebarListItem">
+                <Storefront className="sidebarIcon" />
+              Order History
+              </li>
+            </Link>
             <Link to="/driver-order" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />

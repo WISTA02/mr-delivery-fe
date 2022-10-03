@@ -76,7 +76,7 @@ const Header = () => {
                     </Link>
                   </li>
                   <li>
-                    <a>Settings</a>
+                    <Link to="/orderhistory"> Order history</Link>
                   </li>
                   <li>
                     <a>Logout</a>
