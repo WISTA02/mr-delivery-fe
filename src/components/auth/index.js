@@ -25,6 +25,7 @@ export const signIn = ({username, password }) => {
             "Authorization": "Basic " + btoa(username + ":" + password)
         },
     }).then(response => {
+        console.log({response});
         return response.json();
     }).catch(err => {
         console.log(err);
