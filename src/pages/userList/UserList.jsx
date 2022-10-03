@@ -7,44 +7,92 @@ import { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { useEffect } from "react";
 import axios from "axios";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 export default function UserList() {
   const [data, setData] = useState([]);
-const [statusOrder,setStatus]=useState("New Order");
+  const [statusOrder, setStatus] = useState("Approved");
   // const handleDelete = (id) => {
   //   setData(data.filter((item) => item.id !== id));
   // };
- 
-  
+
   const handleChange = (id) => {
-    // const config = {
-    //   headers: { Authorization: `Bearer ${token}` },
-    // };
-  
+    const config = {
+      headers: { Authorization: `Bearer ${cookies.get("data").user.token}` },
+    };
     const bodyParameters = {
       statusOrder,
     };
-  
-    axios.put(`http://localhost:5000/owner/${id}`, bodyParameters)
+    axios
+      .put(`http://localhost:5000/owner/${id}`, bodyParameters, config)
       .then((data) => {
-       setStatus(data.data.status)
+        console.log(data.data);
+        setStatus(data.data.status);
       })
       .catch((e) => {
         console.log(e);
       });
   };
-useEffect(()=>{
-  axios({
-    method: 'get',
-    url: 'http://localhost:5000/order',
-    // responseType: 'stream'
-  })
-    .then(function (response) {
-     console.log(response.data);
-     let arr=response.data;
-     setData(arr)
-    }).catch(e=>{console.log();});
-},[])
+  // useEffect(() => {}, [statusOrder]);
+  // useEffect(()=>{
+  //   getOrder();
+  //  },[data])
+  // const getOrder = () => {
+  //   try {
+  //     const config = {
+  //       headers: { Authorization: `Bearer ${cookies.get("data").user.token}` },
+  //     };
+
+  //     let orderDetails = "";
+  //     axios
+  //       .get(`http://localhost:5000/order`, config)
+  //       .then((data) => {
+  //         data.data.map((element) => {
+  //           element.all_items.forEach((e) => {
+  //             orderDetails += e.meal_id + " ==> " + e.quantity + ",";
+  //           });
+  //           element.all_items = orderDetails;
+  //           orderDetails = "";
+  //         });
+  //         console.log(data.data);
+  //         setData(data.data);
+  //       })
+  //       .catch((e) => {
+  //         console.log(e);
+  //       });
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
+  ///////
+  async function getOrder() {
+    try {
+      let  orderDetails = "";
+      const response = await axios.get("http://localhost:5000/owner", {
+        headers: {
+          Authorization: `Bearer ${cookies.get("data").user.token}`,
+        },
+      });
+      response.data.map((element) => {
+        element.all_items.forEach((e) => {
+          orderDetails += e.quantity+ " " + e.name + ",";
+        });
+        element.all_items = orderDetails.slice(0, -1);;
+        orderDetails = "";
+      });
+      setData(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  } /////////////////////////////
+  useEffect(() => {
+    getOrder();
+  }, []);
+  useEffect(() => {
+    // console.log("eff");
+    getOrder();
+  }, [data]);
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     // {
@@ -64,7 +112,7 @@ useEffect(()=>{
     {
       field: "status",
       headerName: "Status",
-      width: 120,
+      width: 200,
     },
     {
       field: "total_price",
@@ -79,7 +127,12 @@ useEffect(()=>{
         return (
           <>
             {/* <Link to={"/user/" + params.row.id}> */}
-              <button className="userListEdit" onClick={() => handleChange(params.row.id)}>Change Statues</button>
+            <button
+             
+              onClick={() => handleChange(params.row.id)}
+            >
+              Change Statues
+            </button>
             {/* </Link> */}
             {/* <DeleteOutline
               classNa me="userListDelete"
@@ -99,7 +152,7 @@ useEffect(()=>{
           rows={data}
           disableSelectionOnClick
           columns={columns}
-          pageSize={10}
+          pageSize={5}
           checkboxSelection
         />
       </div>
