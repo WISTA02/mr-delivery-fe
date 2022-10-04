@@ -10,17 +10,18 @@ import Signin from './components/Signin/Signin.jsx';
 import UserProfile from './components/Profile/UserProfile';
 import EditProfile from './components/Profile/EditProfile';
 import About from './components/About/about';
-import Home2 from './pages/home/Home';
-import UserList from './pages/userList/UserList';
-import User from './pages/user/User';
-import NewUser from './pages/newUser/NewUser';
-import ProductList from './pages/productList/ProductList';
-import Product from './pages/product/Product';
-import NewProduct from './pages/newProduct/NewProduct';
-import WidgetLg from './components/widgetLg-driver/WidgetLg';
-import WidgetLg2 from './components/widgetLg-rest/WidgetLg';
-import Footer from './components/Footer/Footer';
-import Contact from './components/Contact/Contact';
+import Home2 from "./pages/home/Home";
+import UserList from "./pages/userList/UserList";
+import User from "./pages/user/User";
+import NewUser from "./pages/newUser/NewUser";
+import ProductList from "./pages/productList/ProductList";
+import Product from "./pages/product/Product";
+import NewProduct from "./pages/newProduct/NewProduct";
+import WidgetLg from "./components/widgetLg-driver/WidgetLg";
+import WidgetLg2 from "./components/widgetLg-rest/WidgetLg";
+import Footer from './components/Footer/Footer'
+import Contact from "./components/Contact/Contact";
+import Restaurant from './components/restaurantPage/restaurant';
 import OrderHistory from './components/OrderHistory/OrderHistory';
 
 const App = () => {
@@ -64,14 +65,14 @@ const App = () => {
             <Route path='/signin' element={<Signin />} />
             <Route path='/userprofile' element={<UserProfile />} />
             <Route path='/editprofile' element={<EditProfile />} />
-            <Route path='/orderhistory' element={<OrderHistory />} />
-
-            {/* <Route path='/restaurant' element={<Restaurant />} /> */}
+            <Route path='/restaurant' element={<Restaurant />} />
+            <Route path='/orderhistory' element={<OrderHistory/>} />
           </Routes>
          
         </main>
-        <Footer />
+
       </div>
+        <Footer />
     </AnimatePresence>
   );
 };
