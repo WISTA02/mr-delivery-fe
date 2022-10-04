@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { MdShoppingBasket, MdAdd, MdLogout } from 'react-icons/md';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
-
+import logo from "../img/logoS.jpg"
 // trial
 const Header = () => {
-  const navigate = useNavigate();
-
   const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
 
   const [isMenu, setIsMenu] = useState(false);
@@ -37,7 +34,7 @@ const Header = () => {
         <div className='container flex flex-wrap justify-between items-center mx-auto'>
           <a href='https://flowbite.com/' className='flex items-center'>
             <img
-              src='https://pbs.twimg.com/media/Fdv50RTXoAExyH8?format=png&name=small'
+              src={logo}
               className='mr-3  h-20  sm:h-9'
               alt='Flowbite Logo'
             />
