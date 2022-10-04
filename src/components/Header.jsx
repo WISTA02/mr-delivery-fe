@@ -25,6 +25,7 @@ const Header = () => {
   };
 
   const showCart = () => {
+    console.log('potatoe');
     dispatch({
       type: actionType.SET_CART_SHOW,
       cartShow: !cartShow,

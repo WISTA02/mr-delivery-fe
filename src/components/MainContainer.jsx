@@ -76,8 +76,6 @@ const MainContainer = () => {
       </section>
 
       <MenuContainer />
-
-      {cartShow && <CartContainer />}
     </div>
   );
 };

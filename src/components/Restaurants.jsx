@@ -6,34 +6,32 @@ import { actionType } from '../context/reducer';
 
 const RowContainer = ({ flag, data, scrollValue }) => {
   const rowContainer = useRef();
-
-  const [items, setItems] = useState([]);
-
   const [{ cartItems }, dispatch] = useStateValue();
 
   const addtocart = () => {
     dispatch({
       type: actionType.SET_CARTITEMS,
-      cartItems: items,
+      cartItems: cartItems,
     });
-    localStorage.setItem('cartItems', JSON.stringify(items));
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
   };
 
   useEffect(() => {
     rowContainer.current.scrollLeft += scrollValue;
   }, [scrollValue]);
 
-  useEffect(() => {
-    addtocart();
-  }, [items]);
+  // useEffect(() => {
+  //   addtocart();
+  // }, [items]);
 
   return (
     <div
       ref={rowContainer}
-      className={`w-full flex items-center gap-3  my-12 scroll-smooth  ${flag
-        ? 'overflow-x-scroll scrollbar-none'
-        : 'overflow-x-hidden flex-wrap justify-center'
-        }`}
+      className={`w-full flex items-center gap-3  my-12 scroll-smooth  ${
+        flag
+          ? 'overflow-x-scroll scrollbar-none'
+          : 'overflow-x-hidden flex-wrap justify-center'
+      }`}
     >
       {data && data.length > 0 ? (
         data.map((item) => (
