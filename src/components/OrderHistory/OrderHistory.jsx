@@ -88,19 +88,19 @@ export default function OrderHistory() {
   renderCell: (params) => {
     return (
 <>
-<label htmlFor="my-modal-3" className=" modal-button bg-white-500 hover:bg-yellow-400  text-sm text-yellow-400" onClick={() => handleChange(params.row.id)}>Show Status</label>
-<input type="checkbox" id="my-modal-3" className="modal-toggle" />
+<label htmlFor="my-modal-3" className=" modal-button w-3 bg-white-500 hover:bg-yellow-400  text-sm text-yellow-400 " onClick={() => handleChange(params.row.id)}>Show Status</label>
+<input type="checkbox" id="my-modal-3" className="modal-toggle " />
 <div className="modal">
   <div className="modal-box relative">
 
-  <label htmlFor="my-modal-3" className="bg-black btn-sm rounded-md p-2 inline-flex items-center justify-center text-white hover:text-black-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-inset ">✕</label>
+  <label htmlFor="my-modal-3" className="bg-black  btn-sm rounded-md p-2 inline-flex items-center justify-center text-white hover:text-black-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-inset ">✕</label>
               
     <h3 className="text-lg   bg-yellow-300 text-center">Status order</h3>
     <p className="py-4 text-lg  text-black text-center"> {statusOrder}</p>
   <div className="flex-none">
 
 
-  <button  class="bg-yellow-300  text-gray-800  py-2 px-2 ">
+  <button  class=" text-gray-800  py-2 px-2  w-40">
    <Link to="/orderhistory">Refresh</Link>
    
   </button>
