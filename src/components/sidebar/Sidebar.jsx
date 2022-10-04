@@ -24,16 +24,16 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
-          {/* <h3 className="sidebarTitle">Dashboard</h3> */}
+          <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
-            <Auth role="admin">
+            {/* <Auth role="admin"> */}
               <Link to="/admin" className="link">
                 <li className="sidebarListItem active">
                   <LineStyle className="sidebarIcon" />
                   Home
                 </li>
               </Link>
-            </Auth>
+            {/* </Auth> */}
           </ul>
         </div>
         <div className="sidebarMenu">

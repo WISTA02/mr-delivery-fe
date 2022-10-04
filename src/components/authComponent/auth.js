@@ -13,9 +13,7 @@ export default function Auth(props) {
   );
 }
 function can(roleAarr) {
-  console.log({ roleAarr });
-  console.log(cookies.get("data")?.user.role);
-  console.log(roleAarr?.includes(cookies.get("data")?.user.role));
+  
   return (
     roleAarr?.includes(cookies.get("data")?.user.role) ||
     cookies?.get("data")?.user.role === "admin"

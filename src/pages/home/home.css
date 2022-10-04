@@ -1,11 +1,11 @@
 .home{
-    flex: 4;
+    flex: 3;
     /* display: flex; */
 }
 
 .homeWidgets{
     display: flex;
-    margin: 20px;
+    margin: 10px;
 }
 .home2{
     display: flex;
