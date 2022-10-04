@@ -34,6 +34,7 @@ export const signIn = ({username, password }) => {
 
 
 export const authenticate = (data, next) => {
+    console.log({data});
     cookies.set('data', data, {path: '/'});
     // window.location.reload();
     // next();

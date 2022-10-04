@@ -82,6 +82,7 @@ export default function UserList() {
         orderDetails = "";
       });
       setData(response.data);
+      setStatus()
     } catch (err) {
       console.log(err);
     }
@@ -92,7 +93,7 @@ export default function UserList() {
   useEffect(() => {
     // console.log("eff");
     getOrder();
-  }, [data]);
+  }, [statusOrder]);
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     // {
@@ -152,7 +153,7 @@ export default function UserList() {
           rows={data}
           disableSelectionOnClick
           columns={columns}
-          pageSize={5}
+          pageSize={10}
           checkboxSelection
         />
       </div>

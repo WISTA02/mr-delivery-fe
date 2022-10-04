@@ -42,25 +42,20 @@
   display: flex;
 }
 #change {
-  padding: 5px 7px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  /* padding-top: 5px; */
+  background-color:#FFCC00; /* Green */
   border: none;
-  border-radius: 30%;
-  
-    margin-right: 5px;
-    box-sizing: 50px;
-    font-size: 15px;
-    box-shadow: black;
-    background: #ffcf11;
-    color: black;
-
+  color: rgb(13, 13, 13);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
 
 }
 #change:hover{
   transform: scale(1.1);
   cursor: pointer;
-  background-color: #ffea97;
-    color: white;
+  background: black;
+  color: white;
 }
+
