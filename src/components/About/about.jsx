@@ -17,7 +17,8 @@ function About(){
   Now we can say about ourselves
 Full stack developer<br/>
 After a long and intense six months with the ASAC, it was filled with many information and tasks.<br/>
-We were able to do this project, we are proud of ourselves, during this simple period, we learned many skills.
+We were able to do this project, we are proud of ourselves, during this simple period,
+<br/>we learned many skills.
 We hope that you will like it and support you.
 WISTA TEAM</p>
 

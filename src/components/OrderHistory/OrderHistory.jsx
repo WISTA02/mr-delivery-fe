@@ -13,60 +13,32 @@ const cookies = new Cookies();
 
 export default function OrderHistory() {
   const [data, setData] = useState([]);
-  const [statusOrder, setStatus] = useState("Approved");
-  // const handleDelete = (id) => {
-  //   setData(data.filter((item) => item.id !== id));
-  // };
+  const [statusOrder, setStatusOrder] = useState("");
+ 
 
   const handleChange = (id) => {
+    console.log({id});
     const config = {
       headers: { Authorization: `Bearer ${cookies.get("data").user.token}` },
+
     };
     const bodyParameters = {
       statusOrder,
     };
+    console.log(`http://localhost:5000/order/${id}`);
     axios
-      .put(`http://localhost:5000/owner/${id}`, bodyParameters, config)
+      .get(`http://localhost:5000/order/${id}`, config)
       .then((data) => {
-        console.log(data.data);
-        setStatus(data.data.status);
+        console.log(data.data.status);
+        let x = data.data.status;
+        setStatusOrder(x);
+        console.log({statusOrder});
       })
       .catch((e) => {
         console.log(e);
       });
   };
-  // useEffect(() => {}, [statusOrder]);
-  // useEffect(()=>{
-  //   getOrder();
-  //  },[data])
-  // const getOrder = () => {
-  //   try {
-  //     const config = {
-  //       headers: { Authorization: `Bearer ${cookies.get("data").user.token}` },
-  //     };
 
-  //     let orderDetails = "";
-  //     axios
-  //       .get(`http://localhost:5000/order`, config)
-  //       .then((data) => {
-  //         data.data.map((element) => {
-  //           element.all_items.forEach((e) => {
-  //             orderDetails += e.meal_id + " ==> " + e.quantity + ",";
-  //           });
-  //           element.all_items = orderDetails;
-  //           orderDetails = "";
-  //         });
-  //         console.log(data.data);
-  //         setData(data.data);
-  //       })
-  //       .catch((e) => {
-  //         console.log(e);
-  //       });
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
-  ///////
   async function getOrder() {
     try {
       let  orderDetails = "";
@@ -83,67 +55,67 @@ export default function OrderHistory() {
         orderDetails = "";
       });
       setData(response.data);
-      setStatus()
+      // setStatusOrder("")
     } catch (err) {
       console.log(err);
     }
-  } /////////////////////////////
+  } 
   useEffect(() => {
     getOrder();
   }, []);
   useEffect(() => {
-    // console.log("eff");
     getOrder();
   }, [statusOrder]);
   const columns = [
     { field: "id", headerName: "ID", width: 150 },
+ 
+    { field: "all_items", headerName: "Order Details", width: 200 
+  },
+
     // {
-    //   field: "all_items",
-    //   headerName: "Order",
+    //   field: "status",
+    //   headerName: "Status",
     //   width: 200,
-    //   renderCell: (params) => {
-    //     return (
-    //       <div className="userListUser">
-    //         {/* <img className="userListImg" src={params.row.avatar} alt="" /> */}
-    //         {params.row.username}
-    //       </div>
-    //     );
-    //   },
     // },
-    { field: "all_items", headerName: "Order Details", width: 200 },
-    {
-      field: "status",
-      headerName: "Status",
-      width: 200,
-    },
     {
       field: "total_price",
       headerName: "Total Price",
       width: 160,
+      
     },
-    // {
-    //   field: "action",
-    //   headerName: "Action",
-    //   width: 150,
-    //   renderCell: (params) => {
-    //     return (
-    //       <>
-    //         {/* <Link to={"/user/" + params.row.id}> */}
-    //         <button
-    //          id="change"
-    //           onClick={() => handleChange(params.row.id)}
-    //         >
-    //           Change Statues
-    //         </button>
-    //         {/* </Link> */}
-    //         {/* <DeleteOutline
-    //           classNa me="userListDelete"
-    //           onClick={() => handleDelete(params.row.id)}
-    //         /> */}
-    //       </>
-    //     );
-    //   },
-    // },
+    
+  { field: "order Status", headerName: "Show Status", width: 300 ,
+  renderCell: (params) => {
+    return (
+<>
+<label htmlFor="my-modal-3" className=" modal-button bg-white-500 hover:bg-yellow-400  text-sm text-yellow-400" onClick={() => handleChange(params.row.id)}>Show Status</label>
+<input type="checkbox" id="my-modal-3" className="modal-toggle" />
+<div className="modal">
+  <div className="modal-box relative">
+
+  <label htmlFor="my-modal-3" className="bg-black btn-sm rounded-md p-2 inline-flex items-center justify-center text-white hover:text-black-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-inset ">✕</label>
+              
+    <h3 className="text-lg   bg-yellow-300 text-center">Status order</h3>
+    <p className="py-4 text-lg  text-black text-center"> {statusOrder}</p>
+  <div className="flex-none">
+
+
+  <button  class="bg-yellow-300  text-gray-800  py-2 px-2 ">
+   <Link to="/orderhistory">Refresh</Link>
+   
+  </button>
+
+  </div>
+  </div>
+</div>
+        
+        
+    
+      </>
+    );
+  },
+},
+    
   ];
 
   return (
@@ -154,7 +126,7 @@ export default function OrderHistory() {
           rows={data}
           disableSelectionOnClick
           columns={columns}
-          pageSize={10}
+          pageSize={20}
           checkboxSelection
         />
       </div>
