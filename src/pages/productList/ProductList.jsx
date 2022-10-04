@@ -78,7 +78,7 @@ async function getOrder() {
   }, []);    
   useEffect(()=>{
     getOrder();
-   },[data])
+   },[statusOrder])
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
@@ -168,7 +168,7 @@ async function getOrder() {
         return (
           <>
             {/* <Link to={"/user/" + params.row.id}> */}
-              <button className="btnstatues"  onClick={() => handleChange(params.row.id)}>Change Statues</button>
+              <button id="change"  onClick={() => handleChange(params.row.id)}>Change Statues</button>
             {/* </Link> */}
             {/* <DeleteOutline
               classNa me="userListDelete"
@@ -187,7 +187,7 @@ async function getOrder() {
         rows={data}
         disableSelectionOnClick
         columns={columns}
-        pageSize={8}
+        pageSize={10}
         checkboxSelection
         rowHeight={50}
       />
