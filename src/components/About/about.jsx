@@ -4,7 +4,7 @@ import samah from '../../img/samah.jpg'
 import anas from '../../img/anas.jpg'
 import ibraheem from '../../img/ibraheem.jpg'
 import wajeeh from '../../img/wajeeh.jpg'
-import './about.css'
+// import './about.css'
 function About(){
 
   return (

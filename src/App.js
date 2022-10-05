@@ -23,6 +23,7 @@ import Footer from './components/Footer/Footer'
 import Contact from "./components/Contact/Contact";
 import Restaurant from './components/restaurantPage/restaurant';
 import OrderHistory from './components/OrderHistory/OrderHistory';
+import SearchBar from './components/Searchbar';
 
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
@@ -63,6 +64,8 @@ const App = () => {
             <Route path='/about' element={<About />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/signin' element={<Signin />} />
+            <Route path='/ser' element={<NewMeal />} />
+
             <Route path='/userprofile' element={<UserProfile />} />
             <Route path='/editprofile' element={<EditProfile />} />
             <Route path='/restaurant' element={<Restaurant />} />
