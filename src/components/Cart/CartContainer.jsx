@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { RiRefreshFill } from 'react-icons/ri';
-
 import { motion } from 'framer-motion';
 import { useStateValue } from '../../context/StateProvider';
 import { actionType } from '../../context/reducer';
 import EmptyCart from '../../img/emptyCart.svg';
 import CartItem from './CartItem';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { isAuthenticated } from '../auth/index'
+import { clearAll } from '../../redux/addToCart';
+
 
 const CartContainer = () => {
-  const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
+  const [{ cartShow, modalShow }, dispatch] = useStateValue();
+  const { user } = isAuthenticated()
+  const Dispatch = useDispatch();
 
   const DataUse = useSelector((state) => state.addToCartSlice.allProduct);
-  const [flag, setFlag] = useState(1);
   const [tot, setTot] = useState(0);
 
   const showCart = () => {
@@ -22,24 +25,29 @@ const CartContainer = () => {
       cartShow: !cartShow,
     });
   };
-
   useEffect(() => {
-    let totalPrice = cartItems.reduce(function (accumulator, item) {
-      return accumulator + item.qty * item.price;
+
+    let totalprice = DataUse.reduce(function (sum, item) {
+      return sum + item.quantity * item.price;
     }, 0);
-    setTot(totalPrice);
-    console.log(tot);
-  }, [tot, flag]);
+    setTot(totalprice);
+  }, [tot, DataUse]);
 
-  const clearCart = () => {
-    dispatch({
-      type: actionType.SET_CARTITEMS,
-      cartItems: [],
-    });
-
-    localStorage.setItem('cartItems', JSON.stringify([]));
+  const clearCart = (e) => {
+    Dispatch(clearAll());
   };
 
+  const showModal = () => {
+    console.log('showModal');
+    dispatch({
+      type: actionType.SET_MODAL_SHOW,
+      modalShow: !modalShow,
+    });
+    dispatch({
+      type: actionType.SET_CART_SHOW,
+      cartShow: !cartShow,
+    });
+  };
   return (
     <motion.div
       initial={{ opacity: 0, x: 200 }}
@@ -48,13 +56,13 @@ const CartContainer = () => {
       className='fixed top-0 right-0 w-full md:w-375 h-screen bg-amber-200 drop-shadow-md flex flex-col z-[101]'
     >
       <div className='w-full flex items-center justify-between p-4 cursor-pointer'>
-        <motion.div whileTap={{ scale: 0.75 }} onClick={showCart}>
+        <motion.div whiletap={{ scale: 0.75 }} onClick={showCart}>
           <MdOutlineKeyboardBackspace className='text-textColor text-3xl' />
         </motion.div>
         <p className='text-grey-400 text-lg font-semibold'>Cart</p>
 
         <motion.p
-          whileTap={{ scale: 0.75 }}
+          whiletap={{ scale: 0.75 }}
           className='flex items-center gap-2 p-1 px-2 my-2 bg-yellow-100 rounded-md hover:shadow-md font-semibold cursor-pointer text-textColor text-base'
           onClick={clearCart}
         >
@@ -74,8 +82,6 @@ const CartContainer = () => {
                 <CartItem
                   key={data.id}
                   item={data}
-                  setFlag={setFlag}
-                  flag={flag}
                 />
               ))}
           </div>
@@ -102,15 +108,15 @@ const CartContainer = () => {
 
             {user ? (
               <motion.button
-                whileTap={{ scale: 0.8 }}
+                whiletap={{ scale: 0.8 }}
                 type='button'
-                className='w-full p-2 rounded-full bg-gradient-to-tr from-yellow-300 to-yellow-600 text-gray-60 font-semibold text-lg my-2 hover:shadow-lg'
+                className='w-full p-2 rounded-full bg-gradient-to-tr from-yellow-300 to-yellow-600 text-gray-60 font-semibold text-lg my-2 hover:shadow-lg' onClick={showModal}
               >
                 Check Out
               </motion.button>
             ) : (
               <motion.button
-                whileTap={{ scale: 0.8 }}
+                whiletap={{ scale: 0.8 }}
                 type='button'
                 className='w-full p-2 rounded-full bg-gradient-to-tr from-yellow-300 to-yellow-600 text-gray-50 font-semibold text-lg my-2 hover:shadow-lg'
               >
