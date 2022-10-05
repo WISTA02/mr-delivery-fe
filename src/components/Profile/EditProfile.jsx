@@ -28,7 +28,7 @@ function EditProfile() {
             />
           </div>
           <div>
-            <label class='block mb-2 text-xl font-medium text-yellow-500 '>
+            <label className='block mb-2 text-xl font-medium text-yellow-500 '>
               Your email
             </label>
             <input
@@ -40,7 +40,7 @@ function EditProfile() {
             />
           </div>
           <div>
-            <label class='block mb-2 text-xl font-medium text-yellow-500 '>
+            <label className='block mb-2 text-xl font-medium text-yellow-500 '>
               Your password
             </label>
             <input

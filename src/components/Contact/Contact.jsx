@@ -1,68 +1,54 @@
-import React from "react";
+import React, { useRef } from 'react'
+import './contact.css'
+import { FiMail } from 'react-icons/fi';
+// import { RiMessengerLine } from 'react-icons/ri';
+import { BsWhatsapp } from 'react-icons/bs';
+import emailjs from 'emailjs-com'
 
 const Contact = () => {
-  return (
-    <div>
-      <div className="container mb-8">
-        <div className="row">
-          <div className="mb-4 text-4xl tracking-tight font-extrabold text-center text-yellow-500  dark:text-white hover:shadow-md cursor-pointer">
-           <br/>
-            <h1>Have Some Question?</h1>
-            <hr />
-          </div>
-        </div>
-        <div className="row">
-          <div className="block mb-2 text-xl font-medium text-yellow-500 dark:text-gray-700 hover:shadow-md ">
-            <img
-              src="/assets/contact.png"
-              alt="Contact Us"
-              height="200px"
-              width="200px"
-            />
-          </div>
-          <div className="col-md-6">
-            <form>
-              <div class="block mb-2 text-xl font-medium text-yellow-500 dark:text-gray-700 hover:shadow-md ">
-                <label for="exampleForm" class="form-label">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleForm"
-                  placeholder="John Smith"
-                />
-              </div>
-              <div class=" block mb-2 text-xl font-medium text-yellow-500 dark:text-gray-700 hover:shadow-md ">
-                <label for="exampleFormControlInput1" class="form-label">
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="name@example.com"
-                />
-              </div>
-              <div class="block mb-2 text-xl font-medium text-yellow-500 dark:text-gray-700 hover:shadow-md ">
-                <label for="exampleFormControlTextarea1" class="form-label">
-                  Example textarea
-                </label>
-                <textarea
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="5"
-                ></textarea>
-              </div>
-              <button type="submit" class="bg-transparent font-xl font-extrabold hover:bg-yellow-500 text-grey-700  hover:text-white py-2 px-4 border border-yellow-500 hover:border-transparent rounded">
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  const form=useRef();
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs.sendForm('service_xffh0gp', 'template_brhwsgx', form.current, 'FdRg-sb4wAkcxmhnO')
+    .then((result) => {
+        console.log(result.text,"send it successfully");
+        e.target.reset();
+    }, (error) => {
+        console.log(error.text);
+    });
 };
 
-export default Contact;
+  return (
+    <section id='contact'>
+      <h1 className='text-center text-black text-2xl font-bold mb-8 ' > Contant Us Now </h1>
+      {/* Contact Me */}
+      <div className="container contact__container">
+        <div className="contact__options">
+          <article className='contact__option'>
+            <FiMail className='contact__option-icon' />
+            <h4>Email</h4>
+            <h5>wista@gmail.com</h5>
+            <a href='mailto:wista@gmail.com' rel="noreferrer" target="_blank">Send A Message</a>
+          </article>
+          <article className='contact__option'>
+            <BsWhatsapp  className='contact__option-icon'/>
+            <h4>WhatsApp</h4>
+            <h5>+962787810864</h5>
+            <a href='https://api.whatsapp.com/send?phone=962787810864' rel="noreferrer" target="_blank">Send A Message</a>
+          </article>
+        </div>
+        {/*  Data Form */}
+        <form className='contact-form' ref={form} onSubmit={sendEmail}>
+          <input type="text" name='name' placeholder='Your Full Name' required />
+          <input type="email" name="email" placeholder='Your Email' required />
+          <textarea name="message" rows="7" placeholder='Your Message ' required></textarea>
+          <button type='submit' className='btn bg-yellow-300 hover:bg-yellow-600 text-black '> Send a Message</button>
+        </form>
+      </div>
+    </section>
+
+  )
+}
+
+export default Contact

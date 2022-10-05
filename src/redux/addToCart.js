@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 const initialState = {
   value: 0,
@@ -25,7 +24,7 @@ export const addToCartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       state.allProduct = state.allProduct.filter(
-        (a, i) => a.id != action.payload
+        (a, i) => a.id !== action.payload
       );
       window.localStorage.AddToCart = JSON.stringify(state);
     },
@@ -37,7 +36,7 @@ export const addToCartSlice = createSlice({
     modifyquantity: (state, action) => {
       //Find index of specific object using findIndex method.
       const objIndex = state.allProduct.findIndex(
-        (obj) => obj.id == action.payload.id
+        (obj) => obj.id === action.payload.id
       );
       let newnumber = Number(state.allProduct[objIndex].quantity);
 
@@ -48,7 +47,7 @@ export const addToCartSlice = createSlice({
     modifyquantitydecrese: (state, action) => {
       //Find index of specific object using findIndex method.
       const objIndex = state.allProduct.findIndex(
-        (obj) => obj.id == action.payload.id
+        (obj) => obj.id === action.payload.id
       );
       let newnumber = Number(state.allProduct[objIndex].quantity);
       newnumber -= 1;
@@ -64,6 +63,7 @@ export const {
   removeFromCart,
   modifyquantity,
   modifyquantitydecrese,
+  clearAll,
 } = addToCartSlice.actions;
 
 export default addToCartSlice.reducer;

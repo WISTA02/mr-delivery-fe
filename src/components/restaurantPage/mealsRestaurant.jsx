@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Pagination from './pagination';
 import styles from './restaurant.module.css';
-import { useStateValue } from '../../context/StateProvider';
-import { actionType } from '../../context/reducer';
 import { FcTodoList } from 'react-icons/fc';
 import { BsInfoCircleFill } from 'react-icons/bs';
 import { useContext } from 'react';
@@ -74,7 +72,6 @@ function MealsRestaurant() {
       price: 20,
     },
   ]);
-  const [loading, setLoading] = useState(false);
   const [currnetPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(5);
 
@@ -122,7 +119,7 @@ function MealsRestaurant() {
 
   const cards = currnetCard.map(({ image, id, name, price }, idx) => (
     <div className={styles.card} key={idx}>
-      <img src={image} alt='image' className={styles['meal-img']} />
+      <img src={image} alt='' className={styles['meal-img']} />
       <div className={styles['name-meal']}>
         <div className={styles['title-meal']}>{name}</div>
         <div className={styles['meal-price']}>{price}</div>
@@ -131,7 +128,7 @@ function MealsRestaurant() {
       <button
         onClick={Addcert}
         className={styles['order-btn']}
-        whileTap={{ scale: 0.75 }}
+        whiletap={{ scale: 0.75 }}
         datatype={`${image}###${id}###${name}###${price}`}
       >
         Order Now
@@ -141,22 +138,6 @@ function MealsRestaurant() {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const [items, setItems] = useState([]);
-
-  const [{ cartItems }, dispatch] = useStateValue();
-
-  const addtocart = () => {
-    dispatch({
-      type: actionType.SET_CARTITEMS,
-      cartItems: items,
-    });
-    window.localStorage.cartItems = JSON.stringify(items);
-    console.log(items);
-  };
-
-  useEffect(() => {
-    addtocart();
-  }, [items]);
   return (
     <>
       <div className={styles['all']}>

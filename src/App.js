@@ -1,14 +1,8 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { getAllFoodItems } from './utils/firebaseFunctions';
 import { actionType } from './context/reducer';
 import { AnimatePresence } from 'framer-motion';
-import {
-  CartContainer,
-  CreateContainer,
-  Header,
-  MainContainer,
-} from './components';
+import {CartContainer, CreateContainer, Header,MainContainer} from './components';
 import { useStateValue } from './context/StateProvider';
 import { store } from './redux/store/store';
 import { Provider } from 'react-redux';
@@ -30,9 +24,10 @@ import Footer from './components/Footer/Footer';
 import Contact from './components/Contact/Contact';
 import Restaurant from './components/restaurantPage/restaurant';
 import { AddCart_DataProvider } from './components/context-api/card-context';
+import { getAllRest, getAllFoodItems } from './api/api';
 
 const App = () => {
-  const [{ foodItems, cartShow }, dispatch] = useStateValue();
+  const [{  cartShow }, dispatch] = useStateValue();
 
   const fetchData = async () => {
     await getAllFoodItems().then((data) => {
@@ -41,8 +36,13 @@ const App = () => {
         foodItems: data,
       });
     });
-  };
-
+    await getAllRest().then((data) => {
+      dispatch({
+        type: actionType.SET_REST_ITEMS,
+        restItems: data,
+      });
+    });
+};
   useEffect(() => {
     fetchData();
   }, []);
