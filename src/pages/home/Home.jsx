@@ -7,7 +7,6 @@ import WidgetSm from "../../components/widgetSm/WidgetSm";
 import Sidebar from "../../components/sidebar/Sidebar";
 // import SearchBar from "../../components/Searchbar";
 // import Sidebar from "../../components/sidebar/Si";
-import SearchBar from "material-ui-search-bar";
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <Sidebar></Sidebar>
       <div className="home">
 
-      <SearchBar/>
       <FeaturedInfo />
       <Chart data={userData} title="Order Analytics" grid dataKey="Orders"/>
       <div className="homeWidgets">

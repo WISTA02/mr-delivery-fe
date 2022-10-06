@@ -1,43 +1,36 @@
+import "./RestMeal.css"
+
+
 import axios from "axios";
 import { useState } from "react";
 import SelectRest from "../../components/Select/Select";
 import Sidebar from "../../components/sidebar/Sidebar";
-import "./newProduct.css";
+// import "./newProduct.css";
 // import axios from 'axios'
 import Cookies from 'universal-cookie';
+import { useParams } from "react-router-dom";
 const cookies = new Cookies();
-/**{
-   "name": "JFC",
-   "delivery_fee": 2,
-   "location": {"city" : "amman",
-              "details" : ""
-   
-},
-    "owner_id" : 7,
-    "category": ["chicken", "pizza"],
-    "image" : {
-          "cover" : "hthtsa",
-          "main" : "hrwea"
-}
 
-} */
-export default function NewProduct() {
+
+export default function RestMeal() {
   const [cat, setCat] = useState([]);
+  const params = useParams();
+
 
   const handleCat = (category) => {
     console.log({ category });
     const x = [];
     setCat([]);
     category.forEach((e) => x.push(e.value));
-    // x.push(x[x.length-1])
     setCat(x);
     console.log({ cat });
   };
-  const createNewRest =async (rest) => {
+  const createNewRest =async (meal) => {
     try {
-    let url = `http://localhost:5000/restaurant`;
+      
+    let url = `http://localhost:5000/meal/${params.id}`;
 
-      const response = await axios.post(url,rest , {
+      const response = await axios.post(url,meal , {
         headers: {
           Authorization: `Bearer ${cookies.get('data').user.token}`
         }
@@ -51,31 +44,32 @@ export default function NewProduct() {
   };
   const handleCreate = (e) => {
     e.preventDefault();
-    let restName = e.target.restName.value.toString();
+    let restName = e.target.restName.value;
 
-    let ownerId = e.target.ownerId.value;
+   
 
     let imgCover = e.target.imgCover.value;
 
     let imgMain = e.target.imgMain.value;
 
-    let location = e.target.location.value;
+  
 
-    let delivery_fee = e.target.delivery_fee.value;
+    let price = e.target.price.value;
+    let description = e.target.description.value;
 
-    let rest = {
+
+    let meal = {
       name: restName,
-      delivery_fee: delivery_fee,
-      location: { city: location },
-      owner_id: ownerId,
-      category: cat,
+      price:price,
+      flag: cat,
+      description:description,
       image: {
         cover: imgCover,
         main: imgMain,
       },
     };
-    console.log({ rest });
-    createNewRest((rest));
+    // console.log({ rest });
+    createNewRest((meal));
     setCat([]);
 
     e.target.reset();
@@ -85,7 +79,7 @@ export default function NewProduct() {
     <div className="sb">
       <Sidebar />
       <div className="newProduct">
-        <h1 className="addProductTitle">New Restaurant</h1>
+        <h1 className="addProductTitle">New Product</h1>
         <form className="addProductForm" onSubmit={handleCreate}>
           <div className="divdiv">
             <div>
@@ -94,7 +88,7 @@ export default function NewProduct() {
                 <input
                   type="text"
                   name="restName"
-                  placeholder="Apple Airpods"
+                  placeholder="burger"
                 />
               </div>
 
@@ -103,18 +97,15 @@ export default function NewProduct() {
                 <SelectRest handleCat={handleCat} />
               </div>
               <div className="addProductItem">
-                <label>Delivery Fee</label>
-                <input type="number" name="delivery_fee" placeholder="123" />
+                <label>Price</label>
+                <input type="number" name="price" placeholder="123" />
               </div>
-              <div className="addProductItem">
-                <label>Location</label>
-                <input type="text" name="location" placeholder="Amman" />
-              </div>
+              
             </div>
             <div className="div2">
               <div className="addProductItem">
-                <label>Owner ID</label>
-                <input type="number" name="ownerId" placeholder="123" />
+                <label>Description</label>
+                <input type="text" name="description" placeholder="nice meal" />
               </div>
               <div className="addProductItem">
                 <label>Image Cover</label>

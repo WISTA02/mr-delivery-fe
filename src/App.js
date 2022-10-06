@@ -24,6 +24,9 @@ import Contact from "./components/Contact/Contact";
 import Restaurant from './components/restaurantPage/restaurant';
 import OrderHistory from './components/OrderHistory/OrderHistory';
 import SearchBar from './components/Searchbar';
+import NewMeal from './components/newMeal/NewMeal';
+import RestMeal from './pages/restMeal/RestMeal';
+
 
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
@@ -64,7 +67,8 @@ const App = () => {
             <Route path='/about' element={<About />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/signin' element={<Signin />} />
-            <Route path='/ser' element={<NewMeal />} />
+            <Route path='/new-meal' element={<NewMeal />} />
+            <Route path='/restMeal/:id' element={<RestMeal />} />
 
             <Route path='/userprofile' element={<UserProfile />} />
             <Route path='/editprofile' element={<EditProfile />} />
