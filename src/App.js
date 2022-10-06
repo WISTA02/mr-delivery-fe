@@ -19,10 +19,10 @@ import WidgetLg from "./components/widgetLg-driver/WidgetLg";
 import WidgetLg2 from "./components/widgetLg-rest/WidgetLg";
 import Footer from './components/Footer/Footer'
 import Contact from "./components/Contact/Contact";
-import Footer from './components/Footer/Footer';
 import Restaurant from './components/restaurantPage/restaurant';
 import { AddCart_DataProvider } from './components/context-api/card-context';
 import { getAllRest, getAllFoodItems } from './api/api';
+import OrderHistory from './components/OrderHistory/OrderHistory';
 
 const App = () => {
   const [{  cartShow }, dispatch] = useStateValue();
@@ -71,6 +71,7 @@ const App = () => {
                 <Route path='/signin' element={<Signin />} />
                 <Route path='/userprofile' element={<UserProfile />} />
                 <Route path='/restaurant' element={<Restaurant />} />
+                <Route path='/orderhistory' element={<OrderHistory/>}/>
               </Routes>
             </main>
             <Footer />
