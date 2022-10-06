@@ -22,11 +22,11 @@ We were able to do this project, we are proud of ourselves, during this simple p
 We hope that you will like it and support you.
 WISTA TEAM</p>
 
-    <div class="container">
+    <div className="container-about">
       
-  <div class="card">
+  <div className="card-about">
   <br/>
-    <img src={tasneem} alt="Person" class="card__image"/>
+    <img src={tasneem} alt="Person" className="card__image-about"/>
     <div className="px-4 py-4"></div>
     <div className="font-bold text-sm mb-2">Tasneem Maqableh</div>
     <p className="text-black text-sm font-medium ">
@@ -55,9 +55,9 @@ FullStack web developer -<br/> Telecom and software engineer  </p>
   </div>
   </div>
 
-  <div class="card">
+  <div className="card-about">
     <br/>
-    <img src={samah} alt="Person" class="card__image"/>
+    <img src={samah} alt="Person" className="card__image-about"/>
     <div className="px-4 py-4"></div>
     <div className="font-bold text-sm mb-2">Samah Al satary</div>
     <p className="text-black text-sm font-medium ">
@@ -86,9 +86,9 @@ FullStack web developer -<br/> Telecom and software engineer  </p>
   </div>
  
   </div>
-  <div class="card">
+  <div className="card-about">
     <br/>
-    <img src={anas} alt="Person" class="card__image"/>
+    <img src={anas} alt="Person" className="card__image-about"/>
     <div className="px-4 py-4"></div>
     <div className="font-bold text-sm mb-2">Anas abuobaid</div>
     <p className="text-black text-sm font-medium ">
@@ -117,8 +117,8 @@ FullStack web developer - Computer Science  </p>
   </div>
   </div>
 
-  <div class="card">
-    <img src={ibraheem} alt="Person" class="card__image"/>
+  <div className="card-about">
+    <img src={ibraheem} alt="Person" className="card__image-about"/>
     <div className="px-4 py-4"></div>
     <div className="font-bold text-sm mb-2">Ibraheem Hammoudeh</div>
     <p className="text-black text-sm font-medium ">
@@ -147,8 +147,8 @@ FullStack web developer - Computer Science  </p>
   </div>
   </div>
 
-  <div class="card">
-    <img src={wajeeh} alt="Person" class="card__image"/>
+  <div className="card-about">
+    <img src={wajeeh} alt="Person" class="card__image-about"/>
     <div className="px-4 py-4"></div>
     <div className="font-bold text-sm mb-2">Wajeeh Hussein</div>
     <p className="text-black text-sm font-medium ">

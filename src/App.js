@@ -8,12 +8,10 @@ import { useStateValue } from './context/StateProvider';
 import Signup from './components/Signup/Signup';
 import Signin from './components/Signin/Signin.jsx';
 import UserProfile from './components/Profile/UserProfile';
-import EditProfile from './components/Profile/EditProfile';
 import About from './components/About/about';
 import Home2 from "./pages/home/Home";
 import UserList from "./pages/userList/UserList";
-import User from "./pages/user/User";
-import NewUser from "./pages/newUser/NewUser";
+import NewUser from "./components/Profile/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
@@ -54,7 +52,6 @@ const App = () => {
             <Route path="/admin/driver" element={<WidgetLg />}></Route>
             <Route path="/admin/resturant" element={<WidgetLg2 />}></Route>
             <Route path="/Ordersapprove" element={<UserList />}></Route>
-            <Route path="/user/:userId" element={<User />}></Route>
             <Route path="/newUser" element={<NewUser />}></Route>
             <Route path="/driver-order" element={<ProductList />}></Route>
             <Route path="/product/:productId" element={<Product />}></Route>
@@ -64,15 +61,13 @@ const App = () => {
             <Route path='/signup' element={<Signup />} />
             <Route path='/signin' element={<Signin />} />
             <Route path='/userprofile' element={<UserProfile />} />
-            <Route path='/editprofile' element={<EditProfile />} />
             <Route path='/restaurant' element={<Restaurant />} />
             <Route path='/orderhistory' element={<OrderHistory/>} />
           </Routes>
          
         </main>
-
-      </div>
         <Footer />
+      </div>
     </AnimatePresence>
   );
 };
