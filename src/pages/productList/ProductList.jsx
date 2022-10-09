@@ -79,69 +79,9 @@ export default function ProductList() {
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
-
-  // const columns = [
-  //   { field: "id", headerName: "ID", width: 90 },
-  //   {
-  //     field: "product",
-  //     headerName: "Product",
-  //     width: 200,
-  //     renderCell: (params) => {
-  //       return (
-  //         <div className="productListItem">
-  //           <img className="productListImg" src={params.row.img} alt="" />
-  //           {params.row.name}
-  //         </div>
-  //       );
-  //     },
-  //   },
-  //   { field: "stock", headerName: "Stock", width: 200 },
-  //   {
-  //     field: "status",
-  //     headerName: "Status",
-  //     width: 120,
-  //   },
-  //   {
-  //     field: "price",
-  //     headerName: "Price",
-  //     width: 160,
-  //   },
-  //   {
-  //     field: "action",
-  //     headerName: "Action",
-  //     width: 150,
-  //     renderCell: (params) => {
-  //       return (
-  //         <>
-
-  //           <Link to={"/product/" + params.row.id}>
-  //             <button className="productListEdit">Edit</button>
-  //           </Link>
-  //           <DeleteOutline
-  //             className="productListDelete"
-  //             onClick={() => handleDelete(params.row.id)}
-  //           />
-
-  //         </>
-  //       );
-  //     },
-  //   },
-  // ];
+  
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
-    // {
-    //   field: "all_items",
-    //   headerName: "Order",
-    //   width: 200,
-    //   renderCell: (params) => {
-    //     return (
-    //       <div className="userListUser">
-    //         {/* <img className="userListImg" src={params.row.avatar} alt="" /> */}
-    //         {params.row.username}
-    //       </div>
-    //     );
-    //   },
-    // },
     { field: "all_items", headerName: "Order Details", width: 200 },
     { field: "restaurant_name", headerName: "Resturant", width: 130 },
     { field: "restaurant_location", headerName: "Location", width: 200 },
@@ -164,8 +104,8 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            {/* <Link to={"/user/" + params.row.id}> */}
-            <button id="change" onClick={() => handleChange(params.row.id)}>Change Statues</button>
+    
+              <button id="change"  onClick={() => handleChange(params.row.id)}>Change Statues</button>
             {/* </Link> */}
             {/* <DeleteOutline
               classNa me="userListDelete"

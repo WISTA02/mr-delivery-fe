@@ -144,7 +144,6 @@ const Header = () => {
             id='navbar-sticky'
           >
             <ul className='flex flex-col  p-4 mt-4 bg-primary rounded-lg border border-primary md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-primary dark:bg-primary md:dark:bg-primary dark:border-primary'>
-
               <li>
                 <Link
                   to='/'

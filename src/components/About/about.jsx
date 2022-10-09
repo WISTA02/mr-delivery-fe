@@ -4,8 +4,13 @@ import samah from '../../img/samah.jpg'
 import anas from '../../img/anas.jpg'
 import ibraheem from '../../img/ibraheem.jpg'
 import wajeeh from '../../img/wajeeh.jpg'
+<<<<<<< HEAD
+// import './about.css'
+function About(){
+=======
 import './about.css'
 function About() {
+>>>>>>> 418b53e105fecf690bf7b7a9f10f23fb0e06ca67
 
   return (
     <div>

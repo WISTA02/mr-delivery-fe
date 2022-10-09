@@ -96,19 +96,6 @@ export default function UserList() {
   }, [statusOrder]);
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
-    // {
-    //   field: "all_items",
-    //   headerName: "Order",
-    //   width: 200,
-    //   renderCell: (params) => {
-    //     return (
-    //       <div className="userListUser">
-    //         {/* <img className="userListImg" src={params.row.avatar} alt="" /> */}
-    //         {params.row.username}
-    //       </div>
-    //     );
-    //   },
-    // },
     { field: "all_items", headerName: "Order Details", width: 200 },
     {
       field: "status",
