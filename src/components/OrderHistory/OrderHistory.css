@@ -38,6 +38,9 @@
   color: red;
   cursor: pointer;
 }
+.userListDelete:hover {
+transform: scale(1.5);
+}
 .sb {
   display: flex;
 }

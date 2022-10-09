@@ -23,7 +23,8 @@ import Restaurant from './components/restaurantPage/restaurant';
 import { AddCart_DataProvider } from './components/context-api/card-context';
 import { getAllRest, getAllFoodItems } from './api/api';
 import OrderHistory from './components/OrderHistory/OrderHistory';
-
+import NewMeal from './components/newMeal/NewMeal';
+import RestMeal from './pages/restMeal/RestMeal';
 const App = () => {
   const [{  cartShow }, dispatch] = useStateValue();
 
@@ -72,6 +73,8 @@ const App = () => {
                 <Route path='/userprofile' element={<UserProfile />} />
                 <Route path='/restaurant' element={<Restaurant />} />
                 <Route path='/orderhistory' element={<OrderHistory/>}/>
+                <Route path='/new-meal' element={<NewMeal />} />
+            <Route path='/restMeal/:id' element={<RestMeal />} />
               </Routes>
             </main>
             <Footer />

@@ -27,17 +27,36 @@ export default function Sidebar() {
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
             {/* <Auth role="admin"> */}
-              <Link to="/admin" className="link">
-                <li className="sidebarListItem active">
-                  <LineStyle className="sidebarIcon" />
-                  Home
-                </li>
-              </Link>
+            <Link to="/admin" className="link">
+              <li className="sidebarListItem active">
+                <LineStyle className="sidebarIcon" />
+                Home
+              </li>
+            </Link>
             {/* </Auth> */}
           </ul>
         </div>
         <div className="sidebarMenu">
+          <Auth role="admin">
+            <h3 className="sidebarTitle">Create/Update/Delete</h3>
+          </Auth>
+          <ul className="sidebarList">
+          
+            <Auth role="admin">
+
+            <Link to="/new-meal" className="link">
+              <li className="sidebarListItem active">
+                <LineStyle className="sidebarIcon" />
+                Restaurant
+              </li>
+            </Link>
+            </Auth>
+          </ul>
+        </div>
+        <div className="sidebarMenu">
+          <Auth role="owner,driver">
           <h3 className="sidebarTitle">Quick Menu</h3>
+          </Auth>
           <ul className="sidebarList">
             <Auth role="owner">
               <Link to="/Ordersapprove" className="link">
