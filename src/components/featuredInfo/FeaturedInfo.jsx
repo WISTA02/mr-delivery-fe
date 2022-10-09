@@ -4,9 +4,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import { async } from "@firebase/util";
-import { getInitialGridColumnReorderState } from "@material-ui/data-grid";
-import Auth from "../authComponent/auth";
 const cookies=new Cookies();
 
 export default function FeaturedInfo() {

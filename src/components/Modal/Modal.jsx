@@ -21,14 +21,14 @@ const Modal = () => {
     };
     useEffect(() => {
         items = DataUse;
-    }, [items]);
+    }, [DataUse]);
 
     useEffect(() => {
         let totalprice = DataUse.reduce(function (sum, item) {
             return sum + item.quantity * item.price;
         }, 0);
         setTot(totalprice);
-    }, [tot]);
+    }, [tot,DataUse]);
 
     const handlePay = () => {
         setPay(false);

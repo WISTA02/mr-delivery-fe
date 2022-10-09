@@ -1,84 +1,61 @@
-import React,{useState, useEffect} from "react";
-
-import {
-  CalendarToday,
-  LocationSearching,
-  MailOutline,
-  PermIdentity,
-  PhoneAndroid,
-  Publish,
-} from "@material-ui/icons";
+import React, { useState } from "react";
+import { LocationSearching, MailOutline, PermIdentity, PhoneAndroid } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import "./UserProfile.css";
-import axios from "axios";
-import Cookies from "universal-cookie";
-const cookies = new Cookies();
-
+import { updateUserInfo } from '../../api/api'
+import { isAuthenticated, logOut, signIn } from "../auth";
+import { useNavigate } from 'react-router-dom';
 
 export default function User() {
-  const [data, setData] = useState([]);
-  
-  const [username, setUsername]= useState(cookies.get("data").user.username);
-  console.log(cookies.get("data").user);
-  // const [password, setPassword]= useState(cookies.get("data").user.password);
-  // const [email, setEmail]= useState(cookies.get("data").user.email);
-  // const [phone, setPhone]= useState(cookies.get("data").user.phone);
-  // const [location, setLocation]= useState(cookies.get("data").user.location);
-  
+  const { user } = isAuthenticated()
+  const navigate = useNavigate();
 
-const handleUpdate =(e)=>{
-  e.preventDefault();
-let username = e.target.username.value;
-let password = e.target.password.value;
-let email = e.target.email.value;
-let phone = e.target.phone.value;
-let location = e.target.location.value;
-console.log({location});
+  const [oldData] = useState({
+    usernameOld: user.username,
+    emailOld: user.email,
+    passwordOld: user.password,
+    phoneOld: user.phone,
+    locationOld: user.location,
+  });
 
-const newUser = {
-  username: username,
-  password: password,
-  email: email,
-  phone: phone,
-  location: {city:location}
-}
+  const { usernameOld, emailOld, phoneOld, locationOld } = oldData;
 
-updateUser(newUser);
-}
+  const [data, setData] = useState({
+    username: user.username,
+    email: user.email,
+    password: user.password,
+    phone: user.phone,
+    location: user.location,
+  });
 
+  const { username, password, email, phone, location } = data;
 
+  const handleChange = (name) => (event) => {
+    console.log(user)
+    setData({
+      ...data,
+      [name]: event.target.value,
+    });
+  };
 
-  async function updateUser(newUser) {
-    try {
-      console.log(cookies.get("data").user);
-      const response = await axios.put("http://localhost:5000/edit-account",newUser ,{
-        headers: {
-          Authorization: `Bearer ${cookies.get("data").user.token}`,
-        },
-      });
-      
-      setUsername(response.data.username);
-      // setPassword(response.data.password);
-      // setEmail(response.data.email);
-      // setPhone(response.data.phone);
-      // setLocation(response.data.location);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updateUserInfo(data, user.token).then((data) => {
+      setData({ ...data });
+
+      //let x= signIn({username,password});
+
+      // console.log("sigin ssssssss"+x)
+    });
 
 
-      // cookies.set('data', response.data.user, {path: '/'});
-      // cookies.set("data",response.data.user)
-      // console.log(response.data);
-    } catch (err) {
-      console.log(err);
-    }
-  } 
-
-  useEffect(() => {
-   
-  }, [username]);
+    logOut();
+    navigate("/signin");
+  };
 
   return (
     <div className="user">
-     
+
       <div className="userTitleContainer rounded">
         <h1 className="userTitle">Edit User</h1>
         <Link to="/newUser">
@@ -88,101 +65,90 @@ updateUser(newUser);
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop rounded">
-            <img
-              src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              alt=""
-              className="userShowImg"
-            />
+
             <div className="userShowTopTitle">
-              <span className="userShowUsername">{username}</span>
+              <span className="userShowUsername">{usernameOld}</span>
             </div>
           </div>
           <div className="userShowBottom">
             <span className="userShowTitle">Account Details</span>
             <div className="userShowInfo">
               <PermIdentity className="userShowIcon" />
-              <span className="userShowInfoTitle">{username}</span>
+              <span className="userShowInfoTitle">{usernameOld}</span>
             </div>
-         
+
             <span className="userShowTitle">Contact Details</span>
             <div className="userShowInfo">
               <PhoneAndroid className="userShowIcon" />
-              <span className="userShowInfoTitle">+962 123 456 678</span>
+              <span className="userShowInfoTitle">{phoneOld}</span>
             </div>
             <div className="userShowInfo">
               <MailOutline className="userShowIcon" />
-              <span className="userShowInfoTitle">ttttt@gmail.com</span>
+              <span className="userShowInfoTitle">{emailOld}</span>
             </div>
             <div className="userShowInfo">
               <LocationSearching className="userShowIcon" />
-              <span className="userShowInfoTitle">Amman | JORDAN</span>
+              <span className="userShowInfoTitle">{locationOld}</span>
             </div>
           </div>
         </div>
         <div className="userUpdate">
           <span className="userUpdateTitle">Edit Account</span>
-          <form className="userUpdateForm" onSubmit={handleUpdate}>
+          <form className="userUpdateForm" onSubmit={handleSubmit}>
             <div className="userUpdateLeft">
               <div className="userUpdateItem">
                 <label>Username</label>
                 <input
-                name="username"
+                  name="username"
                   type="text"
-                  placeholder="johnnike99"
                   className="userUpdateInput rounded"
-                 
+                  placeholder={username}
+                  onChange={handleChange('username')}
                 />
               </div>
               <div className="userUpdateItem">
                 <label>New Password</label>
                 <input
-                name="password"
-                  type="text"
-                  placeholder="******"
+                  name="password"
+                  type="password"
+                  placeholder="*********"
                   className="userUpdateInput rounded"
-                 
+                  onChange={handleChange('password')}
                 />
               </div>
               <div className="userUpdateItem">
                 <label>Email</label>
                 <input
-                name="email"
+                  name="email"
                   type="email"
-                  placeholder="ttttt@gmail.com"
                   className="userUpdateInput rounded"
+                  placeholder={email}
+                  onChange={handleChange('email')}
                 />
               </div>
               <div className="userUpdateItem">
                 <label>Phone</label>
                 <input
-                name="phone"
-                  type="text"
-                  placeholder="+962 123 456 678"
+                  name="phone"
+                  type="number"
                   className="userUpdateInput rounded"
+                  placeholder={phone}
+                  onChange={handleChange('phone')}
                 />
               </div>
               <div className="userUpdateItem">
                 <label>Location</label>
                 <input
-                name="location"
+                  name="location"
                   type="text"
-                  placeholder="Amman | JORDAN"
                   className="userUpdateInput rounded"
+                  placeholder={location}
+                  onChange={handleChange('location')}
                 />
               </div>
             </div>
             <div className="userUpdateRight">
-              <div className="userUpdateUpload">
-                <img
-                  className="userUpdateImg"
-                  src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                  alt=""
-                />
-                <label htmlFor="file">
-                  <Publish className="userUpdateIcon" />
-                </label>
-                <input type="file" id="file" style={{ display: "none" }} />
-              </div>
+
               <button className="userUpdateButton">Update</button>
             </div>
           </form>
