@@ -1,8 +1,5 @@
 import "./productList.css";
-import { DataGrid, DATA_GRID_PROPTYPES, getInitialGridColumnReorderState } from "@material-ui/data-grid";
-import { DeleteOutline } from "@material-ui/icons";
-import { productRows } from "../../dummyData";
-import { Link } from "react-router-dom";
+import { DataGrid } from "@material-ui/data-grid";
 import { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { useEffect } from "react";
@@ -31,58 +28,57 @@ export default function ProductList() {
         console.log(e);
       });
   };
-// const getOrder=()=>{
-//   const config = {
-//     headers: { Authorization: `Bearer ${cookies.get('data').user.token}` },
-//   };
+  // const getOrder=()=>{
+  //   const config = {
+  //     headers: { Authorization: `Bearer ${cookies.get('data').user.token}` },
+  //   };
 
-//   // const bodyParameters = {
-//   //   statusOrder,
-//   // };
+  //   // const bodyParameters = {
+  //   //   statusOrder,
+  //   // };
 
-//   axios.get(`http://localhost:5000/driver`,config)
-//     .then((data) => {
-//      setData(data.data)
-//      console.log(data.data);
-//     })
-//     .catch((e) => {
-//       console.log(e);
-//     });
-// } 
-async function getOrder() {
-  try {
-    let orderDetails = ""; 
-    const response = await axios.get('http://localhost:5000/driver', {
-      headers: {
-        Authorization: `Bearer ${cookies.get('data').user.token}`
-      }
-    });
-    // const updatedList = response.data.filter((x) => x.role === 'driver');
-    response.data.map((element) => {
-      element.all_items.forEach((e) => {
-        orderDetails +=  orderDetails += e.quantity+ " " + e.name + ",";;
+  //   axios.get(`http://localhost:5000/driver`,config)
+  //     .then((data) => {
+  //      setData(data.data)
+  //      console.log(data.data);
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // } 
+  async function getOrder() {
+    try {
+      let orderDetails = "";
+      const response = await axios.get('http://localhost:5000/driver', {
+        headers: {
+          Authorization: `Bearer ${cookies.get('data').user.token}`
+        }
       });
-      element.restaurant_location="Amman,str.abdallah-gosheh"
-      element.all_items = orderDetails.slice(0, -1);;
-      orderDetails = "";
-    });
-    setData(response.data);
-  } catch (err) {
-    console.log(err);
+      // const updatedList = response.data.filter((x) => x.role === 'driver');
+      response.data.map((element) => {
+        element.all_items.forEach((e) => {
+          orderDetails += orderDetails += e.quantity + " " + e.name + ",";;
+        });
+        element.restaurant_location = "Amman,str.abdallah-gosheh"
+        element.all_items = orderDetails.slice(0, -1);;
+        orderDetails = "";
+      });
+      setData(response.data);
+    } catch (err) {
+      console.log(err);
+    }
   }
-}
- 
-  useEffect(() => {
-    getOrder();  
 
-  }, []);    
-  useEffect(()=>{
+  useEffect(() => {
     getOrder();
-   },[statusOrder])
+
+  }, []);
+  useEffect(() => {
+    getOrder();
+  }, [statusOrder])
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
- 
   
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
@@ -122,17 +118,17 @@ async function getOrder() {
   ];
   return (
     <div className="sb">
-      <Sidebar/>
-    <div className="productList">
-    <DataGrid
-        rows={data}
-        disableSelectionOnClick
-        columns={columns}
-        pageSize={10}
-        checkboxSelection
-        rowHeight={50}
-      />
-    </div>
+      <Sidebar />
+      <div className="productList">
+        <DataGrid
+          rows={data}
+          disableSelectionOnClick
+          columns={columns}
+          pageSize={10}
+          checkboxSelection
+          rowHeight={50}
+        />
+      </div>
     </div>
   );
 }

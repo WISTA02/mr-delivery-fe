@@ -1,18 +1,8 @@
 import "./sidebar.css";
 import {
   LineStyle,
-  Timeline,
-  TrendingUp,
   PermIdentity,
   Storefront,
-  AttachMoney,
-  BarChart,
-  MailOutline,
-  DynamicFeed,
-  ChatBubbleOutline,
-  WorkOutline,
-  Report,
-  DriveEta,
   RestaurantMenu,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";

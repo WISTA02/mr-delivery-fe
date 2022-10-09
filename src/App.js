@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { actionType } from './context/reducer';
 import { AnimatePresence } from 'framer-motion';
-import {CartContainer, CreateContainer, Header,MainContainer} from './components';
+import { CartContainer, CreateContainer, Header, MainContainer } from './components';
 import { useStateValue } from './context/StateProvider';
 import { store } from './redux/store/store';
 import { Provider } from 'react-redux';
@@ -26,7 +26,7 @@ import OrderHistory from './components/OrderHistory/OrderHistory';
 import NewMeal from './components/newMeal/NewMeal';
 import RestMeal from './pages/restMeal/RestMeal';
 const App = () => {
-  const [{  cartShow }, dispatch] = useStateValue();
+  const [{ cartShow }, dispatch] = useStateValue();
 
   const fetchData = async () => {
     await getAllFoodItems().then((data) => {
@@ -41,13 +41,12 @@ const App = () => {
         restItems: data,
       });
     });
-};
+  };
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
-   
     <Provider store={store}>
       <AddCart_DataProvider>
         <AnimatePresence exitBeforeEnter>
