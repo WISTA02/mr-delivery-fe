@@ -99,7 +99,7 @@ export default function OrderHistory() {
   <div className="flex-none">
 
 
-  <button  class=" text-gray-800  py-2 px-2  w-40">
+  <button  className=" text-gray-800  py-2 px-2  w-40">
    <Link to="/orderhistory">Refresh</Link>
    
   </button>
