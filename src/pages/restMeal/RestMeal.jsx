@@ -122,7 +122,7 @@ export default function RestMeal() {
             </div>
           </div>
           <button id="change" className="addProductButton">
-            <strong>Create</strong>{" "}
+            <strong>Add Meal</strong>{" "}
           </button>
         </form>
       </div>
