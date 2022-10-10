@@ -5,7 +5,7 @@ function Pagination({ cardsPerPage, totalCards, paginate }) {
     for (let i = 1; i <= Math.ceil(totalCards / cardsPerPage); i++) {
         pageNumbers.push(i)
     }
-    console.log(pageNumbers);
+    // console.log(pageNumbers);
     return (
         <nav>
             <ul className={styles['pagination']}>

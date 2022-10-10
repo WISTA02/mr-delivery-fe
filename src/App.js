@@ -70,7 +70,7 @@ const App = () => {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/userprofile" element={<UserProfile />} />
-                <Route path="/restaurant" element={<Restaurant />} />
+                <Route path="/restaurant/:id" element={<Restaurant />} />
                 <Route path="/orderhistory" element={<OrderHistory />} />
                 <Route path="/new-meal" element={<NewMeal />} />
                 <Route path="/restMeal/:id" element={<RestMeal />} />

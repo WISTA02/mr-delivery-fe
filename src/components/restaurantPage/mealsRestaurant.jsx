@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Pagination from './pagination';
 import styles from './restaurant.module.css';
 import { FcTodoList } from 'react-icons/fc';
@@ -7,75 +7,47 @@ import { useContext } from 'react';
 import { AddCart_Create_Context } from '../context-api/card-context';
 import { useDispatch, useSelector } from 'react-redux';
 import { Addtocart_my, modifyquantity } from '../../redux/addToCart';
+import { Link, useParams } from "react-router-dom";
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { getOneRest } from '../../api/api'
 
-function MealsRestaurant() {
+
+function MealsRestaurant({ meal }) {
   const [menu, setMenu] = useState(true);
 
   const Select = useSelector((state) => state);
-
+  const [data, setProduct] = useState([]);
   const [Info, setInfo] = useState(false);
-  const [card, setCard] = useState([
-    {
-      id: 1,
-      image:
-        'https://assets.bonappetit.com/photos/5cd32ef32c3537178c3c8f03/1:1/w_2560%2Cc_limit/BA-Perfect-Pizza.jpg',
-      name: 'Sicilian Pizza',
-      price: 10,
-    },
-    {
-      id: 2,
-      image:
-        'https://assets.bonappetit.com/photos/5cd32ef32c3537178c3c8f03/1:1/w_2560%2Cc_limit/BA-Perfect-Pizza.jpg',
-      name: 'Sicilian Pizza',
-      price: 10,
-    },
-    {
-      id: 3,
-      image:
-        'https://assets.bonappetit.com/photos/5cd32ef32c3537178c3c8f03/1:1/w_2560%2Cc_limit/BA-Perfect-Pizza.jpg',
-      name: 'Sicilian Pizza',
-      price: 10,
-    },
-    {
-      id: 4,
-      image:
-        'https://assets.bonappetit.com/photos/5cd32ef32c3537178c3c8f03/1:1/w_2560%2Cc_limit/BA-Perfect-Pizza.jpg',
-      name: 'Sicilian Pizza',
-      price: 10,
-    },
-    {
-      id: 5,
-      image:
-        'https://assets.bonappetit.com/photos/5cd32ef32c3537178c3c8f03/1:1/w_2560%2Cc_limit/BA-Perfect-Pizza.jpg',
-      name: 'Sicilian Pizza',
-      price: 10,
-    },
-    {
-      id: 6,
-      image:
-        'https://assets.bonappetit.com/photos/5cd32ef32c3537178c3c8f03/1:1/w_2560%2Cc_limit/BA-Perfect-Pizza.jpg',
-      name: 'Sicilian Pizza',
-      price: 20,
-    },
-    {
-      id: 7,
-      image:
-        'https://assets.bonappetit.com/photos/5cd32ef32c3537178c3c8f03/1:1/w_2560%2Cc_limit/BA-Perfect-Pizza.jpg',
-      name: 'Sicilian Pizza',
-      price: 20,
-    },
-    {
-      id: 8,
-      image:
-        'https://assets.bonappetit.com/photos/5cd32ef32c3537178c3c8f03/1:1/w_2560%2Cc_limit/BA-Perfect-Pizza.jpg',
-      name: 'Sicilian Pizza',
-      price: 20,
-    },
-  ]);
+  const { id } = useParams();
+  // console.log('11111111111111111111', data);
+
+
+  const getProduct = async () => {
+    const response = await getOneRest(id);
+    setProduct((response));
+  };
+
+
+  const getMeals = async () => {
+    const food = await meal.filter(x => x.restaurant_id === id);
+    setCard(food);
+  }
+
+
+  // console.log("............" + data);
+  // console.log("*************************" + data.id);
+
+  const [card, setCard] = useState([]);
   const [currnetPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(5);
+  // console.log("$$$$$$$$$$$$$$$" + JSON.stringify(meal));
 
   const CartContext = useContext(AddCart_Create_Context);
+  useEffect(() => {
+    getProduct();
+    getMeals();
+
+  }, [id]);
 
   const Dispatch = useDispatch();
 
@@ -112,7 +84,7 @@ function MealsRestaurant() {
     }
   };
 
-  console.log(CartContext.addTocart);
+  // console.log(CartContext.addTocart);
   const indexOfLastCard = currnetPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currnetCard = card.slice(indexOfFirstCard, indexOfLastCard);
@@ -121,7 +93,7 @@ function MealsRestaurant() {
     <div className={styles.card} key={idx}>
       <img src={image} alt='' className={styles['meal-img']} />
       <div className={styles['name-meal']}>
-        <div className={styles['title-meal']}>{name}</div>
+        <div className={styles['title-meal']}>{meal}</div>
         <div className={styles['meal-price']}>{price}</div>
       </div>
       <input className={styles['input-num']} type='number' />
@@ -140,6 +112,19 @@ function MealsRestaurant() {
 
   return (
     <>
+      {/* {
+        data.map((item, idx) => ( */}
+      <div key={data?.id}>
+        <img src={data.image.cover} alt={data?.name} className={styles['cover-image']} />
+        <div className={styles['bar']}>
+          <img src={data.image.main} alt="logo" className={styles.logo} />
+          <div className={styles['res-name']}>{data?.name}</div>
+          <div className={styles['res-address']}><FaMapMarkerAlt />{data.location.details}</div>
+        </div>
+      </div>
+      {/* ))
+
+      } */}
       <div className={styles['all']}>
         <div className={styles['details']}>
           <div className={styles['title']}>All Details</div>
