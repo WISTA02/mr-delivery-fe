@@ -17,14 +17,14 @@ import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import WidgetLg from "./components/widgetLg-driver/WidgetLg";
 import WidgetLg2 from "./components/widgetLg-rest/WidgetLg";
-import Footer from './components/Footer/Footer'
+import Footer from "./components/Footer/Footer";
 import Contact from "./components/Contact/Contact";
-import Restaurant from './components/restaurantPage/restaurant';
-import { AddCart_DataProvider } from './components/context-api/card-context';
-import { getAllRest, getAllFoodItems } from './api/api';
-import OrderHistory from './components/OrderHistory/OrderHistory';
-import NewMeal from './components/newMeal/NewMeal';
-import RestMeal from './pages/restMeal/RestMeal';
+import Restaurant from "./components/restaurantPage/restaurant";
+import { AddCart_DataProvider } from "./components/context-api/card-context";
+import { getAllRest, getAllFoodItems } from "./api/api";
+import OrderHistory from "./components/OrderHistory/OrderHistory";
+import NewMeal from "./components/newMeal/NewMeal";
+import RestMeal from "./pages/restMeal/RestMeal";
 const App = () => {
   const [{ cartShow }, dispatch] = useStateValue();
 
@@ -50,30 +50,30 @@ const App = () => {
     <Provider store={store}>
       <AddCart_DataProvider>
         <AnimatePresence exitBeforeEnter>
-          <div className='w-screen h-auto flex flex-col bg-primary'>
+          <div className="w-screen h-auto flex flex-col bg-primary">
             <Header />
             {cartShow && <CartContainer />}
             {/* <Sidebar /> */}
-            <main className='mt-14 md:mt-20 px-4 md:px-16 py-4 w-full x'>
+            <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full x">
               <Routes>
-                <Route path='/*' element={<MainContainer />} />
-                <Route path='/createItem' element={<CreateContainer />} />
-                <Route path='/admin' element={<Home2 />}></Route>
-                <Route path='/admin/driver' element={<WidgetLg />}></Route>
-                <Route path='/admin/resturant' element={<WidgetLg2 />}></Route>
-                <Route path='/Ordersapprove' element={<UserList />}></Route>
-                <Route path='/driver-order' element={<ProductList />}></Route>
-                <Route path='/product/:productId' element={<Product />}></Route>
-                <Route path='/newproduct' element={<NewProduct />}></Route>
-                <Route path='/contactus' element={<Contact />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/signup' element={<Signup />} />
-                <Route path='/signin' element={<Signin />} />
-                <Route path='/userprofile' element={<UserProfile />} />
-                <Route path='/restaurant' element={<Restaurant />} />
-                <Route path='/orderhistory' element={<OrderHistory/>}/>
-                <Route path='/new-meal' element={<NewMeal />} />
-            <Route path='/restMeal/:id' element={<RestMeal />} />
+                <Route path="/*" element={<MainContainer />} />
+                <Route path="/createItem" element={<CreateContainer />} />
+                <Route path="/admin" element={<Home2 />}></Route>
+                <Route path="/admin/driver" element={<WidgetLg />}></Route>
+                <Route path="/admin/resturant" element={<WidgetLg2 />}></Route>
+                <Route path="/Ordersapprove" element={<UserList />}></Route>
+                <Route path="/driver-order" element={<ProductList />}></Route>
+                <Route path="/product/:productId" element={<Product />}></Route>
+                <Route path="/newproduct" element={<NewProduct />}></Route>
+                <Route path="/contactus" element={<Contact />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/signin" element={<Signin />} />
+                <Route path="/userprofile" element={<UserProfile />} />
+                <Route path="/restaurant" element={<Restaurant />} />
+                <Route path="/orderhistory" element={<OrderHistory />} />
+                <Route path="/new-meal" element={<NewMeal />} />
+                <Route path="/restMeal/:id" element={<RestMeal />} />
               </Routes>
             </main>
             <Footer />

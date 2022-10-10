@@ -25,7 +25,7 @@ export default function FeaturedInfo() {
           Authorization: `Bearer ${cookies.get("data").user.token}`,
         },
       });
-      console.log(response.data);
+      // console.log(response.data);
      
       setProfitApp(response.data) 
   }
@@ -36,7 +36,7 @@ export default function FeaturedInfo() {
         Authorization: `Bearer ${cookies.get("data").user.token}`,
       },
     });
-    console.log(response.data);
+    // console.log(response.data);
     setOrderCount(response.data.length);
   }
   useEffect(()=>{
