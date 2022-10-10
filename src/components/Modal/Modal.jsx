@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react'
 import './modal.css'
 import { useStateValue } from "../../context/StateProvider";
 import { actionType } from "../../context/reducer";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearAll } from '../../redux/addToCart';
+
 
 let items = [];
 
 const Modal = () => {
+  const Dispatch = useDispatch();
     const DataUse = useSelector((state) => state.addToCartSlice.allProduct);
     const [{ modalShow }, dispatch] = useStateValue();
     const [tot, setTot] = useState(0);
@@ -41,6 +44,7 @@ const Modal = () => {
             type: actionType.SET_DataUse,
             DataUse: [],
         });
+        Dispatch(clearAll());
     }
     return (
         <>
@@ -125,7 +129,7 @@ const Modal = () => {
                                         </section>
                                     </div>
                                     <button className=" bg-yellow-500 hover:bg-yellow-700 submit-button px-4 py-3  rounded-full text-white  w-full text-xl font-semibold transition-colors" onClick={() => setPay(true)}>
-                                        Pay $ {tot}
+                                        Pay $ {tot+2.5}
                                     </button>
 
                                     <div><p>       </p></div>
