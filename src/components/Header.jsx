@@ -80,7 +80,9 @@ const Header = () => {
                             </Link>
                           </li>
                           <li>
-                            <a href='/'>Settings</a>
+                          <Link className='' to='/admin'>
+                              Dashboard
+                            </Link>
                           </li>
                           <li>
                             <button onClick={logout} ><MdLogout />Logout</button>
