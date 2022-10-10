@@ -3,7 +3,6 @@ import { LocationSearching, MailOutline, PermIdentity, PhoneAndroid } from "@mat
 import { Link } from "react-router-dom";
 import "./UserProfile.css";
 import userIcon from '../../img/userIcon.jpg'
-import userSetting from '../../img/userSetting.jpg'
 import { updateUserInfo } from '../../api/api'
 import { isAuthenticated, logOut, signIn } from "../auth";
 import { useNavigate } from 'react-router-dom';
@@ -154,7 +153,11 @@ export default function User() {
                 />
               </div>
             </div>
-          
+            <img
+                  className="userUpdateImg"
+                  src={userIcon}
+                  alt=""
+                />
             <div className="userUpdateRight">
               <button className="userUpdateButton w-40">Update</button>
             </div>
