@@ -19,7 +19,7 @@ export default function OrderHistory() {
       headers: { Authorization: `Bearer ${cookies.get("data").user.token}` },
 
     };
-    console.log(`https://mr-delivery-wista.herokuapp.com/order/${id}`);
+    // console.log(`https://mr-delivery-wista.herokuapp.com/order/${id}`);
     axios
       .get(`https://mr-delivery-wista.herokuapp.com/order/${id}`, config)
       .then((data) => {

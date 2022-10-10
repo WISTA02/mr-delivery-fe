@@ -14,7 +14,7 @@ import Auth from "../../components/authComponent/auth";
 const cookies = new Cookies();
 
 export default function Home() {
-const[userData,setUserData]=useState();
+const[userData,setUserData]=useState([]);
 
   function findOcc(arr, key){
     let arr2 = [];
@@ -35,7 +35,8 @@ const[userData,setUserData]=useState();
          arr2.push(a);
        }
     })
-      console.log({arr2});
+      // console.log({arr2});
+      userData.push(arr2)
       setUserData(arr2);
       console.log(userData);
     return arr2
@@ -55,6 +56,7 @@ const getOrder=async()=>{
 
 
   useEffect(()=>{
+    if(cookies.get('data').user.role==="admin")
     getOrder();
   },[])
   return (
