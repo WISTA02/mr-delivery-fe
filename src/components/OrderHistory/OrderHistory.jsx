@@ -19,9 +19,9 @@ export default function OrderHistory() {
       headers: { Authorization: `Bearer ${cookies.get("data").user.token}` },
 
     };
-    console.log(`http://localhost:5000/order/${id}`);
+    // console.log(`https://mr-delivery-wista.herokuapp.com/order/${id}`);
     axios
-      .get(`http://localhost:5000/order/${id}`, config)
+      .get(`https://mr-delivery-wista.herokuapp.com/order/${id}`, config)
       .then((data) => {
         console.log(data.data.status);
         let x = data.data.status;
@@ -36,7 +36,7 @@ export default function OrderHistory() {
   async function getOrder() {
     try {
       let  orderDetails = "";
-      const response = await axios.get("http://localhost:5000/user-history", {
+      const response = await axios.get("https://mr-delivery-wista.herokuapp.com/user-history", {
         headers: {
           Authorization: `Bearer ${cookies.get("data").user.token}`,
         },

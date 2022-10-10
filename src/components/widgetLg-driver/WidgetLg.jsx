@@ -15,7 +15,7 @@ export default function WidgetLg() {
 
   async function getUsers() {
     try {
-      const response = await axios.get('http://localhost:5000/approve', {
+      const response = await axios.get('https://mr-delivery-wista.herokuapp.com/approve', {
         headers: {
           Authorization: `Bearer ${cookies.get('data').user.token}`
         }
@@ -29,7 +29,7 @@ export default function WidgetLg() {
 
   const handleAprroved = async (data) => {
     setApprove(true)
-    let url = `http://localhost:5000/approve/${data.id}`;
+    let url = `https://mr-delivery-wista.herokuapp.com/approve/${data.id}`;
     try {
       const response = await (url, { approved: true }, {
         headers: {
@@ -45,7 +45,7 @@ export default function WidgetLg() {
 
   const handleDeclined = async (data) => {
     setApprove(true)
-    let url = `http://localhost:5000/approve/${data.id}`;
+    let url = `https://mr-delivery-wista.herokuapp.com/approve/${data.id}`;
     try {
       const response = await axios.delete(url, {
         headers: {
