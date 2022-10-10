@@ -15,3 +15,13 @@ export const fetchCart = () => {
 
   return cartInfo ? cartInfo : [];
 };
+
+
+export const fetchAddToCart = () => {
+  const cartInfo =
+    localStorage.getItem("AddToCart") !== "undefined"
+      ? JSON.parse(localStorage.getItem("AddToCart"))
+      : localStorage.clear();
+
+  return cartInfo ? cartInfo : [];
+};
