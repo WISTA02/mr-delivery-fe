@@ -47,6 +47,7 @@ export const userData = [
       name: "Dec",
       "Orders": 3000,
     },
+    
   ];
 
   export const productData = [
@@ -62,6 +63,7 @@ export const userData = [
       name: "Mar",
       "Sales": 5000,
     },
+    
   ];
 
   // export const userRows = [
