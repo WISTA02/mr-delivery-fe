@@ -5,6 +5,7 @@ import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
 import { logOut, isAuthenticated } from './auth/index';
 import { useSelector } from 'react-redux';
+import logoS from '../img/logoS.jpg'
 
 
 // trial
@@ -33,7 +34,7 @@ const Header = () => {
         <div className='container flex flex-wrap justify-between items-center mx-auto'>
           <Link to='/' className='flex items-center'>
             <img
-              src='https://pbs.twimg.com/media/Fdv50RTXoAExyH8?format=png&name=small'
+              src={logoS}
               className='mr-3  h-20  sm:h-9'
               alt='Flowbite Logo'
             />
@@ -144,7 +145,6 @@ const Header = () => {
             id='navbar-sticky'
           >
             <ul className='flex flex-col  p-4 mt-4 bg-primary rounded-lg border border-primary md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-primary dark:bg-primary md:dark:bg-primary dark:border-primary'>
-
               <li>
                 <Link
                   to='/'

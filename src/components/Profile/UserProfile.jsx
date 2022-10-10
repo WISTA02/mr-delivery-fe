@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { LocationSearching, MailOutline, PermIdentity, PhoneAndroid } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import "./UserProfile.css";
+import userIcon from '../../img/userIcon.jpg'
 import { updateUserInfo } from '../../api/api'
 import { isAuthenticated, logOut, signIn } from "../auth";
 import { useNavigate } from 'react-router-dom';
@@ -66,6 +67,11 @@ export default function User() {
         <div className="userShow">
           <div className="userShowTop rounded">
 
+            <img
+                  className="userShowImg"
+                  src={userIcon}
+                  alt=""
+                />
             <div className="userShowTopTitle">
               <span className="userShowUsername">{usernameOld}</span>
             </div>
@@ -147,9 +153,13 @@ export default function User() {
                 />
               </div>
             </div>
+            <img
+                  className="userUpdateImg"
+                  src={userIcon}
+                  alt=""
+                />
             <div className="userUpdateRight">
-
-              <button className="userUpdateButton">Update</button>
+              <button className="userUpdateButton w-40">Update</button>
             </div>
           </form>
         </div>

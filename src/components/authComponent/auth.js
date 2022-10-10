@@ -15,7 +15,6 @@ export default function Auth(props) {
 function can(roleAarr) {
   
   return (
-    roleAarr?.includes(cookies.get("data")?.user.role) ||
-    cookies?.get("data")?.user.role === "admin"
+    roleAarr?.includes(cookies.get("data")?.user.role) 
   );
 }

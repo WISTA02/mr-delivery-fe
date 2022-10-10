@@ -31,7 +31,7 @@ export default function WidgetLg() {
     setApprove(true)
     let url = `http://localhost:5000/approve/${data.id}`;
     try {
-      const response = await axios.put(url, { approved: true }, {
+      const response = await (url, { approved: true }, {
         headers: {
           Authorization: `Bearer ${cookies.get('data').user.token}`
         }

@@ -7,6 +7,7 @@ import Cookies from "universal-cookie";
 const cookies=new Cookies();
 
 export default function FeaturedInfo() {
+
   const[orderCount,setOrderCount]=useState(0);
   const[profitApp,setProfitApp]=useState(0);
   let url="";
@@ -26,7 +27,7 @@ export default function FeaturedInfo() {
       });
       console.log(response.data);
      
-      setProfitApp(response.data.profits) 
+      setProfitApp(response.data) 
   }
 
   const getOrder =async()=>{
@@ -40,37 +41,8 @@ export default function FeaturedInfo() {
   }
   useEffect(()=>{
 getProfit();
-// if(cookies.get("data").user.role==="admin")
 getOrder();
-    // axios({
-    //   method: 'get',
-    //   url: 'http://localhost:5000/order',
-    //   // responseType: 'stream'
-    // })
-    //   .then(function (response) {
-    //    console.log(response.data.length);
-    //    setOrderCount(response.data.length)
-    //   });
-      // const response = await axios.get(`http://localhost:5000${url}`, {
-      //   headers: {
-      //     Authorization: `Bearer ${cookies.get("data").user.token}`,
-      //   },
-      // });
-      // console.log(response.data);
-      // setOrderCount(response.data.length);
-      // setProfitApp(response.data.profit)
-      // axios({
-      //   method: 'get',
-      //   url: `http://localhost:5000${url}`,
-      //   headers: {
-      //     Authorization: `Bearer ${cookies.get("data").user.token}`,
-      //   }
-       
-      // })
-      //   .then(function (response) {
-      //    console.log(response.data);
-      //    setProfitApp(response.data)
-      //   }).catch((e)=>{console.log(e);});
+    
   },[])
   return (
 

@@ -5,6 +5,7 @@ import { userData } from "../../dummyData";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 // import WidgetLg from "../../components/widgetLg/WidgetLg";
 import Sidebar from "../../components/sidebar/Sidebar";
+// import SearchBar from "../../components/Searchbar";
 // import Sidebar from "../../components/sidebar/Si";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
     <div className="home2">
       <Sidebar></Sidebar>
       <div className="home">
+
       <FeaturedInfo />
       <Chart data={userData} title="Order Analytics" grid dataKey="Orders"/>
       <div className="homeWidgets">
