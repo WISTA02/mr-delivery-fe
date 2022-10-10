@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { signIn, authenticate, isAuthenticated } from '../auth/index';
 import { Link } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 function Signin() {
+  const navigate = useNavigate();
 
   const [show, setShow] = useState(false)
   const [data, setData] = useState({
@@ -246,7 +248,8 @@ function Signin() {
                 </div>
               </div>
             </>
-          ) : null
+          ) :  
+          navigate("/")
         ) : null
       }
     </>

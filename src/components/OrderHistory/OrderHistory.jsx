@@ -1,7 +1,5 @@
 import "./OrderHistory.css";
 import { DataGrid } from "@material-ui/data-grid";
-import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
@@ -20,9 +18,6 @@ export default function OrderHistory() {
     const config = {
       headers: { Authorization: `Bearer ${cookies.get("data").user.token}` },
 
-    };
-    const bodyParameters = {
-      statusOrder,
     };
     console.log(`http://localhost:5000/order/${id}`);
     axios

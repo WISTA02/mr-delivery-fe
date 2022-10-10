@@ -1,20 +1,15 @@
-import React, { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
-import { actionType } from "./context/reducer";
-import { AnimatePresence } from "framer-motion";
-import {
-  CartContainer,
-  CreateContainer,
-  Header,
-  MainContainer,
-} from "./components";
-import { useStateValue } from "./context/StateProvider";
-import { store } from "./redux/store/store";
-import { Provider } from "react-redux";
-import Signup from "./components/Signup/Signup";
-import Signin from "./components/Signin/Signin.jsx";
-import UserProfile from "./components/Profile/UserProfile";
-import About from "./components/About/about";
+import React, { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { actionType } from './context/reducer';
+import { AnimatePresence } from 'framer-motion';
+import { CartContainer, CreateContainer, Header, MainContainer } from './components';
+import { useStateValue } from './context/StateProvider';
+import { store } from './redux/store/store';
+import { Provider } from 'react-redux';
+import Signup from './components/Signup/Signup';
+import Signin from './components/Signin/Signin.jsx';
+import UserProfile from './components/Profile/UserProfile';
+import About from './components/About/about';
 import Home2 from "./pages/home/Home";
 import UserList from "./pages/userList/UserList";
 import ProductList from "./pages/productList/ProductList";

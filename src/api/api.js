@@ -22,3 +22,14 @@ export const getAllRest = async () => {
     console.log('restItems', response.data)
     return response.data;
 }
+
+export const updateUserInfo = async (data,token) => {
+    let url = `https://mr-delivery-wista.herokuapp.com/edit-account`
+    const result = await axios.put(url,data,{
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+    })
+    // console.log(result);
+    return result;
+};

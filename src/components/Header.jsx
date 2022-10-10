@@ -5,6 +5,7 @@ import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
 import { logOut, isAuthenticated } from './auth/index';
 import { useSelector } from 'react-redux';
+import logoS from '../img/logoS.jpg'
 
 
 // trial
@@ -33,7 +34,7 @@ const Header = () => {
         <div className='container flex flex-wrap justify-between items-center mx-auto'>
           <Link to='/' className='flex items-center'>
             <img
-              src='https://pbs.twimg.com/media/Fdv50RTXoAExyH8?format=png&name=small'
+              src={logoS}
               className='mr-3  h-20  sm:h-9'
               alt='Flowbite Logo'
             />
