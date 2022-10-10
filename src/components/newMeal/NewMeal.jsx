@@ -26,7 +26,7 @@ export default function UserList() {
     setArr(data)
 
     try {
-      const response = await axios.delete(`http://localhost:5000/restaurant/${id}`, {
+      const response = await axios.delete(`https://mr-delivery-wista.herokuapp.com/restaurant/${id}`, {
         headers: {
           Authorization: `Bearer ${cookies.get("data").user.token}`,
         },
@@ -41,7 +41,7 @@ export default function UserList() {
 
   async function getRest() {
     try {
-      const response = await axios.get("http://localhost:5000/restaurant", {
+      const response = await axios.get("https://mr-delivery-wista.herokuapp.com/restaurant", {
         headers: {
           Authorization: `Bearer ${cookies.get("data").user.token}`,
         },

@@ -20,7 +20,7 @@ export default function FeaturedInfo() {
   }
   const getProfit =async()=>{
     console.log("role = ",cookies.get("data").user.role);
-   const response = await axios.get(`http://localhost:5000${url}`, {
+   const response = await axios.get(`https://mr-delivery-wista.herokuapp.com${url}`, {
         headers: {
           Authorization: `Bearer ${cookies.get("data").user.token}`,
         },
@@ -31,7 +31,7 @@ export default function FeaturedInfo() {
   }
 
   const getOrder =async()=>{
-    const response = await axios.get(`http://localhost:5000${orderUrl}`, {
+    const response = await axios.get(`https://mr-delivery-wista.herokuapp.com${orderUrl}`, {
       headers: {
         Authorization: `Bearer ${cookies.get("data").user.token}`,
       },

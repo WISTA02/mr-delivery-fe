@@ -35,7 +35,7 @@ export default function NewProduct() {
   };
   const createNewRest =async (rest) => {
     try {
-    let url = `http://localhost:5000/restaurant`;
+    let url = `https://mr-delivery-wista.herokuapp.com/restaurant`;
 
       const response = await axios.post(url,rest , {
         headers: {

@@ -25,7 +25,7 @@ export default function UserList() {
       statusOrder,
     };
     axios
-      .put(`http://localhost:5000/owner/${id}`, bodyParameters, config)
+      .put(`https://mr-delivery-wista.herokuapp.com/owner/${id}`, bodyParameters, config)
       .then((data) => {
         console.log(data.data);
         setStatus(data.data.status);
@@ -46,7 +46,7 @@ export default function UserList() {
 
   //     let orderDetails = "";
   //     axios
-  //       .get(`http://localhost:5000/order`, config)
+  //       .get(`https://mr-delivery-wista.herokuapp.com/order`, config)
   //       .then((data) => {
   //         data.data.map((element) => {
   //           element.all_items.forEach((e) => {
@@ -69,7 +69,7 @@ export default function UserList() {
   async function getOrder() {
     try {
       let  orderDetails = "";
-      const response = await axios.get("http://localhost:5000/owner", {
+      const response = await axios.get("https://mr-delivery-wista.herokuapp.com/owner", {
         headers: {
           Authorization: `Bearer ${cookies.get("data").user.token}`,
         },

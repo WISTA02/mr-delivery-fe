@@ -28,7 +28,7 @@ export default function RestMeal() {
   const createNewRest =async (meal) => {
     try {
       
-    let url = `http://localhost:5000/meal/${params.id}`;
+    let url = `https://mr-delivery-wista.herokuapp.com/meal/${params.id}`;
 
       const response = await axios.post(url,meal , {
         headers: {

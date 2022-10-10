@@ -52,15 +52,15 @@ const Modal = () => {
     }
     const postOrder=async(all_items)=>
   { try {
-      
-    let url = `http://localhost:5000/order/7`;
+      console.log({all_items});
+    let url = `https://mr-delivery-wista.herokuapp.com/order/1`;
 
       const response = await axios.post(url,all_items , {
         headers: {
           Authorization: `Bearer ${cookies.get('data').user.token}`
         }
       });
-      console.log(response.data);
+      console.log("nnnnnn ===> ",response.data);
     //  (response.data)
     } catch (err) {
       console.log(err);

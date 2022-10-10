@@ -42,7 +42,7 @@ const[userData,setUserData]=useState();
   }
 
 const getOrder=async()=>{
-  let url = `http://localhost:5000/order`
+  let url = `https://mr-delivery-wista.herokuapp.com/order`
   const response = await axios.get(url, {
       headers: {
           Authorization: `Bearer ${cookies.get('data').user.token}`

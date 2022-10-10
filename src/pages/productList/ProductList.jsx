@@ -19,7 +19,7 @@ export default function ProductList() {
       statusOrder,
     };
     axios
-      .put(`http://localhost:5000/driver/${id}`, bodyParameters, config)
+      .put(`https://mr-delivery-wista.herokuapp.com/driver/${id}`, bodyParameters, config)
       .then((data) => {
         console.log(data.data);
         setStatus(data.data.status);
@@ -37,7 +37,7 @@ export default function ProductList() {
   //   //   statusOrder,
   //   // };
 
-  //   axios.get(`http://localhost:5000/driver`,config)
+  //   axios.get(`https://mr-delivery-wista.herokuapp.com/driver`,config)
   //     .then((data) => {
   //      setData(data.data)
   //      console.log(data.data);
@@ -49,7 +49,7 @@ export default function ProductList() {
   async function getOrder() {
     try {
       let orderDetails = "";
-      const response = await axios.get('http://localhost:5000/driver', {
+      const response = await axios.get('https://mr-delivery-wista.herokuapp.com/driver', {
         headers: {
           Authorization: `Bearer ${cookies.get('data').user.token}`
         }
