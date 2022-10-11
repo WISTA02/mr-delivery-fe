@@ -130,7 +130,7 @@ export default function UserList() {
               id="change"
               onClick={() => handleChange(params.row.id)}
             >
-              Change Statues
+              Accept
             </button>
           </>
         );

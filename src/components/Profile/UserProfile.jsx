@@ -16,7 +16,7 @@ export default function User() {
     emailOld: user.email,
     passwordOld: user.password,
     phoneOld: user.phone,
-    locationOld: user.location,
+    locationOld: user.location.city,
   });
 
   const { usernameOld, emailOld, phoneOld, locationOld } = oldData;
@@ -26,7 +26,7 @@ export default function User() {
     email: user.email,
     password: user.password,
     phone: user.phone,
-    location: user.location,
+    location: user.location.city,
   });
 
   const { username, password, email, phone, location } = data;
@@ -68,10 +68,10 @@ export default function User() {
           <div className="userShowTop rounded">
 
             <img
-                  className="userShowImg"
-                  src={userIcon}
-                  alt=""
-                />
+              className="userShowImg"
+              src={userIcon}
+              alt=""
+            />
             <div className="userShowTopTitle">
               <span className="userShowUsername">{usernameOld}</span>
             </div>
@@ -154,10 +154,10 @@ export default function User() {
               </div>
             </div>
             <img
-                  className="userUpdateImg"
-                  src={userIcon}
-                  alt=""
-                />
+              className="userUpdateImg"
+              src={userIcon}
+              alt=""
+            />
             <div className="userUpdateRight">
               <button className="userUpdateButton w-40">Update</button>
             </div>
