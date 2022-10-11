@@ -6,18 +6,18 @@ import { BsWhatsapp } from 'react-icons/bs';
 import emailjs from 'emailjs-com'
 
 const Contact = () => {
-  const form=useRef();
-const sendEmail = (e) => {
-  e.preventDefault();
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-  emailjs.sendForm('service_xffh0gp', 'template_brhwsgx', form.current, 'FdRg-sb4wAkcxmhnO')
-    .then((result) => {
-        console.log(result.text,"send it successfully");
+    emailjs.sendForm('service_gn9iugl', 'template_brhwsgx', form.current, 'FdRg-sb4wAkcxmhnO')
+      .then((result) => {
+        console.log(result.text, "send it successfully");
         e.target.reset();
-    }, (error) => {
+      }, (error) => {
         console.log(error.text);
-    });
-};
+      });
+  };
 
   return (
     <section id='contact'>
@@ -32,7 +32,7 @@ const sendEmail = (e) => {
             <a href='mailto:wista@gmail.com' rel="noreferrer" target="_blank">Send A Message</a>
           </article>
           <article className='contact__option'>
-            <BsWhatsapp  className='contact__option-icon'/>
+            <BsWhatsapp className='contact__option-icon' />
             <h4>WhatsApp</h4>
             <h5>+962787810864</h5>
             <a href='https://api.whatsapp.com/send?phone=962787810864' rel="noreferrer" target="_blank">Send A Message</a>
