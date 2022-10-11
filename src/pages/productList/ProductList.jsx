@@ -125,11 +125,12 @@ export default function ProductList() {
         <DataGrid
           rows={data}
           disableSelectionOnClick
-          columns={[...columns, { field: 'id', sortable: false }]}
+          columns={[...columns,{field:"id",sortable:"false"}]}
 
           pageSize={10}
           checkboxSelection
           rowHeight={50}
+          
         />
       </div>
     </div>
