@@ -73,22 +73,11 @@ export default function UserList() {
   async function getOrder() {
     try {
       let orderDetails = "";
-<<<<<<< HEAD
-      const response = await axios.get(
-        "https://mr-delivery-wista.herokuapp.com/owner",
-        {
-          headers: {
-            Authorization: `Bearer ${cookies.get("data").user.token}`,
-          },
-        }
-      );
-=======
       const response = await axios.get("https://mr-delivery-wista.herokuapp.com/owner", {
         headers: {
           Authorization: `Bearer ${cookies.get("data").user.token}`,
         },
       });
->>>>>>> 5609591204d89ed99741776fee138923f53d8673
       response.data.map((element) => {
         element.id=Number(element.id);
         console.log(element.id);
@@ -137,14 +126,10 @@ export default function UserList() {
         return (
           <>
             {/* <Link to={"/user/" + params.row.id}> */}
-<<<<<<< HEAD
-            <button id="change" onClick={() => handleChange(params.row.id)}>
-=======
             <button
               id="change"
               onClick={() => handleChange(params.row.id)}
             >
->>>>>>> 5609591204d89ed99741776fee138923f53d8673
               Change Statues
             </button>
           </>
