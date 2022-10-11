@@ -90,12 +90,14 @@ export default function ProductList() {
     {
       field: "status",
       headerName: "Status",
-      width: 200, sortable: false
+      width: 200,
+      sortable: false
     },
     {
       field: "total_price",
       headerName: "Total Price",
-      width: 100, sortable: false
+      width: 100,
+      sortable: false
     },
     {
       field: "action",
@@ -123,7 +125,8 @@ export default function ProductList() {
         <DataGrid
           rows={data}
           disableSelectionOnClick
-          columns={columns}
+          columns={[...columns, { field: 'id', sortable: false }]}
+
           pageSize={10}
           checkboxSelection
           rowHeight={50}

@@ -95,17 +95,21 @@ export default function UserList() {
     getOrder();
   }, [statusOrder]);
   const columns = [
-    { field: "id", headerName: "ID", width: 90, sortable: false },
+    { field: "id", headerName: "ID", width: 90 },
     { field: "all_items", headerName: "Order Details", width: 200 },
     {
       field: "status",
       headerName: "Status",
       width: 200,
+      sortable: false
+
     },
     {
       field: "total_price",
       headerName: "Total Price",
       width: 160,
+      sortable: false
+
     },
     {
       field: "action",
@@ -139,7 +143,7 @@ export default function UserList() {
         <DataGrid
           rows={data}
           disableSelectionOnClick
-          columns={columns}
+          columns={[...columns, { field: 'id', sortable: false }]}
           pageSize={10}
           checkboxSelection
         />
