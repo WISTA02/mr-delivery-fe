@@ -4,8 +4,8 @@ import { useStateValue } from "../../context/StateProvider";
 import { actionType } from "../../context/reducer";
 import { useSelector, useDispatch } from 'react-redux';
 import { clearAll } from '../../redux/addToCart';
-import {fetchAddToCart} from "../../utils/fetchLocalStorageData"
-
+import { fetchAddToCart } from "../../utils/fetchLocalStorageData"
+import { useParams } from 'react-router-dom'
 import Cookies from 'universal-cookie';
 import axios from "axios";
 const cookies = new Cookies();
@@ -13,11 +13,12 @@ const cookies = new Cookies();
 let items = [];
 
 const Modal = () => {
-  const Dispatch = useDispatch();
+    const Dispatch = useDispatch();
     const DataUse = useSelector((state) => state.addToCartSlice.allProduct);
     const [{ modalShow }, dispatch] = useStateValue();
     const [tot, setTot] = useState(0);
     const [pay, setPay] = useState(false)
+    const { id } = useParams();
 
     const showModal = () => {
         console.log('showModal');
@@ -29,13 +30,12 @@ const Modal = () => {
     useEffect(() => {
         items = DataUse;
     }, [DataUse]);
-
     useEffect(() => {
         let totalprice = DataUse.reduce(function (sum, item) {
             return sum + item.quantity * item.price;
         }, 0);
         setTot(totalprice);
-    }, [tot,DataUse]);
+    }, [tot, DataUse]);
 
     const handlePay = () => {
         setPay(false);
@@ -50,37 +50,40 @@ const Modal = () => {
         });
         Dispatch(clearAll());
     }
-    const postOrder=async(all_items)=>
-  { try {
-      console.log({all_items});
-    let url = `https://mr-delivery-wista.herokuapp.com/order/1`;
+    const postOrder = async (all_items) => {
+        try {
+            console.log({ all_items });
+            let url = `https://mr-delivery-wista.herokuapp.com/order/${id}`;
 
-      const response = await axios.post(url,all_items , {
-        headers: {
-          Authorization: `Bearer ${cookies.get('data').user.token}`
+            const response = await axios.post(url, all_items, {
+                headers: {
+                    Authorization: `Bearer ${cookies.get('data').user.token}`
+                }
+            });
+            console.log("nnnnnn ===> ", response.data);
+            //  (response.data)
+        } catch (err) {
+            console.log(err);
         }
-      });
-      console.log("nnnnnn ===> ",response.data);
-    //  (response.data)
-    } catch (err) {
-      console.log(err);
-    }}
-  const handlePayLS = () => {
-    setPay(true);
-    let allProduct = fetchAddToCart();
-    let order = [{}];
-    allProduct.allProduct.forEach((element) => {
-       
-      order.push({
-        meal_id: element.id,
-        quantity: element.quantity,
-        name: element.name,
-      });
-    });
-    order.shift();
-postOrder({all_items:order});
-    // console.log({ order });
-  };
+    }
+    const handlePayLS = () => {
+        setPay(true);
+        let allProduct = fetchAddToCart();
+        let order = [{}];
+        allProduct.allProduct.forEach((element) => {
+
+            order.push({
+                meal_id: element.id,
+                quantity: element.quantity,
+                name: element.name,
+            });
+        });
+        order.shift();
+        postOrder({ all_items: order });
+        // console.log({ order });
+    };
+    console.log('id', id);
+
     return (
         <>
             {modalShow ? (
@@ -164,7 +167,7 @@ postOrder({all_items:order});
                                         </section>
                                     </div>
                                     <button className=" bg-yellow-500 hover:bg-yellow-700 submit-button px-4 py-3  rounded-full text-white  w-full text-xl font-semibold transition-colors" onClick={handlePayLS}>
-                                        Pay $ {tot+2.5}
+                                        Pay $ {tot + 2.5}
                                     </button>
 
                                     <div><p>       </p></div>

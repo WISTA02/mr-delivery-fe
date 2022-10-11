@@ -73,6 +73,7 @@ export default function UserList() {
   async function getOrder() {
     try {
       let orderDetails = "";
+<<<<<<< HEAD
       const response = await axios.get(
         "https://mr-delivery-wista.herokuapp.com/owner",
         {
@@ -81,6 +82,13 @@ export default function UserList() {
           },
         }
       );
+=======
+      const response = await axios.get("https://mr-delivery-wista.herokuapp.com/owner", {
+        headers: {
+          Authorization: `Bearer ${cookies.get("data").user.token}`,
+        },
+      });
+>>>>>>> 5609591204d89ed99741776fee138923f53d8673
       response.data.map((element) => {
         element.id=Number(element.id);
         console.log(element.id);
@@ -106,13 +114,8 @@ export default function UserList() {
     getOrder();
   }, [statusOrder]);
   const columns = [
-    { field: "id", headerName: "ID", width: 100, sortable: false},
-    {
-      field: "all_items",
-      headerName: "Order Details",
-      width: 200,
-      sortable: false,
-    },
+    { field: "id", headerName: "ID", width: 90 },
+    { field: "all_items", headerName: "Order Details", width: 200 },
     {
       field: "status",
       headerName: "Status",
@@ -134,7 +137,14 @@ export default function UserList() {
         return (
           <>
             {/* <Link to={"/user/" + params.row.id}> */}
+<<<<<<< HEAD
             <button id="change" onClick={() => handleChange(params.row.id)}>
+=======
+            <button
+              id="change"
+              onClick={() => handleChange(params.row.id)}
+            >
+>>>>>>> 5609591204d89ed99741776fee138923f53d8673
               Change Statues
             </button>
           </>

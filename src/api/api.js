@@ -9,7 +9,7 @@ export const getAllFoodItems = async () => {
             Authorization: `Bearer ${cookies.get('data').user.token}`
         }
     });
-    console.log('foodItems', response.data)
+    // console.log('foodItems', response.data)
     return response.data;
 }
 export const getAllRest = async () => {
@@ -19,13 +19,13 @@ export const getAllRest = async () => {
             Authorization: `Bearer ${cookies.get('data').user.token}`
         }
     });
-    console.log('restItems', response.data)
+    // console.log('restItems', response.data)
     return response.data;
 }
 
-export const updateUserInfo = async (data,token) => {
+export const updateUserInfo = async (data, token) => {
     let url = `https://mr-delivery-wista.herokuapp.com/edit-account`
-    const result = await axios.put(url,data,{
+    const result = await axios.put(url, data, {
         headers: {
             Authorization: `Bearer ${token}`
         },
@@ -33,3 +33,14 @@ export const updateUserInfo = async (data,token) => {
     // console.log(result);
     return result;
 };
+
+export const getOneRest = async (itemId) => {
+    let url = `https://mr-delivery-wista.herokuapp.com/restaurant/${itemId}`
+    const response = await axios.get(url, {
+        headers: {
+            Authorization: `Bearer ${cookies.get('data').user.token}`
+        }
+    });
+    // console.log('oneREST', response.data)
+    return response.data;
+}

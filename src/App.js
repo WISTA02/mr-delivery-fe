@@ -25,6 +25,8 @@ import { getAllRest, getAllFoodItems } from "./api/api";
 import OrderHistory from "./components/OrderHistory/OrderHistory";
 import NewMeal from "./components/newMeal/NewMeal";
 import RestMeal from "./pages/restMeal/RestMeal";
+import { isAuthenticated } from './components/auth';
+
 const App = () => {
   const [{ cartShow }, dispatch] = useStateValue();
 
@@ -42,6 +44,11 @@ const App = () => {
       });
     });
   };
+  const { user } = isAuthenticated();
+
+  useEffect(() => {
+
+  }, [user])
   useEffect(() => {
     fetchData();
   }, []);
@@ -70,7 +77,7 @@ const App = () => {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/userprofile" element={<UserProfile />} />
-                <Route path="/restaurant" element={<Restaurant />} />
+                <Route path="/restaurant/:id" element={<Restaurant />} />
                 <Route path="/orderhistory" element={<OrderHistory />} />
                 <Route path="/new-meal" element={<NewMeal />} />
                 <Route path="/restMeal/:id" element={<RestMeal />} />

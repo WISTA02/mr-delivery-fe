@@ -6,12 +6,12 @@ import CoverRestaurant from './coverRestaurant';
 import MealsRestaurant from './mealsRestaurant';
 
 function Restaurant() {
-  const [{ modalShow }] = useStateValue();
+  const [{ modalShow, restItems, foodItems }] = useStateValue();
+
   useEffect(() => { }, [modalShow]);
   return (
     <div className={styles['all-pages']}>
-      <CoverRestaurant />
-      <MealsRestaurant />
+      <MealsRestaurant data={restItems} meal={foodItems} />
       {modalShow && <Modal />}
     </div>
   );
