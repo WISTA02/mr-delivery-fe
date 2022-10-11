@@ -19,11 +19,18 @@ const Signup = () => {
   const { username, email, password, phonenumber, adress, carnumber } = data;
 
   const handleChange = (name) => (event) => {
-    setData({
+    if(name=="location")
+    {setData({
+      ...data,
+      ["location"]: {city:event.target.value},
+      role: role,
+    });}
+    else
+    {setData({
       ...data,
       [name]: event.target.value,
       role: role,
-    });
+    });}
   };
 
   const handleSubmit = (event) => {

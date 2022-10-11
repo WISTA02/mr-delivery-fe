@@ -31,12 +31,13 @@ export default function WidgetLg() {
     setApprove(true)
     let url = `https://mr-delivery-wista.herokuapp.com/approve/${data.id}`;
     try {
-      const response = await (url, { approved: true }, {
+      const response = await axios.put(url, { approved: true }, {
         headers: {
           Authorization: `Bearer ${cookies.get('data').user.token}`
         }
       });
       setApprove(false)
+      console.log(response.data)
       return (response.data)
     } catch (err) {
       console.log(err);
