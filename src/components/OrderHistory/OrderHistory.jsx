@@ -113,8 +113,8 @@ export default function OrderHistory() {
           <>
             <label
               htmlFor="my-modal-3"
-              className=" modal-button w-3 bg-white-500 hover:bg-yellow-400  text-l text-yellow-400 "
-              onClick={() => handleChange(params.row.id)}
+              id="change"
+                  onClick={() => handleChange(params.row.id)}
             >
               Show Status
             </label>

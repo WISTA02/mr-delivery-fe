@@ -25,7 +25,11 @@ export default function UserList() {
       statusOrder,
     };
     axios
-      .put(`https://mr-delivery-wista.herokuapp.com/owner/${id}`, bodyParameters, config)
+      .put(
+        `https://mr-delivery-wista.herokuapp.com/owner/${id}`,
+        bodyParameters,
+        config
+      )
       .then((data) => {
         console.log(data.data);
         setStatus(data.data.status);
@@ -75,14 +79,18 @@ export default function UserList() {
         },
       });
       response.data.map((element) => {
+        element.id=Number(element.id);
+        console.log(element.id);
         element.all_items.forEach((e) => {
           orderDetails += e.quantity + " " + e.name + ",";
+          
         });
-        element.all_items = orderDetails.slice(0, -1);;
+        
+        element.all_items = orderDetails.slice(0, -1);
         orderDetails = "";
       });
       setData(response.data);
-      setStatus()
+      setStatus();
     } catch (err) {
       console.log(err);
     }
@@ -101,20 +109,19 @@ export default function UserList() {
       field: "status",
       headerName: "Status",
       width: 200,
-      sortable: false
-
+      sortable: false,
     },
     {
       field: "total_price",
       headerName: "Total Price",
       width: 160,
-      sortable: false
-
+      sortable: false,
     },
     {
       field: "action",
       headerName: "Action",
       width: 150,
+      sortable: false,
       renderCell: (params) => {
         return (
           <>
@@ -125,11 +132,6 @@ export default function UserList() {
             >
               Accept
             </button>
-            {/* </Link> */}
-            {/* <DeleteOutline
-              classNa me="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
-            /> */}
           </>
         );
       },
@@ -143,9 +145,14 @@ export default function UserList() {
         <DataGrid
           rows={data}
           disableSelectionOnClick
-          columns={[...columns, { field: 'id', sortable: false }]}
+          columns={columns}
           pageSize={10}
           checkboxSelection
+          initialState={{
+            sorting: {
+              sortModel: [{ field: 'id', sort: 'desc' }],
+            },
+          }}
         />
       </div>
     </div>

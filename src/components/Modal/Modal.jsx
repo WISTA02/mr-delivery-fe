@@ -237,9 +237,9 @@ const Modal = () => {
 
                     <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                         <div className="relative w-auto my-8 mx-5 ">
-                            <div className="border-2 rounded-lg shadow-lg relative flex flex-col w-full bg-yellow-500 outline-none focus:outline-none">
-                                <p className='mx-5 py-5 text-xl italic font-black tracking-wide' >THANK YOU FOR YOUR TRUST</p>
-                                <button className='pb-2 text-xl italic font-black bg-amber-200  hover:bg-amber-800 tracking-wide' onClick={handlePay}>ok</button>
+                            <div className="border-2 rounded-lg shadow-lg relative flex flex-col w-full  bg-indigo-50 outline-none focus:outline-none">
+                                <p className='mx-5 py-5 text-xl italic font-black tracking-wide ' >THANK YOU FOR YOUR TRUST</p>
+                                <button className='pb-2 text-xl italic font-black bg-slate-800  hover:bg-slate-500 tracking-wide' onClick={handlePay}>ok</button>
                             </div>
                         </div>
                     </div>

@@ -26,7 +26,7 @@ import OrderHistory from "./components/OrderHistory/OrderHistory";
 import NewMeal from "./components/newMeal/NewMeal";
 import RestMeal from "./pages/restMeal/RestMeal";
 import { isAuthenticated } from './components/auth';
-
+import NewUser from './components/Profile/newUser/NewUser'
 const App = () => {
   const [{ cartShow }, dispatch] = useStateValue();
 
@@ -81,6 +81,7 @@ const App = () => {
                 <Route path="/orderhistory" element={<OrderHistory />} />
                 <Route path="/new-meal" element={<NewMeal />} />
                 <Route path="/restMeal/:id" element={<RestMeal />} />
+                <Route path='/newUser' element={<NewUser/>}/>
               </Routes>
             </main>
             <Footer />
