@@ -9,7 +9,7 @@ export const getAllFoodItems = async () => {
             Authorization: `Bearer ${cookies.get('data').user.token}`
         }
     });
-    console.log('foodItems', response.data)
+    // console.log('foodItems', response.data)
     return response.data;
 }
 export const getAllRest = async () => {
@@ -19,7 +19,7 @@ export const getAllRest = async () => {
             Authorization: `Bearer ${cookies.get('data').user.token}`
         }
     });
-    console.log('restItems', response.data)
+    // console.log('restItems', response.data)
     return response.data;
 }
 
@@ -41,6 +41,6 @@ export const getOneRest = async (itemId) => {
             Authorization: `Bearer ${cookies.get('data').user.token}`
         }
     });
-    console.log('oneREST', response.data)
+    // console.log('oneREST', response.data)
     return response.data;
 }

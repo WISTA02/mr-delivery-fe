@@ -79,33 +79,33 @@ export default function ProductList() {
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
-  
+
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
-    { field: "all_items", headerName: "Order Details", width: 200 },
-    { field: "restaurant_name", headerName: "Resturant", width: 130 },
-    { field: "restaurant_location", headerName: "Location", width: 200 },
+    { field: "id", headerName: "ID", width: 90, sortable: 'desc' },
+    { field: "all_items", headerName: "Order Details", width: 200, sortable: false },
+    { field: "restaurant_name", headerName: "Resturant", width: 130, sortable: false },
+    { field: "restaurant_location", headerName: "Location", width: 200, sortable: false },
 
 
     {
       field: "status",
       headerName: "Status",
-      width: 200,
+      width: 200, sortable: false
     },
     {
       field: "total_price",
       headerName: "Total Price",
-      width: 100,
+      width: 100, sortable: false
     },
     {
       field: "action",
       headerName: "Action",
-      width: 150,
+      width: 150, sortable: false,
       renderCell: (params) => {
         return (
           <>
-    
-              <button id="change"  onClick={() => handleChange(params.row.id)}>Change Statues</button>
+
+            <button id="change" onClick={() => handleChange(params.row.id)}>Change Statues</button>
             {/* </Link> */}
             {/* <DeleteOutline
               classNa me="userListDelete"

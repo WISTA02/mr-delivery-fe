@@ -10,10 +10,12 @@ import { Addtocart_my, modifyquantity } from '../../redux/addToCart';
 import { Link, useParams } from "react-router-dom";
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { getOneRest } from '../../api/api'
+import { useStateValue } from "../../context/StateProvider";
 
 
-function MealsRestaurant({ meal }) {
+function MealsRestaurant() {
   const [menu, setMenu] = useState(true);
+  const [{ foodItems }] = useStateValue();
 
   const Select = useSelector((state) => state);
   const [data, setProduct] = useState([]);
@@ -24,14 +26,11 @@ function MealsRestaurant({ meal }) {
 
   const getProduct = async () => {
     const response = await getOneRest(id);
-    setProduct((response));
+    // console.log("1111111111", response);
+    setProduct(response);
   };
 
 
-  const getMeals = async () => {
-    const food = await meal.filter(x => x.restaurant_id === id);
-    setCard(food);
-  }
 
 
   // console.log("............" + data);
@@ -43,11 +42,6 @@ function MealsRestaurant({ meal }) {
   // console.log("$$$$$$$$$$$$$$$" + JSON.stringify(meal));
 
   const CartContext = useContext(AddCart_Create_Context);
-  useEffect(() => {
-    getProduct();
-    getMeals();
-
-  }, [id]);
 
   const Dispatch = useDispatch();
 
@@ -89,11 +83,28 @@ function MealsRestaurant({ meal }) {
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currnetCard = card.slice(indexOfFirstCard, indexOfLastCard);
 
-  const cards = currnetCard.map(({ image, id, name, price }, idx) => (
+
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const getMeals = async () => {
+    console.log('///////////', foodItems);
+    const food = await foodItems.filter(x => x.restaurant_id == id);
+
+    console.log("2222222222", food);
+    setCard(food);
+  }
+
+  useEffect(() => {
+    getProduct();
+    getMeals();
+  }, [foodItems]);
+
+  const cards = currnetCard.map(({ name, price, image, id }, idx) => (
     <div className={styles.card} key={idx}>
       <img src={image} alt='' className={styles['meal-img']} />
       <div className={styles['name-meal']}>
-        <div className={styles['title-meal']}>{meal}</div>
+        <div className={styles['title-meal']}>{name}</div>
         <div className={styles['meal-price']}>{price}</div>
       </div>
       <input className={styles['input-num']} type='number' />
@@ -107,19 +118,16 @@ function MealsRestaurant({ meal }) {
       </button>
     </div>
   ));
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   return (
     <>
       {/* {
         data.map((item, idx) => ( */}
       <div key={data?.id}>
-        <img src={data.image.cover} alt={data?.name} className={styles['cover-image']} />
+        <img src={data?.image?.cover} alt={data?.name} className={styles['cover-image']} />
         <div className={styles['bar']}>
-          <img src={data.image.main} alt="logo" className={styles.logo} />
+          <img src={data?.image?.main} alt="logo" className={styles.logo} />
           <div className={styles['res-name']}>{data?.name}</div>
-          <div className={styles['res-address']}><FaMapMarkerAlt />{data.location.details}</div>
+          <div className={styles['res-address']}><FaMapMarkerAlt />{data?.location?.details}</div>
         </div>
       </div>
       {/* ))
