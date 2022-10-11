@@ -62,3 +62,14 @@ transform: scale(1.5);
   color: white;
 }
 
+.popup-content {
+  margin: auto;
+  background: #FCE2DB;
+  width: 20%;
+  padding: 5px;
+  border-radius: 10px;
+ 
+}
+.popup-arrow {
+  color:#FCE2DB;
+}
