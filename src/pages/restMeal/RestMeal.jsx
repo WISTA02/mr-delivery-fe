@@ -25,12 +25,12 @@ export default function RestMeal() {
     setCat(x);
     console.log({ cat });
   };
-  const createNewRest =async (meal) => {
+  const createNewRest = async (meal) => {
     try {
-      
-    let url = `https://mr-delivery-wista.herokuapp.com/meal/${params.id}`;
 
-      const response = await axios.post(url,meal , {
+      let url = `https://mr-delivery-wista.herokuapp.com/meal/${params.id}`;
+
+      const response = await axios.post(url, meal, {
         headers: {
           Authorization: `Bearer ${cookies.get('data').user.token}`
         }
@@ -46,13 +46,13 @@ export default function RestMeal() {
     e.preventDefault();
     let restName = e.target.restName.value;
 
-   
 
-    let imgCover = e.target.imgCover.value;
 
-    let imgMain = e.target.imgMain.value;
+    let image = e.target.imgCover.value;
 
-  
+
+
+
 
     let price = e.target.price.value;
     let description = e.target.description.value;
@@ -60,13 +60,10 @@ export default function RestMeal() {
 
     let meal = {
       name: restName,
-      price:price,
+      price: price,
       flag: cat,
-      description:description,
-      image: {
-        cover: imgCover,
-        main: imgMain,
-      },
+      description: description,
+      image: image,
     };
     // console.log({ rest });
     createNewRest((meal));
@@ -100,7 +97,7 @@ export default function RestMeal() {
                 <label>Price</label>
                 <input type="number" name="price" placeholder="123" />
               </div>
-              
+
             </div>
             <div className="div2">
               <div className="addProductItem">
@@ -115,10 +112,7 @@ export default function RestMeal() {
                   placeholder="https://example.com"
                 />
               </div>
-              <div className="addProductItem">
-                <label>Image main</label>
-                <input type="url" name="imgMain" placeholder="http://" />
-              </div>
+
             </div>
           </div>
           <button id="change" className="addProductButton">
