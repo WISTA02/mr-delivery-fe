@@ -173,10 +173,10 @@ const Header = () => {
 
               <li>
                 <a
-                  href='/#tasneem'
+                  href='#restaurant'
                   className='block py-2 pr-4 pl-3 text-lg text-textColor rounded  md: md:hover:text-gray-900 md:p-0 md:dark:hover:text-gray-900 dark:text-textColor dark: dark:hover:text-gray-900  dark:border-gray-700'
                 >
-                 Restaurant
+                  Restaurant
                 </a>
               </li>
 

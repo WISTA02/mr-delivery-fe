@@ -107,7 +107,7 @@ function MealsRestaurant() {
         <div className={styles['title-meal']}>{name}</div>
         <div className={styles['meal-price']}>{price}</div>
       </div>
-      <input className={styles['input-num']} type='number' />
+      {/* <input className={styles['input-num']} type='number' /> */}
       <button
         onClick={Addcert}
         className={styles['order-btn']}
@@ -119,15 +119,22 @@ function MealsRestaurant() {
     </div>
   ));
   return (
-    <>
+    <div className={styles.everything}>
       {/* {
         data.map((item, idx) => ( */}
       <div key={data?.id}>
-        <img src={data?.image?.cover} alt={data?.name} className={styles['cover-image']} />
+        <img
+          src={data?.image?.cover}
+          alt={data?.name}
+          className={styles['cover-image']}
+        />
         <div className={styles['bar']}>
-          <img src={data?.image?.main} alt="logo" className={styles.logo} />
+          <img src={data?.image?.main} alt='logo' className={styles.logo} />
           <div className={styles['res-name']}>{data?.name}</div>
-          <div className={styles['res-address']}><FaMapMarkerAlt />{data?.location?.details}</div>
+          <div className={styles['res-address']}>
+            <FaMapMarkerAlt className={styles.icon2} />
+            <span>{data?.location?.details}</span>
+          </div>
         </div>
       </div>
       {/* ))
@@ -137,29 +144,29 @@ function MealsRestaurant() {
         <div className={styles['details']}>
           <div className={styles['title']}>All Details</div>
           <ul className={styles['list']}>
-            <li onClick={handleMenu}>
-              <FcTodoList /> Menu
+            <li onClick={handleMenu} className={styles.icons}>
+              <FcTodoList className={styles.icons2} />
+              <span>Menu</span>
             </li>
-            <li onClick={handleInfo}>
-              <BsInfoCircleFill />
-              Restaurant Info
+            <li onClick={handleInfo} className={styles.icons}>
+              <BsInfoCircleFill className={styles.icons2} />
+              <span>Restaurant Info</span>
             </li>
           </ul>
         </div>
         {menu ? (
           <div className={styles['meal']}>
-            <div className={styles['title']}>Categories</div>
-            <div className={styles['btns']}>
-              <button className={styles.btn}>Deals</button>
-              <button className={styles.btn}>New Arrival</button>
-            </div>
-            <div className={styles['title']}>Pizza</div>
+            <div className={styles['title']}>Available Meals</div>
+            <div className={styles['btns']}></div>
+
             {cards}
-            <Pagination
-              cardsPerPage={cardsPerPage}
-              totalCards={card.length}
-              paginate={paginate}
-            />
+            <div className={styles.pag}>
+              <Pagination
+                cardsPerPage={cardsPerPage}
+                totalCards={card.length}
+                paginate={paginate}
+              />
+            </div>
           </div>
         ) : (
           <div className={styles['meal']}>
@@ -179,7 +186,7 @@ function MealsRestaurant() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 
