@@ -6,15 +6,20 @@ import { actionType } from '../context/reducer';
 import { logOut, isAuthenticated } from './auth/index';
 import { useSelector } from 'react-redux';
 import logoS from '../img/logoS.jpg'
+import { useEffect } from 'react';
 
 
 // trial
 const Header = () => {
   const [{ cartShow }, dispatch] = useStateValue();
-  const { user } = isAuthenticated()
-
+  const { user } = isAuthenticated();
+  // console.log(user);
   const DataUse = useSelector((state) => state.addToCartSlice.allProduct);
 
+
+  useEffect(() => {
+
+  }, [user])
 
   const logout = () => {
     logOut();
@@ -80,7 +85,7 @@ const Header = () => {
                             </Link>
                           </li>
                           <li>
-                          <Link className='' to='/admin'>
+                            <Link className='' to='/admin'>
                               Dashboard
                             </Link>
                           </li>
@@ -114,7 +119,7 @@ const Header = () => {
                     Get started
                   </button>
                 </Link>
-              
+
               </>
             ) :
               null

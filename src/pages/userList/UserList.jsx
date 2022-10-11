@@ -68,7 +68,7 @@ export default function UserList() {
   ///////
   async function getOrder() {
     try {
-      let  orderDetails = "";
+      let orderDetails = "";
       const response = await axios.get("https://mr-delivery-wista.herokuapp.com/owner", {
         headers: {
           Authorization: `Bearer ${cookies.get("data").user.token}`,
@@ -76,7 +76,7 @@ export default function UserList() {
       });
       response.data.map((element) => {
         element.all_items.forEach((e) => {
-          orderDetails += e.quantity+ " " + e.name + ",";
+          orderDetails += e.quantity + " " + e.name + ",";
         });
         element.all_items = orderDetails.slice(0, -1);;
         orderDetails = "";
@@ -95,8 +95,8 @@ export default function UserList() {
     getOrder();
   }, [statusOrder]);
   const columns = [
-    { field: "id", headerName: "ID", width: 90,sortable: false },
-    { field: "all_items", headerName: "Order Details", width: 200 ,sortable: false},
+    { field: "id", headerName: "ID", width: 90 },
+    { field: "all_items", headerName: "Order Details", width: 200 },
     {
       field: "status",
       headerName: "Status",
@@ -120,7 +120,7 @@ export default function UserList() {
           <>
             {/* <Link to={"/user/" + params.row.id}> */}
             <button
-             id="change"
+              id="change"
               onClick={() => handleChange(params.row.id)}
             >
               Change Statues
