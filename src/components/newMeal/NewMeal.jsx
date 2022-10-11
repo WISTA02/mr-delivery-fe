@@ -62,18 +62,20 @@ export default function UserList() {
  
   }, [data]);
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
-    { field: "name", headerName: "name", width: 200 },
+    { field: "id", headerName: "ID", width: 90,sortable: false },
+    { field: "name", headerName: "name", width: 200,sortable: false },
     {
       field: "location",
       headerName: "Location",
       width: 150,
+      sortable: false
     },
    
     {
       field: "action",
       headerName: "Action",
       width: 300,
+     
       renderCell: (params) => {
         return (
           <>
@@ -124,7 +126,7 @@ export default function UserList() {
         <DataGrid 
           rows={arr}
           disableSelectionOnClick
-          columns={columns}
+          columns={[...columns, { field: 'id', sortable: false }]}
           pageSize={8}
           checkboxSelection
         />

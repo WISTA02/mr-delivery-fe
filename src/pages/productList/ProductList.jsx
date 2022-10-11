@@ -81,21 +81,23 @@ export default function ProductList() {
   };
   
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
-    { field: "all_items", headerName: "Order Details", width: 200 },
-    { field: "restaurant_name", headerName: "Resturant", width: 130 },
-    { field: "restaurant_location", headerName: "Location", width: 200 },
+    { field: "id", headerName: "ID", width: 90 ,sortable: false},
+    { field: "all_items", headerName: "Order Details", width: 200,sortable: false },
+    { field: "restaurant_name", headerName: "Resturant", width: 130,sortable: false },
+    { field: "restaurant_location", headerName: "Location", width: 200 ,sortable: false},
 
 
     {
       field: "status",
       headerName: "Status",
       width: 200,
+      sortable: false
     },
     {
       field: "total_price",
       headerName: "Total Price",
       width: 100,
+      sortable: false
     },
     {
       field: "action",
@@ -123,7 +125,8 @@ export default function ProductList() {
         <DataGrid
           rows={data}
           disableSelectionOnClick
-          columns={columns}
+          columns={[...columns, { field: 'id', sortable: false }]}
+
           pageSize={10}
           checkboxSelection
           rowHeight={50}
