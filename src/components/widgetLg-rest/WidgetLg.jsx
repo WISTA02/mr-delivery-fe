@@ -37,6 +37,7 @@ export default function WidgetLg() {
         }
       });
       setApprove(false)
+      console.log(response.data)
       return (response.data)
     } catch (err) {
       console.log(err);
