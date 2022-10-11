@@ -53,6 +53,8 @@ Configure the root of your repository with the following files and directories. 
 *  tailwind-scrollbar
 *  universal-cookie
 *  web-vitals
+*  fortawesome
+*  emailjs-com
 
 
 
