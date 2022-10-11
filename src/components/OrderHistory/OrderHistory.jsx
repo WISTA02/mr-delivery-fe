@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { useEffect } from "react";
-// import Box from '@mui/material/Box';
 import axios from "axios";
 import Cookies from "universal-cookie";
 
@@ -114,7 +113,7 @@ export default function OrderHistory() {
           <>
             <label
               htmlFor="my-modal-3"
-              className=" modal-button w-3 bg-white-500 hover:bg-yellow-400  text-sm text-yellow-400 "
+              className=" modal-button w-3 bg-white-500 hover:bg-yellow-400  text-l text-yellow-400 "
               onClick={() => handleChange(params.row.id)}
             >
               Show Status
@@ -129,19 +128,20 @@ export default function OrderHistory() {
                   ✕
                 </label>
 
-                <h3 className="text-lg   bg-yellow-300 text-center">
+                <h3 className="text-lg  font-bold  bg-yellow-300 text-center">
                   Status order  {id} 
                 </h3>
-                <p className="py-4 text-lg  text-black text-center">
+                <p className="py-4 text-lg font-bold  text-black text-center">
                   {" "}
                    {statusOrder}
                 </p>
                 <div className="flex-none">
                   <button
-                    className=" text-gray-800  py-2 px-2  w-40"
+                    className="orderButton text-gray-800 py-2 px-2  w-20"
                     onClick={() => handleChange(id)}
                   >
                     Refresh
+ <svg xmlns="http://www.w3.org/2000/svg" height="20"  width="20"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg>
                   </button>
                 </div>
               </div>
