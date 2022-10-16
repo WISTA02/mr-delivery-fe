@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/mr-delivery-fe/static/css/main.bb8e5b37.css",
+    "main.js": "/mr-delivery-fe/static/js/main.8685f5ab.js",
+    "static/media/c3.png": "/mr-delivery-fe/static/media/c3.55f83414f33f66456b35.png",
+    "static/media/fi1.png": "/mr-delivery-fe/static/media/fi1.3f43e51b6058550d1f44.png",
+    "static/media/f1.png": "/mr-delivery-fe/static/media/f1.c52686695ee9a5c4cd0d.png",
+    "static/media/i1.png": "/mr-delivery-fe/static/media/i1.3d9b129d2c5432c6f1fb.png",
+    "static/media/tasneem.jpg": "/mr-delivery-fe/static/media/tasneem.7103642275ec72ac21e3.jpg",
+    "static/media/ibraheem.jpg": "/mr-delivery-fe/static/media/ibraheem.c21a9500e703f6f495e7.jpg",
+    "static/media/wajeeh.jpg": "/mr-delivery-fe/static/media/wajeeh.b22597bcdfca1491a3fa.jpg",
+    "static/media/delivery.png": "/mr-delivery-fe/static/media/delivery.bf9130a0962fbe091abc.png",
+    "static/media/anas.jpg": "/mr-delivery-fe/static/media/anas.5522ee0226cd3cac1d76.jpg",
+    "static/media/samah.jpg": "/mr-delivery-fe/static/media/samah.909a6e96ef5b12404739.jpg",
+    "static/media/userIcon.jpg": "/mr-delivery-fe/static/media/userIcon.68f25abf65845fcbe0eb.jpg",
+    "static/media/emptyCart.svg": "/mr-delivery-fe/static/media/emptyCart.71ad17e692d71caa77c6c9351f84756b.svg",
+    "static/media/NotFound.svg": "/mr-delivery-fe/static/media/NotFound.4e90bb93460bfd8d9e2c86b42ef91a4a.svg",
+    "index.html": "/mr-delivery-fe/index.html",
+    "static/media/index.cjs": "/mr-delivery-fe/static/media/index.cd351d7c31d0d3fccf96.cjs",
+    "main.bb8e5b37.css.map": "/mr-delivery-fe/static/css/main.bb8e5b37.css.map",
+    "main.8685f5ab.js.map": "/mr-delivery-fe/static/js/main.8685f5ab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb8e5b37.css",
+    "static/js/main.8685f5ab.js"
+  ]
+}
