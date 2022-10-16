@@ -16,17 +16,18 @@ export default function User() {
     emailOld: user.email,
     passwordOld: user.password,
     phoneOld: user.phone,
-    locationOld: user.location.city,
+    locationOld: user.location,
   });
 
   const { usernameOld, emailOld, phoneOld, locationOld } = oldData;
-
+  
+  console.log({locationOld});
   const [data, setData] = useState({
     username: user.username,
     email: user.email,
     password: user.password,
     phone: user.phone,
-    location: user.location.city,
+    location: user.location,
   });
 
   const { username, password, email, phone, location } = data;
@@ -95,6 +96,7 @@ export default function User() {
             <div className="userShowInfo">
               <LocationSearching className="userShowIcon" />
               <span className="userShowInfoTitle">{locationOld}</span>
+  
             </div>
           </div>
         </div>
@@ -151,15 +153,10 @@ export default function User() {
                   placeholder={location}
                   onChange={handleChange('location')}
                 />
-              </div>
-            </div>
-            <img
-              className="userUpdateImg"
-              src={userIcon}
-              alt=""
-            />
             <div className="userUpdateRight">
               <button className="userUpdateButton w-40">Update</button>
+            </div>
+              </div>
             </div>
           </form>
         </div>

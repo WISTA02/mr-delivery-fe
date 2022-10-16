@@ -6,20 +6,13 @@
 # it's an online ordering application
 
 # Table of Contents
-1. Introduction 🎤
-2. Configuration​​​​🛠️​
-3. Dependencies
-4. Related repos
-5. Authors 🤔
-6. Installation
-7. License 📕
+1. Configuration​​​​🛠️​
+2. Dependencies
+3. Related repos
+4. Authors 🤔
+5. Installation
+6. License 📕
 
-## Introduction 🎤:
-This project is a full on system which works similarly as talabat the delivery system we have the backend in this repo and the rest of the system is distributed through other repos which their links will be found at the end of the document, The system consists of a web frontend for:
-
-The service providers (Restaurants) The Super users The clients/guests also the system has a driver mobile application for the people which are responsible for delivery and a mobile application for the clients.
-
-With that being said let's discuss the decisions taken in this project.
 
 
 ## Configuration ​​​​🛠️​
@@ -53,6 +46,8 @@ Configure the root of your repository with the following files and directories. 
 *  tailwind-scrollbar
 *  universal-cookie
 *  web-vitals
+*  fortawesome
+*  emailjs-com
 
 
 

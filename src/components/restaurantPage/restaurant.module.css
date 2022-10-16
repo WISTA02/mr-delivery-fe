@@ -56,6 +56,9 @@ body {
     top: 60%;
     font-size: 1.5rem;
     color: darkgray;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
 }
 
 /* ---------------------------------- meals Section ---------------------------------------- */
@@ -71,7 +74,7 @@ body {
     background-color: white;
     position: relative;
     width: 60%;
-    left: 30%;
+    left: 20%;
     padding: 20px;
     /* display: block; */
     /* top: 10px; */
@@ -85,7 +88,7 @@ body {
     font-weight: bold;
     margin-left: 7%;
     padding-bottom: 5px;
-    border-bottom: 3px solid #FFCC00;
+    border-bottom: 3px solid #ffcc00;
     width: fit-content;
 }
 
@@ -107,7 +110,7 @@ body {
 .btn:hover {
     background-color: black;
     color: white;
-    transition: .6s;
+    transition: 0.6s;
 }
 
 /* ----------------------------- card ---------------------------- */
@@ -127,7 +130,6 @@ body {
     border-radius: 50%;
 }
 
-
 .input-num {
     width: 7%;
     height: 100%;
@@ -136,35 +138,38 @@ body {
 }
 
 .name-meal {
-    margin-right: 20%;
+    margin-right: 15%;
+    width: 40%;
 }
 
 .title-meal {
     font-size: 1.2rem;
     font-weight: bold;
+    width: 100%;
 }
 
 .meal-price {
     color: red;
     font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .order-btn {
     border: none;
-    background: #FFCC00;
+    background: #ffcc00;
     padding: 12px 30px;
     border-radius: 5%;
     color: black;
     font-weight: bold;
     font-size: 15px;
-    transition: .4s;
+    transition: 0.4s;
 }
 
 .order-btn:hover {
     background-color: black;
     color: white;
     cursor: pointer;
-    transition: .6s;
+    transition: 0.6s;
 }
 
 /* ----------------- Details section --------------------------- */
@@ -174,8 +179,8 @@ body {
     height: auto;
     background-color: white;
     position: relative;
-    width: 20%;
-    left: 9%;
+    width: 30%;
+    left: 7%;
     /* top: 85%; */
     border-radius: 7px;
 }
@@ -189,7 +194,7 @@ body {
 .details ul li:hover {
     background-color: #f2f2f2;
     cursor: pointer;
-    transition: .6s;
+    transition: 0.6s;
 }
 
 /* ---------------- info section ---------------------------- */
@@ -210,7 +215,47 @@ body {
 }
 
 .page-item {
+    display: flex;
+    justify-content: center;
+    background-color: #f2f2f2;
     margin: 0 5px;
-    font-size: 2em;
+    font-size: 1.5em;
     padding: 5px;
+    min-width: 30px;
+}
+
+.page-item:hover {
+    cursor: pointer;
+    background-color: #9b9797;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.icons2 {
+    align-self: center;
+}
+
+.pag {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+    border-top: solid 2px #f2f2f2;
+}
+
+.everything {
+    background-image: url('https://pbs.twimg.com/media/Fe0AnggXwAAONPu?format=jpg&name=small');
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }

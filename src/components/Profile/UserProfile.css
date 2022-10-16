@@ -124,34 +124,28 @@
   
   .userUpdateRight{
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: space-between;
+      margin-top: 20px;
+      margin-right: 600px;
   }
   
   .userUpdateUpload{
       display: flex;
       align-items: center;
   }
-  
-  .userUpdateImg{
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-left: 500px;
-   margin-top: -320px;
-  }
+
   
   .userUpdateIcon{
       cursor: pointer;
   }
   
   .userUpdateButton{
-      border-radius: 50px;
+      border-radius: 20px;
       border: none;
       padding: 5px;
       cursor: pointer;
       background-color: rgb(241, 193, 38);
       color: white;
-      font-weight: 6200;
+      font-weight: 600;
   }
