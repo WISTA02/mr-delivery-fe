@@ -94,6 +94,6 @@ MIT licensed
 
 ## Deploymeny
 
-[GITHUB.io](https://wista02.github.io/)
+- [GITHUB.io](https://wista02.github.io/mr-delivery-fe/)
 
 
