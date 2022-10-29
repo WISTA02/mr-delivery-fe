@@ -6,9 +6,13 @@ import makeAnimated from "react-select/animated";
 // import { colourOptions } from './data';
 export const colourOptions = [
   { value: "pizza", label: "Pizza", color: "#00B8D9" },
+  { value: "pasta", label: "Pasta", color: "#00B8D9" },
+  { value: "meat", label: "Meat", color: "#00B8D9" },
+  { value: "chicken", label: "Chicken", color: "#00B8D9" },
   { value: "burger", label: "Burger", color: "#0052CC" },
   { value: "fruit", label: "Fruit", color: "#5243AA" },
-  { value: "vegetable", label: "Vegetable", color: "#FF5630" },
+  { value: "discount", label: "Discount", color: "#FF5630" },
+
 ];
 
 const animatedComponents = makeAnimated();

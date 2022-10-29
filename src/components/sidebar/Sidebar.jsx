@@ -1,18 +1,8 @@
 import "./sidebar.css";
 import {
   LineStyle,
-  Timeline,
-  TrendingUp,
   PermIdentity,
   Storefront,
-  AttachMoney,
-  BarChart,
-  MailOutline,
-  DynamicFeed,
-  ChatBubbleOutline,
-  WorkOutline,
-  Report,
-  DriveEta,
   RestaurantMenu,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
@@ -38,30 +28,25 @@ export default function Sidebar() {
         </div>
         <div className="sidebarMenu">
           <Auth role="admin">
-            <h3 className="sidebarTitle">Create</h3>
+            <h3 className="sidebarTitle">Create/Update/Delete</h3>
           </Auth>
           <ul className="sidebarList">
-            <Auth role="admin">
-              <Link to="/newproduct" className="link">
-                <li className="sidebarListItem active">
-                  <LineStyle className="sidebarIcon" />
-                  Restaurant
-                </li>
-              </Link>
-            </Auth>
+          
             <Auth role="admin">
 
             <Link to="/new-meal" className="link">
               <li className="sidebarListItem active">
                 <LineStyle className="sidebarIcon" />
-                Meal
+                Restaurant
               </li>
             </Link>
             </Auth>
           </ul>
         </div>
         <div className="sidebarMenu">
+          <Auth role="owner,driver">
           <h3 className="sidebarTitle">Quick Menu</h3>
+          </Auth>
           <ul className="sidebarList">
             <Auth role="owner">
               <Link to="/Ordersapprove" className="link">

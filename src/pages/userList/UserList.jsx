@@ -25,7 +25,11 @@ export default function UserList() {
       statusOrder,
     };
     axios
-      .put(`http://localhost:5000/owner/${id}`, bodyParameters, config)
+      .put(
+        `https://mr-delivery-wista.herokuapp.com/owner/${id}`,
+        bodyParameters,
+        config
+      )
       .then((data) => {
         console.log(data.data);
         setStatus(data.data.status);
@@ -46,7 +50,7 @@ export default function UserList() {
 
   //     let orderDetails = "";
   //     axios
-  //       .get(`http://localhost:5000/order`, config)
+  //       .get(`https://mr-delivery-wista.herokuapp.com/order`, config)
   //       .then((data) => {
   //         data.data.map((element) => {
   //           element.all_items.forEach((e) => {
@@ -68,21 +72,25 @@ export default function UserList() {
   ///////
   async function getOrder() {
     try {
-      let  orderDetails = "";
-      const response = await axios.get("http://localhost:5000/owner", {
+      let orderDetails = "";
+      const response = await axios.get("https://mr-delivery-wista.herokuapp.com/owner", {
         headers: {
           Authorization: `Bearer ${cookies.get("data").user.token}`,
         },
       });
       response.data.map((element) => {
+        element.id=Number(element.id);
+        console.log(element.id);
         element.all_items.forEach((e) => {
-          orderDetails += e.quantity+ " " + e.name + ",";
+          orderDetails += e.quantity + " " + e.name + ",";
+          
         });
-        element.all_items = orderDetails.slice(0, -1);;
+        
+        element.all_items = orderDetails.slice(0, -1);
         orderDetails = "";
       });
       setData(response.data);
-      setStatus()
+      setStatus();
     } catch (err) {
       console.log(err);
     }
@@ -96,49 +104,34 @@ export default function UserList() {
   }, [statusOrder]);
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
-    // {
-    //   field: "all_items",
-    //   headerName: "Order",
-    //   width: 200,
-    //   renderCell: (params) => {
-    //     return (
-    //       <div className="userListUser">
-    //         {/* <img className="userListImg" src={params.row.avatar} alt="" /> */}
-    //         {params.row.username}
-    //       </div>
-    //     );
-    //   },
-    // },
     { field: "all_items", headerName: "Order Details", width: 200 },
     {
       field: "status",
       headerName: "Status",
       width: 200,
+      sortable: false,
     },
     {
       field: "total_price",
       headerName: "Total Price",
       width: 160,
+      sortable: false,
     },
     {
       field: "action",
       headerName: "Action",
       width: 150,
+      sortable: false,
       renderCell: (params) => {
         return (
           <>
             {/* <Link to={"/user/" + params.row.id}> */}
             <button
-             id="change"
+              id="change"
               onClick={() => handleChange(params.row.id)}
             >
-              Change Statues
+              Accept
             </button>
-            {/* </Link> */}
-            {/* <DeleteOutline
-              classNa me="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
-            /> */}
           </>
         );
       },
@@ -155,6 +148,11 @@ export default function UserList() {
           columns={columns}
           pageSize={10}
           checkboxSelection
+          initialState={{
+            sorting: {
+              sortModel: [{ field: 'id', sort: 'desc' }],
+            },
+          }}
         />
       </div>
     </div>

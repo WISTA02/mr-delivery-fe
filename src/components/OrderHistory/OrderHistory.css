@@ -38,6 +38,9 @@
   color: red;
   cursor: pointer;
 }
+.userListDelete:hover {
+transform: scale(1.5);
+}
 .sb {
   display: flex;
 }
@@ -59,3 +62,32 @@
   color: white;
 }
 
+.popup-content {
+  margin: auto;
+  background: #FCE2DB;
+  width: 20%;
+  padding: 5px;
+  border-radius: 10px;
+ 
+}
+.popup-arrow {
+  color:#FCE2DB;
+}
+
+.orderButton{
+  border-radius: 10px;
+  border: none;
+  /* padding: 10px; */
+  cursor: pointer;
+  /* background-color: #FFCC00; */
+  color: rgb(255, 196, 0);
+  font-weight: 600;
+}
+
+.orderButton:hover{
+  background-color: #181817;
+}
+.svg{
+margin-left: 75px;
+margin-top: -40px;
+}

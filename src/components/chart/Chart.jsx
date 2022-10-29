@@ -6,6 +6,8 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  YAxis,
+  Label,
 } from "recharts";
 
 export default function Chart({ title, data, dataKey, grid }) {
@@ -14,11 +16,21 @@ export default function Chart({ title, data, dataKey, grid }) {
     <div className="chart2">
       <h3 className="chartTitle">{title}</h3>
       <ResponsiveContainer width="100%" aspect={4 / 1}>
-        <LineChart data={data}>
-          <XAxis dataKey="name" stroke="#5550bd" />
-          <Line type="monotone" dataKey={dataKey} stroke="#5550bd" />
+        <LineChart data={data}  >
+        <YAxis />
+          <XAxis dataKey="restaurant_name" stroke="#5550bd" xAxisId="0" scale="point" />
+          <Label
+         style={{
+             textAnchor: "right",
+             fontSize: "10%",
+             fill: "white",
+         }}
+      angle={170} 
+      value={"Height (ft.)"} />
+          <Line type="monotone" dataKey={dataKey} stroke="#5550bd" activeDot={{ r: 8 }} strokeWidth={2}/>
+          {/* <Line type="monotone" dataKey={dataKey} stroke="#5550bd" /> */}
           <Tooltip />
-          {grid && <CartesianGrid stroke="#e0dfdf" strokeDasharray="5 5" />}
+          {grid && <CartesianGrid stroke="#e0dfdf" strokeDasharray="8 6" />}
         </LineChart>
       </ResponsiveContainer>
     </div>

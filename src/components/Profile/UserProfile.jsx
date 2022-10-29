@@ -1,77 +1,166 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { LocationSearching, MailOutline, PermIdentity, PhoneAndroid } from "@material-ui/icons";
+import { Link } from "react-router-dom";
+import "./UserProfile.css";
+import userIcon from '../../img/userIcon.jpg'
+import { updateUserInfo } from '../../api/api'
+import { isAuthenticated, logOut, signIn } from "../auth";
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import logo from '../../img/mr-del.jpg';
-import 'react-toastify/dist/ReactToastify.css';
-// import axios from "axios";
 
-export default function UserProfile() {
+export default function User() {
+  const { user } = isAuthenticated()
   const navigate = useNavigate();
 
-  const notify = () => toast('​🚩​Account Deleted  ❌​❌​ ');
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const [oldData] = useState({
+    usernameOld: user.username,
+    emailOld: user.email,
+    passwordOld: user.password,
+    phoneOld: user.phone,
+    locationOld: user.location,
+  });
 
-    event.target.reset();
+  const { usernameOld, emailOld, phoneOld, locationOld } = oldData;
+  
+  console.log({locationOld});
+  const [data, setData] = useState({
+    username: user.username,
+    email: user.email,
+    password: user.password,
+    phone: user.phone,
+    location: user.location,
+  });
+
+  const { username, password, email, phone, location } = data;
+
+  const handleChange = (name) => (event) => {
+    console.log(user)
+    setData({
+      ...data,
+      [name]: event.target.value,
+    });
   };
 
-  const handleEditUser = () => {
-    navigate('/editprofile');
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updateUserInfo(data, user.token).then((data) => {
+      setData({ ...data });
+
+      //let x= signIn({username,password});
+
+      // console.log("sigin ssssssss"+x)
+    });
+
+
+    logOut();
+    navigate("/signin");
   };
 
   return (
-    <section className=' bg-white pb-100  '>
-      <div className='py-8 lg:py-16 px-4 mx-auto max-w-screen-md pb-100'>
-        <h2 className='mb-4 text-4xl tracking-tight font-extrabold text-center text-yellow-500   hover:shadow-md cursor-pointer'>
-          Account Info
-        </h2>
-        <form action='#' className='space-y-8' onSubmit={handleSubmit}>
-          <div>
-            <label className='block mb-2 text-xl font-medium text-yellow-500  hover:shadow-md '>
-              Your name
-            </label>
-            <input type='text' placeholder='tasneem'></input>
-          </div>
-          <div>
-            <label className='block mb-2 text-xl font-medium text-yellow-500  hover:shadow-md '>
-              Your email
-            </label>
-            <input type='text' placeholder='ttt@gmail.com'></input>
-          </div>
-          <div>
-            <label className='block mb-2 text-xl font-medium text-yellow-500  hover:shadow-md '>
-              Your password
-            </label>
-            <input type='text' placeholder='123'></input>{' '}
-          </div>
-          <div>
-            <label className='block mb-2 text-xl font-medium text-yellow-500  hover:shadow-md '>
-              Your address
-            </label>
-            <input type='text' placeholder='amman-jordan'></input>{' '}
-          </div>
+    <div className="user">
 
-          <button
-            className='bg-transparent font-xl font-extrabold hover:bg-yellow-500 text-grey-700  hover:text-white py-2 px-4 border ml-5 border-yellow-500 hover:border-transparent rounded'
-            onClick={handleEditUser}
-          >
-            Edit Account
-          </button>
-
-          <button
-            className='bg-transparent font-xl font-extrabold hover:bg-yellow-500 text-grey-700  hover:text-white py-2 px-4 border border-yellow-500 hover:border-transparent rounded'
-            onClick={notify}
-          >
-            Delete Account
-          </button>
-          <ToastContainer />
-        </form>
-        <img
-          src={logo}
-          className='max-w-l flex flex-wrap justify-center h-auto '
-          alt='...'
-        />
+      <div className="userTitleContainer rounded">
+        <h1 className="userTitle">Edit User</h1>
+        <Link to="/newUser">
+          <button className="userAddButton">Create</button>
+        </Link>
       </div>
-    </section>
+      <div className="userContainer">
+        <div className="userShow">
+          <div className="userShowTop rounded">
+
+            <img
+              className="userShowImg"
+              src={userIcon}
+              alt=""
+            />
+            <div className="userShowTopTitle">
+              <span className="userShowUsername">{usernameOld}</span>
+            </div>
+          </div>
+          <div className="userShowBottom">
+            <span className="userShowTitle">Account Details</span>
+            <div className="userShowInfo">
+              <PermIdentity className="userShowIcon" />
+              <span className="userShowInfoTitle">{usernameOld}</span>
+            </div>
+
+            <span className="userShowTitle">Contact Details</span>
+            <div className="userShowInfo">
+              <PhoneAndroid className="userShowIcon" />
+              <span className="userShowInfoTitle">{phoneOld}</span>
+            </div>
+            <div className="userShowInfo">
+              <MailOutline className="userShowIcon" />
+              <span className="userShowInfoTitle">{emailOld}</span>
+            </div>
+            <div className="userShowInfo">
+              <LocationSearching className="userShowIcon" />
+              <span className="userShowInfoTitle">{locationOld}</span>
+  
+            </div>
+          </div>
+        </div>
+        <div className="userUpdate">
+          <span className="userUpdateTitle">Edit Account</span>
+          <form className="userUpdateForm" onSubmit={handleSubmit}>
+            <div className="userUpdateLeft">
+              <div className="userUpdateItem">
+                <label>Username</label>
+                <input
+                  name="username"
+                  type="text"
+                  className="userUpdateInput rounded"
+                  placeholder={username}
+                  onChange={handleChange('username')}
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>New Password</label>
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="*********"
+                  className="userUpdateInput rounded"
+                  onChange={handleChange('password')}
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  className="userUpdateInput rounded"
+                  placeholder={email}
+                  onChange={handleChange('email')}
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Phone</label>
+                <input
+                  name="phone"
+                  type="number"
+                  className="userUpdateInput rounded"
+                  placeholder={phone}
+                  onChange={handleChange('phone')}
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Location</label>
+                <input
+                  name="location"
+                  type="text"
+                  className="userUpdateInput rounded"
+                  placeholder={location}
+                  onChange={handleChange('location')}
+                />
+            <div className="userUpdateRight">
+              <button className="userUpdateButton w-40">Update</button>
+            </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }
