@@ -89,5 +89,11 @@ npm run build
 
 
 ## License
+
 MIT licensed
+
+## Deploymeny
+
+[GITHUB.io](https://wista02.github.io/)
+
 
